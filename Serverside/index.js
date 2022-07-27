@@ -1,7 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const bcrypt = require("bcrypt");
+const sequelize =  require("sequelize");
+const cookieParser =  require("cookie-parser");
+const {sign} = require("jsonwebtoken")
 // create express app
 const app = express();
 
@@ -10,6 +13,7 @@ const port = process.env.PORT || 5000;
 
 // parse request data content type application/x-www-form-rulencoded
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
 
 // parse request data content type application/json
 app.use(bodyParser.json());
@@ -17,13 +21,26 @@ app.use(cors());
 // define root route
 app.get('/', (req, res)=>{
     res.send('Hello World');
-});
+}); 
+
+ 
+  
 
 // import employee routes
 const employeeRoutes = require('./src/routes/employee.route');
 
 // create employee routes
 app.use('/api/v1/employee', employeeRoutes);
+
+// import user routes 
+const userRoutes = require('./src/routes/user.route');
+// Log in route
+app.use('/api/v1/user', userRoutes);
+
+
+
+
+
 
 
 // listen to the port
