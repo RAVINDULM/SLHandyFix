@@ -18,8 +18,13 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import { useNavigate } from "react-router-dom";
+import jwt_decode from 'jwt-decode'
+Axios.defaults.withCredentials = true;
 
 const Login = () => {  
+  const navigate = useNavigate() 
+  
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -48,9 +53,9 @@ const Login = () => {
                       if(response.data.error) {
                         alert(response.data.error);}
                       else{
-                        console.log(response.data);
-                      sessionStorage.setItem("accessToken", response.data.accessToken)
-                      alert("successfully Logged in!");
+                        navigate("/")
+                        window.location.reload(false);
+                        alert("successfully Logged in!");
                       }
                     });
                   }}

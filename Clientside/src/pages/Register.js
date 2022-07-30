@@ -17,6 +17,7 @@ import {
 import CIcon from "@coreui/icons-react";
 import { cilLockLocked, cilUser } from "@coreui/icons";
 import signup from "./Login";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -52,6 +53,7 @@ const Register = () => {
                       newpassword: values.newpassword,
                     }).then(() => {
                       alert("successfully added!");
+                      navigate("/login") 
                     });
                   }}
                 >

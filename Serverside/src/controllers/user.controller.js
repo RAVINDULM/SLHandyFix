@@ -2,6 +2,7 @@
 const UserModel = require('../models/user.model');
 const bcrypt = require("bcrypt");
 const {sign}= require("jsonwebtoken")
+const cookieParser =  require("cookie-parser");
 
 exports.register = (req , res) =>{
     // const name = 
@@ -25,6 +26,20 @@ exports.register = (req , res) =>{
     })
 } 
 
+// Log out user controller
+exports.logout = ( req , res) =>{
+
+    const token = req.cookies.access_token;
+    if (token!=undefined){
+    res.status(202).clearCookie('access_token').send("cookies cleared")
+    }
+    else {
+        res.send({error : "session time out!"});
+    }
+}
+
+
+// Log in user controller
 exports.login =  (req , res) =>{
     // const name = 
     const {email, password } = req.body;
@@ -54,27 +69,24 @@ exports.login =  (req , res) =>{
             }
             else if(match){ 
                 console.log("User found");
-                // TODO : want to clarify  
-                // let accesstokentype ; 
-                // if(usertype=="admin"){
-                //     accesstokentype = "admin"
-                // }
-                // else if (usertype=="manager"){
-                //     accesstokentype = "manager"
-                // }
-                // else {
-                //     accesstokentype = "customer"
-                // }
-                const accessToken = sign({email: user[0]['email'], id: user[0]['id']}, 
+                const accessToken = sign({email: user[0]['email'], id: user[0]['id'], type: user[0]['usertype']}, 
                 "slhandyfix"
-                );
-                // console.log(res.json({accessToken}))
-                res.json({accessToken})
+                ); 
+
+                console.log("accesss token next")
+                console.log(accessToken)
+               
+                res
+                .status(202)
+                .cookie('access_token', accessToken, {
+                    sameSite: 'strict',
+                    path :"/",
+                    expires: new Date(new Date().getTime() + 1000 * 1000),
+                    httpOnly: false,
+                    secure: true,
+                }).send(accessToken)
             }
         })
         } 
    })
-   
-
-
 }

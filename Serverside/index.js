@@ -17,7 +17,10 @@ app.use(cookieParser());
 
 // parse request data content type application/json
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+}));
 // define root route
 app.get('/', (req, res)=>{
     res.send('Hello World');
@@ -36,11 +39,6 @@ app.use('/api/v1/employee', employeeRoutes);
 const userRoutes = require('./src/routes/user.route');
 // Log in route
 app.use('/api/v1/user', userRoutes);
-
-
-
-
-
 
 
 // listen to the port

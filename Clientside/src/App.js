@@ -2,6 +2,10 @@ import React, { Component, Suspense } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import './scss/style.scss'
 
+// Import libraries needed to get the cookie and decode the jwt token stored inside the cookie
+import {withCookies} from 'react-cookie';
+import jwt_decode from 'jwt-decode'
+
 const loading = (
   <div className="pt-3 text-center">
     <div className="sk-spinner sk-spinner-pulse"></div>
@@ -12,6 +16,7 @@ const loading = (
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
 // Pages
+const Home = React.lazy(() => import('./pages/landingpage'))
 // const Login = React.lazy(() => import('./views/pages/login/Login'))
 const Login = React.lazy(() => import('./pages/Login'))
 // const Register = React.lazy(() => import('./views/pages/register/Register'))
@@ -21,10 +26,31 @@ const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
 
 class App extends Component {
   render() {
+      // Get all the cookies in the app
+      const {cookies} = this.props;
+      // Check cookie is there using console
+      console.log(cookies.get('access_token'))
+      // get jwt token stored inside the cookie into a variable
+      const token = cookies.get('access_token');
+      // decode the the jwt token
+      if(token){ 
+      const userd = jwt_decode(token); 
+      // get user type and id in to a variable
+      window.logggedusertype = userd.type;
+      window.loggeduserid = userd.id; 
+      // console.log(usertype);
+      // console.log(userid);
+      // console.log(userd);
+      }
+      else{
+        window.logggedusertype = null;
+        window.loggeduserid = null; 
+      }
     return (
       <HashRouter>
         <Suspense fallback={loading}>
           <Routes>
+            <Route path="/" name="Home" element={<Home />} />
             <Route exact path="/login" name="Login Page" element={<Login />} />
             <Route exact path="/register" name="Register Page" element={<Register />} />
             <Route exact path="/404" name="Page 404" element={<Page404 />} />
@@ -37,4 +63,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default  withCookies(App)
