@@ -24,6 +24,7 @@ exports.getEmployeeById = (req,res) =>{
             res.send(employee)
         })
 }
+
 exports.createEmployee = (req , res) =>{
     const employeeReqData = new EmployeeModel(req.body);
     console.log("Create employee",employeeReqData );

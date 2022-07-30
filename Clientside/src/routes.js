@@ -5,15 +5,15 @@ import React from 'react'
 
 
 // Customer routes
-const Cus_Dashboard = React.lazy(() => import('./pages/customer/cusDashboard'))
-
+const Cus_Dashboard = React.lazy(() => import('./pages/customer/cus_dashboard/cusDashboard'))
+const MyJobs = React.lazy(() => import('./pages/customer/myjobs'))
+ 
 
 // Manager routes
-const Mang_Dashboard = React.lazy(() => import('./pages/manager/mangDashboard'))
-
+const Mang_Dashboard = React.lazy(() => import('./pages/manager/mang_dashboard/mangDashboard'))
 
 //Sign In
-const Sign_In = React.lazy(() => import('./pages/manager/mangDashboard'))
+const Sign_In = React.lazy(() => import('./pages/manager/mang_dashboard/mangDashboard'))
 
 //=====================================================================================================================================================
 // ===================================================== Template related routes =======================================================================
@@ -67,13 +67,13 @@ const Alerts = React.lazy(() => import('./views/notifications/alerts/Alerts'))
 const Badges = React.lazy(() => import('./views/notifications/badges/Badges'))
 const Modals = React.lazy(() => import('./views/notifications/modals/Modals'))
 const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
-
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' }, // this must be changed 
   { path: '/cus_dashboard', name: 'Customer Dashboard', element: Cus_Dashboard },
   { path: '/mang_dashboard', name: 'Manager Dashboard', element: Mang_Dashboard },
+  { path: '/my_jobs', name: 'My Jobs', element: MyJobs },
   // Templates path elements 
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/employees', name: 'Employees', element: Employees },

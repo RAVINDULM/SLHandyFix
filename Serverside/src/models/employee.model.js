@@ -21,6 +21,9 @@ Employee.getAllEmployees = (result) =>{
     })
 }
 
+
+
+
 // get employee by id
 Employee.getAllEmployeeByID= (id, result) =>{
     dbConn.query('SELECT * FROM employees WHERE id=?', id, (err, res)=>{
