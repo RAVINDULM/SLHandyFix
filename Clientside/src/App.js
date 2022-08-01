@@ -10,15 +10,15 @@ import Landing from "./pages/Landing";
 //   </div>
 // )
 
-// Containers
-const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
+// // Containers
+// const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
-// Pages
+// //Pages
 // const Login = React.lazy(() => import('./views/pages/login/Login'))
 // const Register = React.lazy(() => import('./views/pages/register/Register'))
 // const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
 // const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
-//const Landing = React.lazy(() => import('./pages/Landing'))
+// const Landing = React.lazy(() => import('./pages/Landing'))
 
 // class App extends Component {
 //   render() {
@@ -38,7 +38,7 @@ const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 //   }
 // }
 
-//export default App
+// export default App
 export default function App() {
   return (
     <>

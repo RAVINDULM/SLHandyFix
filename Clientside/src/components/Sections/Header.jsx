@@ -7,6 +7,7 @@ import HeaderImage from "../../assets/img/header.jpg";
 import QuotesIcon from "../../assets/svg/Quotes";
 import Dots from "../../assets/svg/Dots";
 
+
 export default function Header() {
   return (
     <Wrapper id="home" className="container flexSpaceCenter">
@@ -40,7 +41,7 @@ export default function Header() {
             <Dots />
           </DotsWrapper>
         </ImageWrapper>
-        <GreyDiv className="lightBg"></GreyDiv>
+        <GreyDiv className="blueBg"></GreyDiv>
       </RightSide>
     </Wrapper>
   );
@@ -151,5 +152,3 @@ const DotsWrapper = styled.div`
     display: none;
   }
 `;
-
-
