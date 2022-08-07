@@ -20,6 +20,8 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import { useNavigate } from "react-router-dom";
 import jwt_decode from 'jwt-decode'
+// import { Toast } from '@coreui/coreui';
+import Toast from '../components/Toast/Toast'
 Axios.defaults.withCredentials = true;
 
 const Login = () => {  
@@ -53,7 +55,21 @@ const Login = () => {
                       if(response.data.error) {
                         alert(response.data.error);}
                       else{
-                        navigate("/")
+                       if(logggedusertype=="manager"){
+                        console.log("Mang dashboard called", logggedusertype)
+                        navigate("/mang_dashboard")
+                       }
+                       else if(logggedusertype=="admin"){
+                        navigate("/sysAdmin_Dashboard")
+                       }
+                       else if (logggedusertype=="serviceProvider"){
+                        navigate("/servPro_Dashboard")
+                       }
+                       else {
+                        console.log("customer dashboard called", logggedusertype)
+                        navigate("/cus_dashboard")
+                       }
+                        // navigate("/")
                         window.location.reload(false);
                         alert("successfully Logged in!");
                       }

@@ -12,8 +12,13 @@ const MyJobs = React.lazy(() => import('./pages/customer/myjobs'))
 // Manager routes
 const Mang_Dashboard = React.lazy(() => import('./pages/manager/mang_dashboard/mangDashboard'))
 
-//Sign In
-const Sign_In = React.lazy(() => import('./pages/manager/mang_dashboard/mangDashboard'))
+// System admin routes
+const SysAdmin_Dashboard = React.lazy(() => import('./pages/sysAdmin/sysDashboard'))
+
+// Service provider
+const ServPro_Dashboard = React.lazy(() => import('./pages/serviceProvider/servPro_dashboard/servProDashboard'))
+
+
 
 //=====================================================================================================================================================
 // ===================================================== Template related routes =======================================================================
@@ -71,9 +76,21 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' }, // this must be changed 
+
+  // Customer paths
   { path: '/cus_dashboard', name: 'Customer Dashboard', element: Cus_Dashboard },
-  { path: '/mang_dashboard', name: 'Manager Dashboard', element: Mang_Dashboard },
   { path: '/my_jobs', name: 'My Jobs', element: MyJobs },
+
+  // Manager paths
+  { path: '/mang_dashboard', name: 'Manager Dashboard', element: Mang_Dashboard },
+
+   // Service provider paths
+   { path: '/servPro_Dashboard', name: 'Service provider Dashboard', element: ServPro_Dashboard },
+
+  // System admin paths
+  { path: '/sysAdmin_Dashboard', name: 'System Admin Dashboard', element: SysAdmin_Dashboard },
+
+  
   // Templates path elements 
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/employees', name: 'Employees', element: Employees },
