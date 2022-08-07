@@ -7,27 +7,27 @@ const cookieParser =  require("cookie-parser");
 const {sign} = require("jsonwebtoken")
 // create express app
 const app = express();
-
+   
 // setup the server port
 const port = process.env.PORT || 5000;
-
+ 
 // parse request data content type application/x-www-form-rulencoded
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 // parse request data content type application/json
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 app.use(cors({
     origin: 'http://localhost:3000',
     credentials: true,
 }));
 // define root route
-app.get('/', (req, res)=>{
+app.get('/', (req, res)=>{ 
     res.send('Hello World');
 }); 
 
  
-  
+   
 
 // import employee routes
 const employeeRoutes = require('./src/routes/employee.route');
@@ -44,4 +44,4 @@ app.use('/api/v1/user', userRoutes);
 // listen to the port
 app.listen(port, ()=>{
     console.log(`Express is running at port ${port}`);
-});
+}); 

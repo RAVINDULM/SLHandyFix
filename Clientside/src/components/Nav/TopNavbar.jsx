@@ -9,7 +9,14 @@ import Backdrop from "../Elements/Backdrop";
 import LogoIcon from "../../assets/svg/Logo";
 import BurgerIcon from "../../assets/svg/BurgerIcon";
 
+import Axios from "axios";
+Axios.defaults.withCredentials = true;
+import { useNavigate } from "react-router-dom";
+
 export default function TopNavbar() {
+  
+  const navigate = useNavigate()
+
   const [y, setY] = useState(window.scrollY);
   const [sidebarOpen, toggleSidebar] = useState(false);
 
@@ -20,6 +27,35 @@ export default function TopNavbar() {
     };
   }, [y]);
 
+  const logoutUser = ()=>{
+    console.log("");
+      Axios.get('http://localhost:5000/api/v1/user/logout',{ withCredentials: true }).then((res) =>{
+        console.log(res.data)       
+        if(res.data.error) {
+          alert(res.data.error);
+          navigate("/")
+          window.location.reload(false);
+        }
+        else{ 
+        alert("User log out sucessfully!");                       
+        navigate("/")
+        window.location.reload(false);
+         }
+      })
+     }
+     var dashboardlink;
+     if(logggedusertype=="manager"){
+       dashboardlink = "#/mang_dashboard";
+     }
+     else if(logggedusertype=="admin"){
+       dashboardlink ="#/sysAdmin_Dashboard";
+     }
+     else if (logggedusertype=="serviceProvider"){
+       dashboardlink ="#/servPro_Dashboard";
+     }
+     else {
+       dashboardlink ="#/cus_dashboard";
+     }
 
   return (
     <>
@@ -69,18 +105,32 @@ export default function TopNavbar() {
             </li>
           </UlWrapper>
           <UlWrapperRight className="flexNullCenter">
-            <li className="semiBold font20 pointer">
-           
+
+          {(() => { if (loggeduserid == undefined)
+           return(
+            <li className="semiBold font20 pointer">           
               <a href='/#/login' style={{ padding: "10px 30px 10px 0" }}>
                 Log in
-              </a>
-              
+              </a>              
             </li>
-            {/* <li className="semiBold font15 pointer flexCenter">
-              <a href="/" className="radius8 lightBg" style={{ padding: "10px 15px" }}>
-                Register
+           )
+            else {
+              return(
+              <>
+            <li className="semiBold font20 pointer">           
+            <a onClick={logoutUser} href='' style={{ padding: "10px 30px 10px 0" }}>
+             Log out
+            </a>              
+            </li>
+           
+            <li className="semiBold font15 pointer flexCenter">
+              <a href={dashboardlink} className="radius8 lightBg" style={{ padding: "10px 15px" }}>
+                Dashboard
               </a>
-            </li> */}
+            </li>
+            </>
+            )}  
+            })()}
           </UlWrapperRight>
         </NavInner>
       </Wrapper>
