@@ -6,6 +6,7 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
 import store from './store'
+import { CookiesProvider } from "react-cookie";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style/flexboxgrid.min.css";
@@ -14,7 +15,9 @@ import './style/index.css';
 
 ReactDOM.render(
   <Provider store={store}>
+    <CookiesProvider>
     <App />
+    </CookiesProvider>
   </Provider>,
   document.getElementById('root'),
 )

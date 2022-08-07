@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState }  from 'react'
 import { Link } from 'react-router-dom'
 import {
   CButton,
@@ -17,6 +17,18 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const Login = () => {
+  const [name, setName] = useState("");
+  const [password, setPW] = useState("");
+
+  const submitData = () => {
+    Axios.post("http://localhost:5000/api/v1/login/", {
+      name: name,
+      type: type,
+      status: status,
+    }).then(() => {
+      alert("successfully added!");
+    });
+  };
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -32,13 +44,17 @@ const Login = () => {
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput onChange={(e) => {
+                      setName(e.target.value);
+                    }} placeholder="Username" autoComplete="username" />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
                         <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
-                      <CFormInput
+                      <CFormInput onChange={(e) => {
+                      setPW(e.target.value);
+                    }}
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
@@ -46,7 +62,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
+                        <CButton onClick={submitData} color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>
