@@ -136,6 +136,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   .flexSpaceNull {
     display: flex;
@@ -268,4 +269,7 @@
   }
   .whiteBg {
     background-color: #fff;
+  }
+  .blueBg{
+    background-color: #4f5d73;
   }
