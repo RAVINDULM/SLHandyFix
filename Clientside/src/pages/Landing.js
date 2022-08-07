@@ -9,6 +9,14 @@ import Pricing from "../components/Sections/Pricing";
 import Contact from "../components/Sections/Contact";
 import Footer from "../components/Sections/Footer";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "../style/flexboxgrid.min.css";
+import '../style/index.css';
+
+
+
+
 export default function Landing() {
   return (
     <>
