@@ -11,6 +11,9 @@ const Cus_Dashboard = React.lazy(() => import('./pages/customer/cusDashboard'))
 // Manager routes
 const Mang_Dashboard = React.lazy(() => import('./pages/manager/mangDashboard'))
 
+// Admin routes
+const Admin_Dashboard = React.lazy(() => import('./pages/sysAdmin/sysDashboard'))
+
 
 //Sign In
 const Sign_In = React.lazy(() => import('./pages/manager/mangDashboard'))
@@ -74,6 +77,8 @@ const routes = [
   { path: '/', exact: true, name: 'Home' }, // this must be changed 
   { path: '/cus_dashboard', name: 'Customer Dashboard', element: Cus_Dashboard },
   { path: '/mang_dashboard', name: 'Manager Dashboard', element: Mang_Dashboard },
+  { path: '/admin_dashboard', name: 'Admin Dashboard', element: Admin_Dashboard },
+
   // Templates path elements 
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/employees', name: 'Employees', element: Employees },
