@@ -27,6 +27,12 @@ const _nav = [
   },
   {
     component: CNavItem,
+    name: 'My Jobs',
+    to: '/my_jobs',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
     name: 'Mang Dashboard',
     to: '/mang_dashboard',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,

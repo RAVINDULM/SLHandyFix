@@ -172,9 +172,14 @@ const Tooltips = () => {
   const handleSubmit = (event) => {
     const form = event.currentTarget
     if (form.checkValidity() === false) {
+      console.log("not validated")
       event.preventDefault()
       event.stopPropagation()
     }
+    else if(form.checkValidity() === true){
+      console.log("validated")
+    }
+   
     setValidated(true)
   }
   return (
@@ -187,7 +192,10 @@ const Tooltips = () => {
       <CCol md={4} className="position-relative">
         <CFormLabel htmlFor="validationTooltip01">Email</CFormLabel>
         <CFormInput type="text" id="validationTooltip01" defaultValue="Mark" required />
-        <CFormFeedback tooltip valid>
+        <CFormFeedback  valid>
+          Looks good!
+        </CFormFeedback>
+        <CFormFeedback  invalid>
           Looks good!
         </CFormFeedback>
       </CCol>
