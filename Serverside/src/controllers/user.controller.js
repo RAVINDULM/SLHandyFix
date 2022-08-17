@@ -81,7 +81,7 @@ exports.login =  (req , res) =>{
                 .cookie('access_token', accessToken, {
                     sameSite: 'strict',
                     path :"/",
-                    expires: new Date(new Date().getTime() + 1000 * 1000),
+                    expires: new Date(new Date().getTime() + 5000 * 5000),
                     httpOnly: false,
                     secure: true,
                 }).send(accessToken)

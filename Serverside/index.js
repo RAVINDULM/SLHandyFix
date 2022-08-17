@@ -32,11 +32,19 @@ app.get('/', (req, res)=>{
 // import employee routes
 const employeeRoutes = require('./src/routes/employee.route');
 
+
+//import service routes
+const serviceRoutes = require('./src/routes/service.route');
+
 // create employee routes
 app.use('/api/v1/employee', employeeRoutes);
 
+//create service routes
+app.use('/api/v1/service',serviceRoutes);
+
 // import user routes 
 const userRoutes = require('./src/routes/user.route');
+
 // Log in route
 app.use('/api/v1/user', userRoutes);
 
