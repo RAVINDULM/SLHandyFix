@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from "axios";
 
-import '../../../scss/_custom.scss'
+import '../../../scss/_custom.scss';
 import { Link } from "react-router-dom";
 
 function mangAccAdd() {

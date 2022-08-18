@@ -25,6 +25,7 @@ const SerUpdate= React.lazy(() => import('./pages/manager/mang_form/serupdate'))
 
 // System admin routes
 const SysAdmin_Dashboard = React.lazy(() => import('./pages/sysAdmin/sysDashboard'))
+const Create_Account=React.lazy(()=>import('./pages/sysAdmin/CreateAccount'))
 
 // Service provider
 const ServPro_Dashboard = React.lazy(() => import('./pages/serviceProvider/servPro_dashboard/servProDashboard'))
@@ -108,6 +109,7 @@ const routes = [
 
    // Service provider paths
    { path: '/servPro_Dashboard', name: 'Service provider Dashboard', element: ServPro_Dashboard },
+   {path:'/Create_Account',name:'Create Account',element:Create_Account},
 
   // System admin paths
   { path: '/sysAdmin_Dashboard', name: 'System Admin Dashboard', element: SysAdmin_Dashboard },

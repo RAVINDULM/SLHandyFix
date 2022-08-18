@@ -28,8 +28,8 @@ const mang_nav = [
     },
     {
       component: CNavItem,
-      name: 'My Jobs',
-      to: '/my_jobs',
+      name: 'Create Account',
+      to: '/Create_Account',
       icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     }
 ]

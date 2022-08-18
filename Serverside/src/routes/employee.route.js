@@ -3,6 +3,7 @@ const router = express.Router();
 const checkauth = require('../../middleware/verifyToken')
 const employeeController = require('../controllers/employee.controller'); 
 
+
 // get all employees
 router.get('/',checkauth.verifyAdmin, employeeController.getEmployeeList);
 router.get('/:id', employeeController.getEmployeeById);
