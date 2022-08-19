@@ -12,17 +12,16 @@ import * as Yup from "yup"
 
 
 function CreateAccount(){
-    const [firstName,setFirst]=useState("");
-    const [LastName,setLast]=useState("");
-    const [address,setAdress]=useState("");
-    const[Phone,setPhone]=useState("");
-    const [email,setEmail]=useState("");
-    const [startDate, setStartDate] = useState(new Date());
-    const [gender, setGender] = React.useState('male');
 
-    const handleChange = (event) => {
-      setGender(event.target.value)
-    }
+    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
+    const [phoneVal,setphone]=useState("");
+    const [gendervalue, setRadioValue] = useState("");
+    const onChange = (ev) => {
+      //save your value here with state variable
+      console.log(ev.target.value);
+      setRadioValue(ev.target.value);
+    };
 
     return(
         <div>
@@ -36,6 +35,8 @@ function CreateAccount(){
                 .required("Required"),
                 address:Yup.string()
                 .required("Required"),
+                // phone:Yup.string()
+                // .required("Required"),
                 email:Yup.string()
                 .required("Required"),
                 startDate:Yup.date()
@@ -44,6 +45,24 @@ function CreateAccount(){
 
             onSubmit={(values)=>{
                 console.log(values,"values")
+                console.log(phoneVal)
+                console.log(gendervalue)
+
+                Axios.post("http://localhost:5000/api/v1/user/createManger",{
+                    name:values.firstName+" "+values.LastName,
+                    // last:values.LastName,
+                    // address:values.address,
+                    email:values.email,
+                    phone:phoneVal,
+                    // gender:gendervalue
+                }).then((response)=>{
+                    if(response.data.error) {
+                        alert(response.data.error);}
+                      else{
+                        alert("Succesfully Added")
+                        window.location.reload(false);
+                      }
+                })
             }}
             >
             
@@ -79,56 +98,49 @@ function CreateAccount(){
                     </div>
   
                     <div class="col">
-                    <label for="inputEmail4">Birth of date</label>
+                    <label for="inputEmail4">Date of birth</label>
                     <input type="Date" class="form-control" name="startDate" {...formik.getFieldProps("startDate")}/>
-                    {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /> */}
                     </div>
                 </div>
                 <div class="row">
-                {/* <div class="col">
+                <div class="col">
                     <label for="inputEmail4">Phone Number</label>
-                    <PhoneInput  class="form-control" country={'lk'} name="phone" {...formik.getFieldProps("phone")}/>
-                    {formik.touched.phone &&
-                        formik.errors.phone ? (
-                          <small>{formik.errors.phone}</small>
-                        ) : null}
-                </div> */}
+                    <PhoneInput class="form-control" country={'lk'} value={phoneVal} onChange={setphone} required/>
+                </div>
                 <div class="col">
                     <label for="inputEmail4">Email</label>
                     <input type="text" class="form-control" placeholder="sample@gmail.com" name="email" {...formik.getFieldProps("email")} />
                     {formik.touched.email &&
-                        formik.errors.addemailess ? (
+                        formik.errors.email ? (
                           <small>{formik.errors.email}</small>
                         ) : null}
                 </div>
                 </div>
 
-                {/* <div class="row">
+                <div class="row">
                     <div class="col">
                     <label for="inputEmail4">Gender</label>
                     <div>
                         <input
                         type="radio"
                         value="male"
-                        checked={gender === 'male'}
-                        onChange={handleChange}
-                        /> Male
+                        name="gender"
+                        onChange={onChange}
+
+                     /> Male
                      </div>
                      <div>
                         <input
                         type="radio"
                         value="female"
-                        checked={gender === 'female'}
-                        onChange={handleChange}
+                        name="gender"
+                        onChange={onChange}
+    
                         /> Female
                     </div>
                 </div>
-
-                </div> */}
-                <div class="row">
- 
                 </div>
-
+ 
 
                 <button type="submit" class="btn btn-success" style={{width:75.8}}>Add</button>
                 <button type="button" class="btn btn-danger">Cancel</button>
