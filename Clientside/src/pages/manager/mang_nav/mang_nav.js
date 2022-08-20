@@ -33,12 +33,7 @@ const mang_nav = [
       to: '/mang_dashboard',
       icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     },
-    // {
-    //   component: CNavItem,
-    //   name: 'Job Request',
-    //   to: '/my_jobs',
-    //   icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-    // },
+   
     {
       component: CNavItem,
       name: 'Account Request',
@@ -46,10 +41,21 @@ const mang_nav = [
       icon: <CIcon icon={cilUserFollow} customClassName="nav-icon" />,
     },
     {
-      component: CNavItem,
+      component: CNavGroup,
       name: 'Reports',
-      to: '/my_jobs',
+      to: '/reports',
       icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+      items: [
+        {
+          component: CNavItem,
+          name: 'Service Reports',
+          to: '/reports/servicereports',
+        },
+        {
+          component: CNavItem,
+          name: 'Monthly Reports',
+          to: '/reports/monthlyreports',
+        },],
     }
     ,
     {
