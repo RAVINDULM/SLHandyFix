@@ -5,10 +5,10 @@ import ClientSlider from "../Elements/ClientSlider";
 import ServiceBox from "../Elements/ServiceBox";
 import FullButton from "../Buttons/FullButton";
 // Assets
-import AddImage1 from "../../assets/img/add/img3.jpg";
-import AddImage2 from "../../assets/img/add/img1.jpg";
-import AddImage3 from "../../assets/img/add/img4.jpg";
-import AddImage4 from "../../assets/img/add/img2.jpg";
+import AddImage1 from "../../assets/img/add/images.jpg";
+import AddImage2 from "../../assets/img/add/images.jpg";
+import AddImage3 from "../../assets/img/add/images.jpg";
+import AddImage4 from "../../assets/img/add/images.jpg";
 
 export default function Services() {
   return (
@@ -64,13 +64,13 @@ export default function Services() {
             </div>
           </div>
         </div>
-        <div className="blueBg">
+        <div className="lightBg">
           <div className="container">
             <Advertising className="flexSpaceCenter">
               <AddLeft>
-                <h4 className="font20 semiBold lightColor">Are you looking for a worker?</h4>
+                <h4 className="font15 semiBold">Are you looking for a worker?</h4>
                 <h2 className="font40 extraBold">I want to find a worker</h2>
-                <p className="font20 lightColor" >
+                <p className="font14">
                   Are you a person who is struggle to find a worker for your household works. We have given top service categories.
                   You can register with us and can find your needed workers. Also you can post jobs.
                 </p>

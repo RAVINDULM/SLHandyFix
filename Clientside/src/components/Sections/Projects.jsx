@@ -93,20 +93,20 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="blueBg">
+      <div className="lightBg">
         <div className="container">
           <Advertising className="flexSpaceCenter">
             <AddLeft>
               <AddLeftInner>
                 <ImgWrapper className="flexCenter">
-                  <img className="radius8" src={ProjectImg3} style={{width:426,height:607}} alt="add" />
+                  <img className="radius8" src={ProjectImg1} style={{width:426,height:607}} alt="add" />
                 </ImgWrapper>
               </AddLeftInner>
             </AddLeft>
             <AddRight>
-              <h4 className="font20 semiBold darkColor">Struggling to find a work..</h4>
-              <h2 className="font40 extraBold darkColor">I want to find a work</h2>
-              <p className="font20 darkColor">
+              <h4 className="font15 semiBold">Struggling to find a work..</h4>
+              <h2 className="font40 extraBold">I want to find a work</h2>
+              <p className="font14">
                 If you are a person who is finding a work to earn money, here is the best option. you can register with us.
                 you can choose the categories you are interested to work.
               </p>

@@ -10,7 +10,6 @@ export default function FullButton({ title, action, border }) {
     >
       {title}
     </Wrapper>
-    
   );
 }
 
@@ -28,5 +27,4 @@ const Wrapper = styled.button`
     color: ${(props) => (props.border ? "#321fdb" : "#fff")};
   }
 `;
-
 
