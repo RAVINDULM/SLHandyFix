@@ -65,6 +65,7 @@ export default function TopNavbar() {
         <NavInner className="container flexSpaceCenter">
           <Link className="pointer flexNullCenter" to="home" smooth={true}>
             <LogoIcon />
+            
             <h1 style={{ marginLeft: "15px" }} className="font25 extraBold">
               SLHandyFix
             </h1>

@@ -21,6 +21,9 @@ import { CButton } from "@coreui/react";
 import '../../../scss/_custom.scss'
 import { Link } from "react-router-dom";
 
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
 
 function mangAccreq() {
   return (
@@ -58,7 +61,7 @@ function mangAccreq() {
                     <Link to="/serviceproviders/updateserviceproviders">
                     <button type="button" class="btn btn-info">Update</button>
                     </Link>
-                    <button type="button" class="btn btn-danger">Remove</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Remove</button>
                     </CTableDataCell>
                   </CTableRow>
                   <CTableRow>

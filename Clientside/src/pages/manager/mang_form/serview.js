@@ -63,8 +63,8 @@ function mangAccAdd() {
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">NVQ Level 4</textarea>
     </div>
  </div>
-
- <button type="button" class="btn btn-danger">Cancel</button>
+<Link to="/serviceproviders">
+ <button type="button" class="btn btn-danger">Back</button></Link>
 </form>
   </div>
 </div>

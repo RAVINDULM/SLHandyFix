@@ -65,7 +65,9 @@ function mangAccAdd() {
  </div>
  
  <button type="button" class="btn btn-success">Update Acount</button>
- <button type="button" class="btn btn-danger">Cancel</button>
+ <input class="btn btn-warning" type="reset" value="Reset"></input>
+ <Link to="/serviceproviders">
+ <button type="button" class="btn btn-danger">Back</button></Link>
 </form>
   </div>
 </div>
