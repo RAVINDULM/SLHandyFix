@@ -39,11 +39,17 @@ const employeeRoutes = require('./src/routes/employee.route');
 //import service routes
 const serviceRoutes = require('./src/routes/service.route');
 
+//import providers route
+const providerRoutes = require('./src/routes/provider.route');
+
 // create employee routes
 app.use('/api/v1/employee', employeeRoutes);
 
 //create service routes
 app.use('/api/v1/service',serviceRoutes);
+
+//create provider routes
+ app.use('/api/v1/provider',providerRoutes);
 
 // import user routes 
 const userRoutes = require('./src/routes/user.route');

@@ -22,6 +22,8 @@ const Mang_Dashboard = React.lazy(() => import('./pages/manager/mang_dashboard/m
 const Acc_Req = React.lazy(() => import('./pages/manager/mang_req/mangAccreq'))
 const Complain = React.lazy(() => import('./pages/manager/mang_req/mangComplain'))
 const Services = React.lazy(() => import('./pages/manager/mang_req/mangService'))
+const SerReports = React.lazy(() => import('./pages/manager/mang_req/mangSerReport'))
+const MonReports = React.lazy(() => import('./pages/manager/mang_req/mangMonReport'))
 const Advertisments = React.lazy(() => import('./pages/manager/mang_req/mangAdd'))
 const ServiceProvider = React.lazy(() => import('./pages/manager/mang_req/mangSP'))
 const Customer = React.lazy(() => import('./pages/manager/mang_req/mangCus'))
@@ -113,6 +115,8 @@ const routes = [
   { path: '/acc_req', name: 'Account Requests', element: Acc_Req },
   { path: '/complaints', name: 'Complaints', element: Complain },
   { path: '/services', name: 'Services', element: Services },
+  { path: '/reports/servicereports', name: 'Service Reports', element: SerReports },
+  { path: '/reports/monthlyreports', name: 'Monthly Reports', element: MonReports },
   { path: '/advertisments', name: 'Advertisments', element: Advertisments },
   { path: '/serviceproviders', name: 'Service Providers', element: ServiceProvider },
   { path: '/customers', name: 'Customers', element: Customer},
