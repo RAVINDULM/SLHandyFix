@@ -62,7 +62,33 @@ User.getUserByName = ({ email: email} , result) =>{
 //             result(null,res);
 //         }
 //     })
-// }
+
+User.getUserBycontact=({contact_no:contact_no},result)=>{
+    console.log("database heree")
+    dbConn.query('SELECT contact_no FROM users WHERE contact_no=?',contact_no,(err,res)=>{
+        if(err){
+            console.log('Error while fetching user');
+            result(null,err);
+        }else{
+            console.log('User fetched successfully');
+            result(null,res); 
+        }
+    })
+
+}
+
+User.updatePasswordUserBycontact=({contact_no:contact_no,password:password},result)=>{
+    dbConn.query('UPDATE users SET password =?  WHERE contact_no=?',[password,contact_no],(err,res)=>{
+        if(err){
+            console.log('Error while fetching user');
+            result(null,err);
+        }else{
+            console.log('User updated successfully');
+            result(null,res); 
+        }
+    })
+
+}
 
 
 module.exports = User;

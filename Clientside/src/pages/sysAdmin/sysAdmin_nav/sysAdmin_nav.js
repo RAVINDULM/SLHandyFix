@@ -23,7 +23,7 @@ const mang_nav = [
     {
       component: CNavItem,
       name: 'SysAdmin_Dashboard',
-      to: '/cus_dashboard',
+      to: '/sysAdmin_Dashboard',
       icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     },
     {

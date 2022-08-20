@@ -4,6 +4,12 @@ const bcrypt = require("bcrypt");
 const {sign}= require("jsonwebtoken")
 const cookieParser =  require("cookie-parser");
 
+const accountSid ='AC6f09c17829e0a3767af02aac6b1ad635'
+const authToken = 'beeed69d9da0d3dad6bdd99891cdd4bb';
+const client = require('twilio')(accountSid, authToken);
+const otpGenerator = require('otp-generator')
+let stringify = require('json-stringify-safe')
+
 exports.register = (req , res) =>{
     // const name = 
     console.log("register controller",req.body);
@@ -82,7 +88,7 @@ exports.login =  (req , res) =>{
                 .cookie('access_token', accessToken, {
                     sameSite: 'strict',
                     path :"/",
-                    expires: new Date(new Date().getTime() + 1000 * 1000),
+                    expires: new Date(new Date().getTime() + 5000 * 5000),
                     httpOnly: false,
                     secure: true,
                 }).send(accessToken)
@@ -90,4 +96,67 @@ exports.login =  (req , res) =>{
         })
         } 
    })
+}
+
+global.otpGenerate="";
+global.resetcontact=""
+
+exports.callOTP=(req,res)=>{
+    const contact=req.body.sendcontact;
+    
+    console.log(typeof(contact))
+    UserModel.getUserBycontact({contact_no:contact},(err,user)=>{
+        console.log(contact)
+        resetcontact=contact;
+        const sendTo="+94"+contact;
+        if(err){
+            res.send(err)
+        }else if(user.length==0){
+            res.send({error:"User not found"})
+        }else{
+  
+             otpGenerate=otpGenerator.generate(4, {lowerCaseAlphabets:false, upperCaseAlphabets: false, specialChars: false });
+             console.log(otpGenerate)
+             console.log(typeof(otpGenerate))
+
+            client.messages
+            .create({
+               body: 'your 4-digit OTP is '+otpGenerate,
+               from: '+12058090282',
+               statusCallback: 'http://postb.in/1234abcd',
+               to: sendTo
+             })
+            .then(message => console.log(message.sid));        
+            res.send('success')
+        }
+    })
+}
+
+exports.forgotpawd=(req,res)=>{
+    const typeOtp=req.body.sendotp;
+   console.log(otpGenerate)
+   console.log("=====")
+   console.log(typeOtp)
+
+  if(typeOtp===otpGenerate){
+        res.send("Success")
+   }else{
+    res.send("Enterd OTP not valid")
+   }
+
+}
+
+exports.ResetPassword=(req,res)=>{
+    const sendpass=req.body.password
+    const sendcontact=resetcontact
+    bcrypt.hash(sendpass,10).then((hash)=>{
+        UserModel.updatePasswordUserBycontact({contact_no:sendcontact,password:hash},(err)=>{
+            if(err){
+                res.send(err)
+            }else{
+                res.send("Password updated Successfuly")
+            }
+        })
+    })
+
 }

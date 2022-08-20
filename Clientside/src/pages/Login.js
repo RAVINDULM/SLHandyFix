@@ -26,6 +26,10 @@ Axios.defaults.withCredentials = true;
 
 const Login = () => {  
   const navigate = useNavigate() 
+
+  const forgotpawd=()=>{
+    navigate("/forgotpassword");
+  }
   
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -115,7 +119,7 @@ const Login = () => {
                         </CButton>
                       </CCol>
                       <CCol xs={6} className="text-right">
-                        <CButton color="link" className="px-0">
+                        <CButton color="link" className="px-0" onClick={forgotpawd}>
                           Forgot password?
                         </CButton>
                       </CCol>
@@ -130,8 +134,7 @@ const Login = () => {
                   <div>
                     <h2>Sign up</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua.
+                      If u dont have an account create an account here.
                     </p>
                     <Link to="/register">
                       <CButton color="primary" className="mt-3" active tabIndex={-1}>

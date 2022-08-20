@@ -1,36 +1,34 @@
 import React from "react";
-import Colors from "src/views/theme/colors/Colors";
 import styled from "styled-components";
-
 // Assets
 import ContactImg1 from "../../assets/img/contact1.jpg";
 import ContactImg2 from "../../assets/img/contact2.jpg";
-import ContactImg3 from "../../assets/img/contact.jpg";
+import ContactImg3 from "../../assets/img/contact3.jpg";
 
 
 export default function Contact() {
   return (
     <Wrapper id="contact">
-      <div className="blueBg">
+      <div className="lightBg">
         <div className="container">
           <HeaderInfo>
-            <h1 className="font40 extraBold lightColor">Let's get in touch</h1>
-            <p className="font20 lightColor">
+            <h1 className="font40 extraBold">Let's get in touch</h1>
+            <p className="font18">
               We will contact you in the shortest time.
               <br />
               Monday to Friday 9.00am to 5.00pm
             </p>
           </HeaderInfo>
           <div className="row" style={{ paddingBottom: "30px" }}>
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 lightColor">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <Form>
-                <label className="font20">First name:</label>
+                <label className="font24">First name:</label>
                 <input type="text" id="fname" name="fname" className="font20 extraBold" />
-                <label className="font20">Email:</label>
+                <label className="font24">Email:</label>
                 <input type="text" id="email" name="email" className="font20 extraBold" />
-                <label className="font20">Phone Number:</label>
+                <label className="font24">Phone Number:</label>
                 <input type="text" id="phn" name="phn" className="font20 extraBold" />
-                <label className="font20">Subject:</label>
+                <label className="font24">Subject:</label>
                 <input type="text" id="subject" name="subject" className="font20 extraBold" />
                 <textarea rows="2" cols="30" type="text" id="message" name="message" className="font20 extraBold" />
               </Form>
