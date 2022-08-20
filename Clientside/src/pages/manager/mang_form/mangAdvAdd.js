@@ -10,9 +10,11 @@ function mangAdvAdd() {
       {/* <CRow><CCol xs={4}><h1>mangDashboard</h1></CCol><CCol xs={4}><CButton color="primary">
                   Submit
                 </CButton></CCol></CRow> */}
+                <h3>Verify Post</h3>
   <div class="container lightBg">
+  
   <form>
-    <h3>Verify Post</h3>
+   
   <div class="row">
     <div class="col">
     <label for="inputEmail4">First Name</label>
@@ -44,7 +46,8 @@ function mangAdvAdd() {
  
  
   <button type="button" class="btn btn-success">Accept Post</button>
- <button type="button" class="btn btn-danger">Cancel</button>
+  <Link to="/advertisments">
+ <button type="button" class="btn btn-danger">Back</button></Link>
 </form>
   </div>
 </div>

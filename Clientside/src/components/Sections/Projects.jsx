@@ -4,8 +4,8 @@ import styled from "styled-components";
 import ProjectBox from "../Elements/ProjectBox";
 import FullButton from "../Buttons/FullButton";
 // Assets
-import ProjectImg1 from "../../assets/img/projects/images.jpg";
-import ProjectImg2 from "../../assets/img/projects/2 new.jpg";
+import ProjectImg1 from "../../assets/img/projects/1.jpg";
+import ProjectImg2 from "../../assets/img/projects/profile2.jpg";
 import ProjectImg3 from "../../assets/img/projects/img1.jpg";
 import ProjectImg4 from "../../assets/img/projects/4.png";
 import ProjectImg5 from "../../assets/img/projects/5.png";
