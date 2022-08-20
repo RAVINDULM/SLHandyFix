@@ -10,5 +10,6 @@ router.get('/logout', userController.logout);
 router.post('/forgotpassword',userController.forgotpawd);
 router.post('/ResetPassword',userController.ResetPassword)
 router.post('/callOTP',userController.callOTP);
+router.post('/createManger',userController.registerManager);
 
 module.exports = router;

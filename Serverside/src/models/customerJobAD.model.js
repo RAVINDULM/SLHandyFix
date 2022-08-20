@@ -98,4 +98,3 @@ CustomerJobAD.deletecustomerJobAD = (adId, result)=>{
 }
 
 module.exports = CustomerJobAD;
-    

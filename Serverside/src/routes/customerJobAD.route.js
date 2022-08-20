@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const checkauth = require('../../middleware/verifyToken')
@@ -9,7 +10,5 @@ router.get('/:adId', customerJobADController.getCustomerJobADByID);
 router.post('/', customerJobADController.createcustomerJobAD);
 // router.put('/:id', customerJobADController.updateEmployee);
 router.delete('/:adId',customerJobADController.deletecustomerJobAD);
-
-
 
 module.exports = router;

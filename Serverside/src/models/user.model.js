@@ -89,6 +89,18 @@ User.updatePasswordUserBycontact=({contact_no:contact_no,password:password},resu
     })
 
 }
+User.createManageruser = (userReqData , result) =>{
 
+    console.log(typeof(userReqData.id));
+    dbConn.query('INSERT INTO users SET ? ', userReqData, (err, res)=>{
+        if(err){
+            console.log('Error while inserting data');
+            result(null, err);
+        }else{
+            console.log('User created successfully');
+            result(null, res)
+        }
+    })
+} 
 
 module.exports = User;

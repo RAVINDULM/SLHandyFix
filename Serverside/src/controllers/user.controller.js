@@ -160,3 +160,41 @@ exports.ResetPassword=(req,res)=>{
     })
 
 }
+
+exports.registerManager=(req,res)=>{
+    const name=req.body.name
+    const email=req.body.email
+    let orgcontact_no=req.body.phone
+    contact_no=orgcontact_no.replace('94','0')
+    console.log(typeof(contact_no))
+    const usertype="manager"
+    const passwordMang="manger1234"
+    const id=12
+    console.log(name);
+    console.log(contact_no);
+
+    const sendTo="+"+orgcontact_no;
+
+    bcrypt.hash(passwordMang, 10).then((hash)=> {
+        const password=hash
+        console.log(hash)
+        UserModel.createManageruser({id,name,email,password,usertype,contact_no},(err)=>{
+            
+            if(err){
+                res.send(err)
+            }else{    
+                client.messages
+                .create({
+                   body: 'Your Password is '+passwordMang,
+                   from: '+12058090282',
+                   statusCallback: 'http://postb.in/1234abcd',
+                   to: sendTo
+                 })
+                .then(message => console.log(message.sid));        
+                res.send("Manger Add Succesfully")
+            }
+    
+        })
+    })
+
+}
