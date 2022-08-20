@@ -7,6 +7,8 @@ var User = function(user){
     this.name = user.username;
     this.email = user.email;
     this.password = user.newpassword;
+    this.phoneNumber = user.phoneNumber;
+    this.usertype=user.usertype;
 }
 
 // get all employees
@@ -24,7 +26,7 @@ var User = function(user){
 
 User.createUser = (userReqData , result) =>{
 
-    console.log(userReqData);
+    console.log("Regiter data model: ",userReqData);
     dbConn.query('INSERT INTO users SET ? ', userReqData, (err, res)=>{
         if(err){
             console.log('Error while inserting data');

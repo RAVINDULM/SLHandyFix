@@ -27,7 +27,10 @@ app.get('/', (req, res)=>{
 }); 
 
  
-   
+// import customerjobad routes
+const customerJobADRoutes = require('./src/routes/customerJobAD.route');
+// create customerjobad routes
+app.use('/api/v1/customerJobAD', customerJobADRoutes); 
 
 // import employee routes
 const employeeRoutes = require('./src/routes/employee.route');

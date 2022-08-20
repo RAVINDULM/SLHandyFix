@@ -15,11 +15,13 @@ import {
   CRow,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
-import { cilLockLocked, cilUser } from "@coreui/icons";
+import { cilLockLocked, cilPhone, cilUser } from "@coreui/icons";
 import signup from "./Login";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+
+  const navigate = useNavigate() 
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -28,7 +30,7 @@ const Register = () => {
             <CCard className="mx-4">
               <CCardBody className="p-4">
                 <Formik
-                  initialValues={{ username: "", email: "" }}
+                  initialValues={{ username: "", email: "",newpassword:"",phoneNumber:"" }}
                   validationSchema={Yup.object({
                     username: Yup.string()
                       .max(15, "Must be 15 characters or less")
@@ -36,6 +38,9 @@ const Register = () => {
                     email: Yup.string()
                       .email("Invalid email address")
                       .required("Required"),
+                    // phoneNumber : Yup.string()
+                    //   .match("Invalid contact number")
+                    //   .required("Required"),
                     newpassword: Yup.string()
                       .max(20, "Must be 20 characters or less")
                       .required("Required"),
@@ -51,6 +56,7 @@ const Register = () => {
                       username: values.username,
                       email: values.email, 
                       newpassword: values.newpassword,
+                      phoneNumber:values.phoneNumber,
                     }).then(() => {
                       alert("successfully added!");
                       navigate("/login") 
@@ -90,6 +96,23 @@ const Register = () => {
                           <small>{formik.errors.email}</small>
                         ) : null}
                       </CInputGroup>
+
+                      <CInputGroup className="mb-3">
+                        <CInputGroupText>
+                          <CIcon icon={cilPhone} />
+                        </CInputGroupText>
+                        <CFormInput
+                          placeholder="Contact Number"
+                          autoComplete="phoneNumber"
+                          type="phoneNumber"
+                          name="phoneNumber"
+                          {...formik.getFieldProps("phoneNumber")}
+                        />
+                        {/* {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+                          <small>{formik.errors.phoneNumber}</small>
+                        ) : null} */}
+                      </CInputGroup>
+
                       <CInputGroup className="mb-3">
                         <CInputGroupText>
                           <CIcon icon={cilLockLocked} />
