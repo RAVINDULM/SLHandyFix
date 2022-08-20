@@ -7,13 +7,23 @@ import React from 'react'
 // Customer routes
 const Cus_Dashboard = React.lazy(() => import('./pages/customer/cus_dashboard/cusDashboard'))
 const MyJobs = React.lazy(() => import('./pages/customer/myjobs'))
- 
+const Cus_Profile = React.lazy(() => import('./pages/customer/cusProfile'))
+const Cus_EditProfile = React.lazy(() => import('./pages/customer/cusEditProfile'))
+const Cus_Services = React.lazy(() => import('./pages/customer/cusServices'))
+const Cus_viewSPprofile = React.lazy(() => import('./pages/customer/cusViewSPprofile'))
+const Cus_placeJob = React.lazy(() => import('./pages/customer/cusPlaceJob'))
+const Cus_jobAD = React.lazy(() => import('./pages/customer/cusJobAD'))
+const Cus_postAD = React.lazy(() => import('./pages/customer/cusPostAdvertisement'))
+const Cus_viewOwnAD = React.lazy(() => import('./pages/customer/cusViewOwnAD'))
+const Cus_doReview = React.lazy(() => import('./pages/customer/cusDoReview'))
 
 // Manager routes
 const Mang_Dashboard = React.lazy(() => import('./pages/manager/mang_dashboard/mangDashboard'))
 const Acc_Req = React.lazy(() => import('./pages/manager/mang_req/mangAccreq'))
 const Complain = React.lazy(() => import('./pages/manager/mang_req/mangComplain'))
 const Services = React.lazy(() => import('./pages/manager/mang_req/mangService'))
+const SerReports = React.lazy(() => import('./pages/manager/mang_req/mangSerReport'))
+const MonReports = React.lazy(() => import('./pages/manager/mang_req/mangMonReport'))
 const Advertisments = React.lazy(() => import('./pages/manager/mang_req/mangAdd'))
 const ServiceProvider = React.lazy(() => import('./pages/manager/mang_req/mangSP'))
 const Customer = React.lazy(() => import('./pages/manager/mang_req/mangCus'))
@@ -92,14 +102,24 @@ const routes = [
   { path: '/', exact: true, name: 'Home' }, // this must be changed 
 
   // Customer paths
-  { path: '/cus_dashboard', name: 'Customer Dashboard', element: Cus_Dashboard },
-  { path: '/my_jobs', name: 'My Jobs', element: MyJobs },
+  { path: '/cus_dashboard', name: 'My Dashboard', element: Cus_Dashboard },
+  { path: '/cus_services', name: 'My Services', element: Cus_Services },
+  { path: '/cus_profile', name: 'My Profile', element: Cus_Profile },
+  { path: '/cus_editprofile', name: 'Edit Profile', element: Cus_EditProfile },
+  { path: '/cus_viewSPprofile', name: 'Service Provider Details', element: Cus_viewSPprofile },
+  { path: '/cus_placeJobs', name: 'Place job', element: Cus_placeJob },
+  { path: '/cus_jobAD', name: 'Job Advertisements', element: Cus_jobAD },
+  { path: '/cus_postAD', name: 'Post job advertisements', element: Cus_postAD },
+  { path: '/cus_viewOwnAD', name: 'View Advertisement', element: Cus_viewOwnAD },
+  { path: '/cus_doReview', name: 'Review', element: Cus_doReview },
 
   // Manager paths
   { path: '/mang_dashboard', name: 'Manager Dashboard', element: Mang_Dashboard },
   { path: '/acc_req', name: 'Account Requests', element: Acc_Req },
   { path: '/complaints', name: 'Complaints', element: Complain },
   { path: '/services', name: 'Services', element: Services },
+  { path: '/reports/servicereports', name: 'Service Reports', element: SerReports },
+  { path: '/reports/monthlyreports', name: 'Monthly Reports', element: MonReports },
   { path: '/advertisments', name: 'Advertisments', element: Advertisments },
   { path: '/serviceproviders', name: 'Service Providers', element: ServiceProvider },
   { path: '/customers', name: 'Customers', element: Customer},
