@@ -26,7 +26,19 @@ export default function Header() {
       <RightSide>
         <ImageWrapper>
           <Img className="radius8" src={HeaderImage} alt="office" style={{zIndex: 9,width:426,height:607}} />
-          
+          {/* <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src='HeaderImage' alt="First slide"/>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="..." alt="Second slide"/>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="..." alt="Third slide"/>
+              </div>
+            </div>
+          </div> */}
           <QuoteWrapper className="flexCenter darkBg radius8">
             <QuotesWrapper>
               <QuotesIcon />

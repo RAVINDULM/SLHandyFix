@@ -76,7 +76,8 @@ export default function Services() {
                 </p>
                 <ButtonsRow className="flexNullCenter" style={{ margin: "30px 0"}}>
                   <div style={{ width: "190px" }}>
-                    <FullButton title="Register to hire" action={() => alert("clicked")} />
+                    <a href="/#/register">
+                    <FullButton title="Register to hire" action={() => alert("clicked")} /></a>
                   </div>
                   {/**<div style={{ width: "190px", marginLeft: "15px" }}>
                     <FullButton title="Contact Us" action={() => alert("clicked")} border />
