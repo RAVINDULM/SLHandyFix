@@ -8,7 +8,7 @@ exports.getServiceList = (req, res)=> {
         console.log('We are here');
         if(err)
         res.send(err);
-        console.log('Employees', employees);
+        console.log('services', employees);
         res.send(employees)
     })
 }
@@ -16,7 +16,7 @@ exports.getServiceList = (req, res)=> {
 exports.getServiceById = (req,res) =>{
       
         // console.log("emp by id");
-        EmployeeModel.getAllServiceByID(req.params.id, (err, employee) =>{
+        ServiceModel.getAllServiceByID(req.params.id, (err, employee) =>{
             console.log('Employee are here');
             if(err)
             res.send(err);
@@ -26,6 +26,7 @@ exports.getServiceById = (req,res) =>{
 }
 
 exports.createService = (req , res) =>{
+    console.log("create service controller",req.body);
     const serviceReqData = new ServiceModel(req.body);
     console.log("Create service",serviceReqData );
     // return;

@@ -48,12 +48,13 @@ function cusJobAD() {
                 <CCardBody>
 
                 <CRow>
+                {/* changed CCol size */}
                     <CCol xs={2}><h2> <CCardTitle>Plumbing</CCardTitle></h2></CCol>
-                    <CCol xs={8}><CCardText>(New)</CCardText></CCol>
+                    <CCol xs={7}><CCardText>(New)</CCardText></CCol>
                         
-                    <CCol xs={2}> 
+                    <CCol xs={3}> 
                             <Link to="/cus_viewOwnAD">
-                                <CButton color="primary">View more </CButton>
+                                <CButton color="primary" style={{width:150}}>View more </CButton>
                             </Link>
                     </CCol>
                 </CRow>
@@ -82,11 +83,11 @@ function cusJobAD() {
 
                 <CRow>
                     <CCol xs={2}><h2> <CCardTitle>Painting</CCardTitle></h2></CCol>
-                    <CCol xs={8}><CCardText>(Completed)</CCardText></CCol>
+                    <CCol xs={7}><CCardText>(Completed)</CCardText></CCol>
                         
-                    <CCol xs={2}> 
+                    <CCol xs={3}> 
                             <Link to="/cus_viewOwnAD">
-                                <CButton color="primary">View more </CButton>
+                                <CButton color="primary" style={{width:150}}>View more </CButton>
                             </Link>
                     </CCol>
                 </CRow>
@@ -115,11 +116,11 @@ function cusJobAD() {
 
                 <CRow>
                     <CCol xs={2}><h2> <CCardTitle>Electrician</CCardTitle></h2></CCol>
-                    <CCol xs={8}><CCardText>(Completed)</CCardText></CCol>
+                    <CCol xs={7}><CCardText>(Completed)</CCardText></CCol>
                         
-                    <CCol xs={2}> 
+                    <CCol xs={3}> 
                             <Link to="/cus_viewOwnAD">
-                                <CButton color="primary">View more </CButton>
+                                <CButton color="primary" style={{width:150}}>View more </CButton>
                             </Link>
                     </CCol>
                 </CRow>
@@ -148,11 +149,11 @@ function cusJobAD() {
 
                 <CRow>
                     <CCol xs={2}><h2> <CCardTitle>Mason</CCardTitle></h2></CCol>
-                    <CCol xs={8}><CCardText>(Completed)</CCardText></CCol>
+                    <CCol xs={7}><CCardText>(Completed)</CCardText></CCol>
                         
-                    <CCol xs={2}> 
+                    <CCol xs={3}> 
                             <Link to="/cus_viewOwnAD">
-                                <CButton color="primary">View more </CButton>
+                                <CButton color="primary" style={{width:150}}>View more </CButton>
                             </Link>
                     </CCol>
                 </CRow>

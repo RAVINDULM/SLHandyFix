@@ -93,13 +93,13 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="lightBg">
+      <div className="blueBg">
         <div className="container">
           <Advertising className="flexSpaceCenter">
             <AddLeft>
               <AddLeftInner>
                 <ImgWrapper className="flexCenter">
-                  <img className="radius8" src={ProjectImg1} style={{width:426,height:607}} alt="add" />
+                  <img className="radius8" src={ProjectImg3} style={{width:426,height:607}} alt="add" />
                 </ImgWrapper>
               </AddLeftInner>
             </AddLeft>

@@ -35,7 +35,7 @@ function mangAccreq() {
 
     <CCard className="mb-4">
   <CTable bordered striped>
-    <CTableHead>
+    <CTableHead color="dark">
                   <CTableRow>
                     <CTableHeaderCell scope="col">#</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Full Name</CTableHeaderCell>

@@ -12,12 +12,12 @@ let stringify = require('json-stringify-safe')
 
 exports.register = (req , res) =>{
     // const name = 
-    const {name, password, email} = new UserModel(req.body);
+    const {name, password, email,contact_no,usertype } = new UserModel(req.body);
     console.log("Create employee",{name, password,email} );
     console.log("Create employee",req.body );
 
     bcrypt.hash(password, 10).then((hash)=> {
-        UserModel.createUser({name : name, password : hash, email: email}, (err, user) =>{
+        UserModel.createUser({name : name, password : hash, email: email, contact_no: contact_no, usertype:"customer"}, (err, user) =>{
             if(err){ 
                 res.send(err);
             }
@@ -27,7 +27,7 @@ exports.register = (req , res) =>{
             res.send("Employeeregistered successfully!")
             }
 
-        })
+        }) 
         
     })
 } 
@@ -62,7 +62,7 @@ exports.login =  (req , res) =>{
         else if (!user.length){
         console.log("User not found")
         // res.send("User not found")
-        req.send({error:"User not found"})
+        res.send({error:"User not found"})
         }
         else if(user.length){ 
         console.log( user[0]['password']);
@@ -71,7 +71,7 @@ exports.login =  (req , res) =>{
 
             if(!match){
                 console.log("Password doent match");
-                req.json({error:"Password doesnt match"})
+                res.json({error:"Password doesnt match"})
             }
             else if(match){ 
                 console.log("User found");
@@ -105,9 +105,11 @@ exports.callOTP=(req,res)=>{
     
     console.log(typeof(contact))
     UserModel.getUserBycontact({contact_no:contact},(err,user)=>{
-        console.log(contact)
+        console.log("this is => ",contact)
+        console.log("before",resetcontact)
         resetcontact=contact;
-        const sendTo="+94"+contact;
+        console.log("after",resetcontact)
+        const sendTo="+94"+resetcontact;
         if(err){
             res.send(err)
         }else if(user.length==0){
@@ -163,12 +165,12 @@ exports.ResetPassword=(req,res)=>{
 exports.registerManager=(req,res)=>{
     const name=req.body.name
     const email=req.body.email
-    let orgcontact_no=req.body.phone
+    const orgcontact_no=req.body.phone
     contact_no=orgcontact_no.replace('94','0')
-    console.log(typeof(contact_no))
+    console.log(typeof(orgcontact_no),"==",orgcontact_no)
     const usertype="manager"
     const passwordMang="manger1234"
-    const id=12
+    // const id=12
     console.log(name);
     console.log(contact_no);
 
@@ -177,7 +179,7 @@ exports.registerManager=(req,res)=>{
     bcrypt.hash(passwordMang, 10).then((hash)=> {
         const password=hash
         console.log(hash)
-        UserModel.createManageruser({id,name,email,password,usertype,contact_no},(err)=>{
+        UserModel.createManageruser({name:name,email:email,password:password,usertype:usertype,contact_no:contact_no},(err)=>{
             
             if(err){
                 res.send(err)
@@ -195,5 +197,7 @@ exports.registerManager=(req,res)=>{
     
         })
     })
+
+   
 
 }

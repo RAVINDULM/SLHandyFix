@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="container">
           <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
             <Link className="flexCenter animate pointer" to="home" smooth={true} offset={-80}>
-              <LogoImg />
+              {/* <LogoImg /> */}
               <h1 className="font18 extraBold whiteColor" style={{ marginLeft: "15px" }}>
                 SLHandyFix
               </h1>
