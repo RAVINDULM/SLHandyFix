@@ -1,3 +1,4 @@
+
 const CustomerJobADModel = require('../models/customerJobAD.model');
 
 // get all job ad list
@@ -66,4 +67,5 @@ exports.deletecustomerJobAD = (req, res)=>{
         res.send(err);
         res.json({success:true, message: 'job advertisement deleted successully!'});
     })
+
 }

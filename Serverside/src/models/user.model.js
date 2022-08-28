@@ -26,7 +26,7 @@ var User = function(user){
 
 User.createUser = (userReqData , result) =>{
 
-    console.log(userReqData);
+    console.log("Regiter data model: ",userReqData);
     dbConn.query('INSERT INTO users SET ? ', userReqData, (err, res)=>{
         if(err){
             console.log('Error while inserting data');
