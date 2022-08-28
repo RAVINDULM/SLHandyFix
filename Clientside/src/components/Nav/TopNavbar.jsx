@@ -13,6 +13,16 @@ import Axios from "axios";
 Axios.defaults.withCredentials = true;
 import { useNavigate } from "react-router-dom";
 
+// import { 
+//   cilUser,
+//   cilPhone,
+//   cilLocationPin,
+//   cilChatBubble,
+//   cilNotes,
+//   cilPin,
+ 
+// } from '@coreui/icons'
+
 export default function TopNavbar() {
   
   const navigate = useNavigate()
@@ -61,10 +71,10 @@ export default function TopNavbar() {
     <>
       <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}
-      <Wrapper className="flexCenter animate whiteBg" style={y > 100 ? { height: "60px" } : { height: "80px" }}>
+      <Wrapper className="flexCenter animate whiteBg shadow" style={y > 100 ? { height: "60px" } : { height: "80px" }}>
         <NavInner className="container flexSpaceCenter">
           <Link className="pointer flexNullCenter" to="home" smooth={true}>
-            <LogoIcon />
+            {/* <LogoIcon /> */}
             
             <h1 style={{ marginLeft: "15px" }} className="font25 extraBold">
               SLHandyFix
@@ -109,10 +119,11 @@ export default function TopNavbar() {
 
           {(() => { if (loggeduserid == undefined)
            return(
-            <li className="semiBold font20 pointer">           
+            <li className="semiBold font20 pointer">          
               <a href='/#/login' style={{ padding: "10px 30px 10px 0" }}>
-                Log in
-              </a>              
+                Log In 
+              </a>   
+              {/* <CIcon icon={cilLocationPin} size="xl" style={{marginRight: 10}}/>             */}
             </li>
            )
             else {

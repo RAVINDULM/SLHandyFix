@@ -63,6 +63,7 @@ if(logggedusertype=="manager"){
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
         <CIcon className="sidebar-brand-full" icon={Logo} height={35} />
+        <img src={Logo} class="rounded w-100 p-3 " alt="..."></img>
         <CIcon className="sidebar-brand-narrow" icon={Logo} height={35} />
       </CSidebarBrand>
       <CSidebarNav>
@@ -118,8 +119,9 @@ if(logggedusertype=="manager"){
             dispatch({ type: 'set', sidebarShow: visible })
           }}
         >
-          <CSidebarBrand className="d-none d-md-flex" to="/">
-            <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
+            <CSidebarBrand className="d-none d-md-flex" to="/">
+            <CIcon className="sidebar-brand-full"  height={35} />
+            <img src={Logo} class="rounded w-100 p-3 " alt="..."></img>
             <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
           </CSidebarBrand>
           <CSidebarNav>
@@ -146,8 +148,9 @@ if(logggedusertype=="manager"){
             dispatch({ type: 'set', sidebarShow: visible })
           }}
         >
-          <CSidebarBrand className="d-none d-md-flex" to="/">
-            <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
+            <CSidebarBrand className="d-none d-md-flex" to="/">
+            <CIcon className="sidebar-brand-full"  height={35} />
+            <img src={Logo} class="rounded w-100 p-3 " alt="..."></img>
             <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
           </CSidebarBrand>
           <CSidebarNav>

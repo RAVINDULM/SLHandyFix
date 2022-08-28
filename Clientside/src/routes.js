@@ -5,6 +5,7 @@ import React from 'react'
 
 
 // Customer routes
+
 const Cus_Dashboard = React.lazy(() => import('./pages/customer/cus_dashboard/cusDashboard'))
 const MyJobs = React.lazy(() => import('./pages/customer/myjobs'))
 const Cus_Profile = React.lazy(() => import('./pages/customer/cusProfile'))
@@ -16,6 +17,7 @@ const Cus_jobAD = React.lazy(() => import('./pages/customer/cusJobAD'))
 const Cus_postAD = React.lazy(() => import('./pages/customer/cusPostAdvertisement'))
 const Cus_viewOwnAD = React.lazy(() => import('./pages/customer/cusViewOwnAD'))
 const Cus_doReview = React.lazy(() => import('./pages/customer/cusDoReview'))
+const Cus_recentJob = React.lazy(() => import('./pages/customer/cusRecentlyPlacedJob'))
 
 // Manager routes
 const Mang_Dashboard = React.lazy(() => import('./pages/manager/mang_dashboard/mangDashboard'))
@@ -32,6 +34,9 @@ const SerAdd = React.lazy(() => import('./pages/manager/mang_form/mangSerAdd'))
 const AdvAdd = React.lazy(() => import('./pages/manager/mang_form/mangAdvAdd'))
 const SerView= React.lazy(() => import('./pages/manager/mang_form/serview'))
 const SerUpdate= React.lazy(() => import('./pages/manager/mang_form/serupdate'))
+const SerReports = React.lazy(() => import('./pages/manager/mang_req/mangSerReport'))
+const MonReports = React.lazy(() => import('./pages/manager/mang_req/mangMonReport'))
+
 
 // System admin routes
 const SysAdmin_Dashboard = React.lazy(() => import('./pages/sysAdmin/sysDashboard'))
@@ -102,6 +107,7 @@ const routes = [
   { path: '/', exact: true, name: 'Home' }, // this must be changed 
 
   // Customer paths
+
   { path: '/cus_dashboard', name: 'My Dashboard', element: Cus_Dashboard },
   { path: '/cus_services', name: 'My Services', element: Cus_Services },
   { path: '/cus_profile', name: 'My Profile', element: Cus_Profile },
@@ -112,6 +118,7 @@ const routes = [
   { path: '/cus_postAD', name: 'Post job advertisements', element: Cus_postAD },
   { path: '/cus_viewOwnAD', name: 'View Advertisement', element: Cus_viewOwnAD },
   { path: '/cus_doReview', name: 'Review', element: Cus_doReview },
+  { path: '/cus_recentJob', name: 'Recently placed jobs', element: Cus_recentJob },
 
   // Manager paths
   { path: '/mang_dashboard', name: 'Manager Dashboard', element: Mang_Dashboard },
@@ -128,6 +135,9 @@ const routes = [
   { path: '/advertisments/addAdvertisement', name: 'Accept Advertisment', element: AdvAdd},
   { path: '/serviceproviders/viewserviceproviders', name: 'View Service Providers', element: SerView },
   { path: '/serviceproviders/updateserviceproviders', name: 'Update Service Providers', element: SerUpdate },
+  { path: '/reports/servicereports', name: 'Service Reports', element: SerReports },
+  { path: '/reports/monthlyreports', name: 'Monthly Reports', element: MonReports },
+
 
    // Service provider paths
    { path: '/servPro_Dashboard', name: 'Service provider Dashboard', element: ServPro_Dashboard },

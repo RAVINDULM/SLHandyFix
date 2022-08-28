@@ -20,9 +20,13 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import { useNavigate } from "react-router-dom";
 import jwt_decode from 'jwt-decode'
-// import jwt_decode from 'jwt-decode'
-// import { Toast } from '@coreui/coreui';
-import Toast from '../components/Toast/Toast'
+//======
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+// import { useAlert } from 'react-alert'
+//==
+
 Axios.defaults.withCredentials = true;
 
 const Login = () => {  
@@ -31,6 +35,8 @@ const Login = () => {
   const forgotpawd=()=>{
     navigate("/forgotpassword");
   }
+
+  const successToast = () => toast.success("This is a success toast.");
   
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -88,6 +94,15 @@ const Login = () => {
                         // navigate("/")
                         window.location.reload(false);
                         alert("successfully Logged in!");
+                        // toast('successfully Logged in!', {
+                        //   position: "top-right",
+                        //   autoClose: 5000,
+                        //   hideProgressBar: false,
+                        //   closeOnClick: true,
+                        //   pauseOnHover: true,
+                        //   draggable: true,
+                        //   progress: undefined,
+                        //   });
                         
                       }
                     });
@@ -107,7 +122,7 @@ const Login = () => {
                           name="email"
                           {...formik.getFieldProps("email")} />
                            {formik.touched.email && formik.errors.email ? (
-                          <small>{formik.errors.email}</small>
+                          <small style={{color:'red',paddingLeft:10}}>{formik.errors.email}</small>
                         ) : null}
                     </CInputGroup>
                     <CInputGroup className="mb-4">
@@ -122,7 +137,7 @@ const Login = () => {
                       />
                        {formik.touched.password &&
                         formik.errors.password ? (
-                          <small>{formik.errors.password}</small>
+                          <small style={{color:'red',paddingLeft:10}}>{formik.errors.password}</small>
                         ) : null}
                     </CInputGroup>
                     <CRow>

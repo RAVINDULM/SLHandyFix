@@ -24,7 +24,7 @@ const Table = ({data,column}) => {
   return (
     <div>  
 
-<DocsExample href="components/buttons">
+{/* <DocsExample href="components/buttons">
               {['normal', 'active', 'disabled'].map((state, index) => (
                 <CRow className="align-items-center mb-3" key={index}>
                   <CCol xs={12} xl={2} className="mb-3 mb-xl-0">
@@ -54,16 +54,13 @@ const Table = ({data,column}) => {
                   </CCol>
                 </CRow>
               ))}
-            </DocsExample>
+            </DocsExample> */}
          
-
-
-
 
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Table</strong> <small>Table foot</small>
+            {/* <strong>React Table</strong> <small>Table foot</small> */}
           </CCardHeader>
           <CCardBody>
               <CTable>
@@ -92,7 +89,14 @@ const TableRow = ({ item , column }) => (
         {/* {column.map((columnItem, index)=>{ return <CTableDataCell key={item[`id`]}>{item[`${columnItem.value}`]}</CTableDataCell>})} */}
         {column.map((columnItem, index)=>{ {if(columnItem.value != "actions") {return  (<CTableDataCell>{item[`${columnItem.value}`]}</CTableDataCell>)}
         else{
-           return (<CTableDataCell> <CCol><CButton color="warning" key={index}>Check</CButton><CButton color="danger" key={index}>Check</CButton></CCol></CTableDataCell>)}
+           return (
+            <CTableDataCell> 
+              <CCol>
+                <CButton color="warning" key={index}>Check
+                </CButton>
+                <CButton color="danger" key={index}>Check</CButton>
+              </CCol>
+              </CTableDataCell>)}
     }})}
        
     </CTableRow>

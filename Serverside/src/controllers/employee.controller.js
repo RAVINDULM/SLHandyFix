@@ -13,6 +13,7 @@ exports.getEmployeeList = (req, res)=> {
     })
 }
 
+
 exports.getEmployeeById = (req,res) =>{
       
         // console.log("emp by id");
@@ -65,3 +66,4 @@ exports.deleteEmployee = (req, res)=>{
         res.json({success:true, message: 'Employee deleted successully!'});
     })
 }
+

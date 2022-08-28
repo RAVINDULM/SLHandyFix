@@ -66,7 +66,7 @@ function mangDashboard() {
   <div class="row">
     
   </div>
-  <div class="row">
+  {/* <div class="row">
   <CCol xs={15}>
         <CCard className="mb-4">
           <CCardHeader>Monthly Income</CCardHeader>
@@ -87,11 +87,11 @@ function mangDashboard() {
           </CCardBody>
         </CCard>
       </CCol>
-  </div>
-  <div class="row">
+  </div> */}
+  <div class="row" style={{marginTop:50}}>
   <div class="col">
   <CTable caption="top" striped>
-                <CTableCaption>Top Service Providers</CTableCaption>
+                <CTableCaption style={{fontSize:20,fontWeight:600}}>Top Service Providers</CTableCaption>
                 <CTableHead>
                   <CTableRow>
                     <CTableHeaderCell scope="col">#</CTableHeaderCell>
@@ -124,7 +124,7 @@ function mangDashboard() {
   </div>
   <div class="col">
   <CTable caption="top" striped>
-                <CTableCaption>Top Customers</CTableCaption>
+                <CTableCaption style={{fontSize:20,fontWeight:600}}>Top Customers</CTableCaption>
                 <CTableHead>
                   <CTableRow>
                     <CTableHeaderCell scope="col">#</CTableHeaderCell>

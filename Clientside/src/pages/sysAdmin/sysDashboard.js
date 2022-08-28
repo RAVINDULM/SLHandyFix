@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{ useEffect, useState } from "react";
 import Axios from "axios";
 import {
   CCard,
@@ -18,9 +18,18 @@ import {
   CChartBar,
 } from '@coreui/react-chartjs'
 import { CButton } from "@coreui/react";
-import 'src/scss/_custom.scss'
+import 'src/scss/_custom.scss';
+import Table from "src/components/Tables/table1";
 
 function mangDashboard() {
+
+  const manager=()=>{
+    const [name, setName] = useState("");
+    const [type, setType] = useState("");
+    const [status, setStatus] = useState("");
+    const [employeeList, setEmployeeDetails] = useState("");
+  }
+
   return (
     <div> 
       {/* <CRow><CCol xs={4}><h1>mangDashboard</h1></CCol><CCol xs={4}><CButton color="primary">
@@ -78,7 +87,7 @@ function mangDashboard() {
                 datasets: [
                   {
                     label: 'Income',
-                    backgroundColor: '#f87979',
+                    backgroundColor: '#00fa9a',
                     data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
                   },
                 ],

@@ -1,14 +1,27 @@
 import Axios from "axios";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-
+import {
+    CCard,
+    CCardBody,
+    CCardHeader,
+    CCol,
+    CRow,
+    CTable,
+    CTableBody,
+    CTableCaption,
+    CTableDataCell,
+    CTableHead,
+    CTableHeaderCell,
+    CTableRow,
+  } from "@coreui/react";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup"
-
+import * as Yup from "yup";
+import Table from "src/pages/sysAdmin/Adminassets/table1";
 
 
 function CreateAccount(){
@@ -22,6 +35,31 @@ function CreateAccount(){
       console.log(ev.target.value);
       setRadioValue(ev.target.value);
     };
+
+    //for display manger table
+    const [name, setName] = useState("");
+    const [type, setType] = useState("");
+    const [status, setStatus] = useState("");
+    const [managerList, setManagerDetails] = useState("");
+  
+    const column =  [
+        {Heading : "ID", value:"id"},
+        {Heading : "Name", value:"name"},
+        {Heading : "Gender", value:"gender"},
+        {Heading : "Contact No", value:"contact_no"},
+        {Heading : "Email", value:"email"},
+        {Heading : "DOB", value:"dob"},
+        {Heading:"Address",value:"address"},
+        {Heading : "Actions", value:"actions"}
+      ]
+
+      useEffect(() => {
+        console.log('use effect run')
+        Axios.get("http://localhost:5000/api/v1/admin/getManager").then((response) => {
+          console.log(response.data);
+          setManagerDetails(response.data);
+        });
+      }, []);
 
     return(
         <div>
@@ -59,6 +97,14 @@ function CreateAccount(){
                     if(response.data.error) {
                         alert(response.data.error);}
                       else{
+                        Axios.post("http://localhost:5000/api/v1/admin/CreateAccount",{
+                            name:values.firstName+" "+values.LastName,
+                            address:values.address,
+                            email:values.email,
+                            phone:phoneVal,
+                            gender:gendervalue,
+                            dob:values.startDate
+                        })
                         alert("Succesfully Added")
                         window.location.reload(false);
                       }
@@ -150,6 +196,63 @@ function CreateAccount(){
             </Formik>
 
             </div>
+
+            <div>
+      <h3>Manager List</h3>
+      <Table data={managerList} column={column}/>
+      {/* <CRow>
+        <CCol xs={12}>
+          <CCard className="mb-4">
+            <CCardBody>
+              <CForm>
+                <div className="mb-3">
+                  <CFormLabel htmlFor="exampleFormControlInput1">
+                    Name
+                  </CFormLabel>
+                  <CFormInput
+                    type="text"
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
+                    id="exampleFormControlInput1"
+                    placeholder="Type your name here"
+                  />
+                </div>
+                <div className="mb-3">
+                  <CFormLabel htmlFor="exampleFormControlInput1">
+                    Type
+                  </CFormLabel>
+                  <CFormInput
+                    type="text"
+                    onChange={(e) => {
+                      setType(e.target.value);
+                    }}
+                    id="exampleFormControlInput1"
+                    placeholder="Type your name here"
+                  />
+                </div>
+                <div className="mb-3">
+                  <CFormLabel htmlFor="exampleFormControlInput1">
+                    Status
+                  </CFormLabel>
+                  <CFormInput
+                    type="text"
+                    onChange={(e) => {
+                      setStatus(e.target.value);
+                    }}
+                    id="exampleFormControlInput1"
+                    placeholder="Type your name here"
+                  />
+                </div>
+                <CButton onClick={submitData} color="primary">
+                  Submit
+                </CButton>
+              </CForm>
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow> */}
+    </div>
         </div>
     )
 }
