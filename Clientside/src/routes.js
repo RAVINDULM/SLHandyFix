@@ -34,8 +34,6 @@ const SerAdd = React.lazy(() => import('./pages/manager/mang_form/mangSerAdd'))
 const AdvAdd = React.lazy(() => import('./pages/manager/mang_form/mangAdvAdd'))
 const SerView= React.lazy(() => import('./pages/manager/mang_form/serview'))
 const SerUpdate= React.lazy(() => import('./pages/manager/mang_form/serupdate'))
-const SerReports = React.lazy(() => import('./pages/manager/mang_req/mangSerReport'))
-const MonReports = React.lazy(() => import('./pages/manager/mang_req/mangMonReport'))
 
 
 // System admin routes
