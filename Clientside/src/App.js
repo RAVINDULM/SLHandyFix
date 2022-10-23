@@ -27,6 +27,9 @@ const Home = React.lazy(() => import('./pages/Landing'))
 // const Login = React.lazy(() => import('./views/pages/login/Login'))
 const Login = React.lazy(() => import('./pages/Login'))
 // const Register = React.lazy(() => import('./views/pages/register/Register'))
+const Forgotpassword=React.lazy(()=>import('./pages/Forgotpassword'))
+const ResetPassword=React.lazy(()=>import('./pages/ResetPassword'))
+
 const Register = React.lazy(() => import('./pages/Register'))
 const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
@@ -43,11 +46,16 @@ class App extends Component {
       if(token){ 
       const userd = jwt_decode(token); 
       // get user type and id in to a variable
+     
+      // localStorage.setItem('usertyp',userd.type)
+      // localStorage.setItem(loggeduserid,userd.id)
+      // console.log(localStorage.getItem('usertyp'))
+
       window.logggedusertype = userd.type;
       window.loggeduserid = userd.id; 
-      // console.log(usertype);
-      // console.log(userid);
-      // console.log(userd);
+      console.log(userd.type);
+      console.log(logggedusertype);
+      console.log(userd);
       }
       else{
         window.logggedusertype = null;
@@ -60,6 +68,8 @@ class App extends Component {
             <Route path="/" name="Home" element={<Home />} />
             <Route exact path="/login" name="Login Page" element={<Login />} />
             <Route exact path="/register" name="Register Page" element={<Register />} />
+            <Route exact path="/forgotpassword" name="Forgot password page" element={<Forgotpassword/>} />
+            <Route exact path="/ResetPassword" name="Reset password page" element={<ResetPassword/>} />
             <Route exact path="/404" name="Page 404" element={<Page404 />} />
             <Route exact path="/500" name="Page 500" element={<Page500 />} />
             <Route path="*" name="Home" element={<DefaultLayout />} />

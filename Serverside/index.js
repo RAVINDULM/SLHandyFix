@@ -50,8 +50,21 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
+// import customerjobad routes
+const customerJobADRoutes = require("./src/routes/customerJobAD.route");
+// create customerjobad routes
+app.use("/api/v1/customerJobAD", customerJobADRoutes);
+
 // import employee routes
 const employeeRoutes = require("./src/routes/employee.route");
+
+//import service routes
+const serviceRoutes = require("./src/routes/service.route");
+
+const adminroute = require("./src/routes/admin.route");
+
+//import providers route
+const providerRoutes = require("./src/routes/provider.route");
 
 // create employee routes
 app.use("/api/v1/employee", employeeRoutes);
@@ -64,6 +77,16 @@ app.use("api/v1/servprov", servProRoutes);
 
 // User routes
 const userRoutes = require("./src/routes/user.route");
+
+//create admin routes
+
+app.use("/api/v1/admin", adminroute);
+
+//create service routes
+app.use("/api/v1/service", serviceRoutes);
+
+//create provider routes
+app.use("/api/v1/provider", providerRoutes);
 
 // Log in route
 app.use("/api/v1/user", userRoutes);

@@ -7,6 +7,8 @@ var User = function(user){
     this.name = user.username;
     this.email = user.email;
     this.password = user.newpassword;
+    this.contact_no=user.contact_no;
+    this.usertype = user.usertype;
 }
 
 // get all employees
@@ -24,7 +26,7 @@ var User = function(user){
 
 User.createUser = (userReqData , result) =>{
 
-    console.log(userReqData);
+    console.log("Regiter data model: ",userReqData);
     dbConn.query('INSERT INTO users SET ? ', userReqData, (err, res)=>{
         if(err){
             console.log('Error while inserting data');
@@ -45,10 +47,10 @@ User.getUserByName = ({ email: email} , result) =>{
         }else{
             console.log('User fetched successfully');
             result(null,res); 
-        }
+        } 
     })
 } 
-
+ 
 // get employee by id
 // Employee.getAllEmployeeByID= (id, result) =>{
 //     dbConn.query('SELECT * FROM employees WHERE id=?', id, (err, res)=>{
@@ -60,7 +62,46 @@ User.getUserByName = ({ email: email} , result) =>{
 //             result(null,res);
 //         }
 //     })
-// }
 
+User.getUserBycontact=({contact_no:contact_no},result)=>{
+    console.log("database heree")
+    dbConn.query('SELECT contact_no FROM users WHERE contact_no=?',contact_no,(err,res)=>{
+        if(err){
+            console.log('Error while fetching user');
+            result(null,err);
+        }else{
+            console.log('User fetched successfully');
+            result(null,res); 
+        }
+    })
+
+}
+
+User.updatePasswordUserBycontact=({contact_no:contact_no,password:password},result)=>{
+    dbConn.query('UPDATE users SET password =?  WHERE contact_no=?',[password,contact_no],(err,res)=>{
+        if(err){
+            console.log('Error while fetching user');
+            result(null,err);
+        }else{
+            console.log('User updated successfully');
+            result(null,res); 
+        }
+    })
+
+}
+User.createManageruser = (userReqData , result) =>{
+
+    console.log(typeof(userReqData.id));
+    console.log("model create manager",userReqData);
+    dbConn.query('INSERT INTO users SET ? ', userReqData, (err, res)=>{
+        if(err){
+            console.log('Error while inserting data');
+            result(null, err);
+        }else{
+            console.log('User created successfully');
+            result(null, res)
+        }
+    })
+} 
 
 module.exports = User;
