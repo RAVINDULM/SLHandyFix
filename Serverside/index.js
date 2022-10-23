@@ -61,7 +61,7 @@ app.use('/api/v1/service',serviceRoutes);
  app.use('/api/v1/provider',providerRoutes);
 
  //create customer routes
- app.use('/api/v1/provider',customerRoutes);
+ app.use('/api/v1/customer',customerRoutes);
 
 
 // import user routes 
