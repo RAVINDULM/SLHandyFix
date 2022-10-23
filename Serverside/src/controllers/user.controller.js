@@ -1,8 +1,8 @@
 // console.log('user controller connected ');
-const UserModel = require('../models/user.model');
+const UserModel = require("../models/user.model");
 const bcrypt = require("bcrypt");
-const {sign}= require("jsonwebtoken")
-const cookieParser =  require("cookie-parser");
+const { sign } = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 
 const accountSid ='AC6f09c17829e0a3767af02aac6b1ad635'
 const authToken = 'beeed69d9da0d3dad6bdd99891cdd4bb';
@@ -33,17 +33,14 @@ exports.register = (req , res) =>{
 } 
 
 // Log out user controller
-exports.logout = ( req , res) =>{
-
-    const token = req.cookies.access_token;
-    if (token!=undefined){
-    res.status(202).clearCookie('access_token').send("cookies cleared")
-    }
-    else {
-        res.send({error : "session time out!"});
-    }
-}
-
+exports.logout = (req, res) => {
+  const token = req.cookies.access_token;
+  if (token != undefined) {
+    res.status(202).clearCookie("access_token").send("cookies cleared");
+  } else {
+    res.send({ error: "session time out!" });
+  }
+};
 
 // Log in user controller
 exports.login =  (req , res) =>{
