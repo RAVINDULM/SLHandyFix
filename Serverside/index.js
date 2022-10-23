@@ -88,8 +88,11 @@ app.use("/api/v1/service", serviceRoutes);
 //create provider routes
  app.use('/api/v1/provider',providerRoutes);
 
- //create customer routes
-//  app.use('/api/v1/customer',customerRoutes);
+// customer routes
+ const customer1Routes = require("./src/routes/customer1.route");
+
+//  //create customer routes
+ app.use('/api/v1/customer1',customer1Routes);
 
 
 // import user routes 
