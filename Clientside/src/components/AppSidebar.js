@@ -11,7 +11,9 @@ import { sygnet } from 'src/assets/brand/sygnet'
 
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
+import Logo from '../assets/brand/LogoWhite.png'
 
+import { useNavigate } from "react-router-dom";
 // sidebar nav config
 
 import navigation from '../_nav'
@@ -21,38 +23,12 @@ import cus_nav from '../pages/customer/cus_nav/cus_nav'
 import sysAdmin_nav from '../pages/sysAdmin/sysAdmin_nav/sysAdmin_nav'
 
 const AppSidebar = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const unfoldable = useSelector((state) => state.sidebarUnfoldable)
   const sidebarShow = useSelector((state) => state.sidebarShow)
 
-  // return(
-  //   <CSidebar
-  //     position="fixed"
-  //     unfoldable={unfoldable}
-  //     visible={sidebarShow}
-  //     onVisibleChange={(visible) => {
-  //       dispatch({ type: 'set', sidebarShow: visible })
-  //     }}
-  //   >
-  //     <CSidebarBrand className="d-none d-md-flex" to="/">
-  //       <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
-  //       <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
-  //     </CSidebarBrand>
-  //     <CSidebarNav>
-  //       <SimpleBar>
-        
-  //         <AppSidebarNav items={navigation} />
-        
-  //       </SimpleBar>
-  //     </CSidebarNav>
-  //     <CSidebarToggler
-  //       className="d-none d-lg-flex"
-  //       onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
-  //     />
-  //   </CSidebar>
-  // )
-if(logggedusertype=="manager"){
-  return (
+  return(
     <CSidebar
       position="fixed"
       unfoldable={unfoldable}
@@ -68,7 +44,7 @@ if(logggedusertype=="manager"){
       <CSidebarNav>
         <SimpleBar>
         
-          <AppSidebarNav items={manag_nav} />
+          <AppSidebarNav items={navigation} />
         
         </SimpleBar>
       </CSidebarNav>
@@ -78,94 +54,124 @@ if(logggedusertype=="manager"){
       />
     </CSidebar>
   )
-    }
-    else if(logggedusertype=="admin"){
-      return(
-        <CSidebar
-          position="fixed"
-          unfoldable={unfoldable}
-          visible={sidebarShow}
-          onVisibleChange={(visible) => {
-            dispatch({ type: 'set', sidebarShow: visible })
-          }}
-        >
-          <CSidebarBrand className="d-none d-md-flex" to="/">
-            <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
-            <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
-          </CSidebarBrand>
-          <CSidebarNav>
-            <SimpleBar>
+// if(logggedusertype=="manager"){
+//   return (
+//     <CSidebar
+//       position="fixed"
+//       unfoldable={unfoldable}
+//       visible={sidebarShow}
+//       onVisibleChange={(visible) => {
+//         dispatch({ type: 'set', sidebarShow: visible })
+//       }}
+//     >
+//       <CSidebarBrand className="d-none d-md-flex" to="/">
+//         {/* <CIcon className="sidebar-brand-full" icon={Logo} height={35} /> */}
+//         <img src={Logo} class="rounded w-100 p-3 " alt="..."></img>
+//         <CIcon className="sidebar-brand-narrow" icon={Logo} height={35} />
+//       </CSidebarBrand>
+//       <CSidebarNav>
+//         <SimpleBar>
+        
+//           <AppSidebarNav items={manag_nav} />
+        
+//         </SimpleBar>
+//       </CSidebarNav>
+//       <CSidebarToggler
+//         className="d-none d-lg-flex"
+//         onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
+//       />
+//     </CSidebar>
+//   )
+//     }
+//     else if(logggedusertype=="admin"){
+//       return(
+//         <CSidebar
+//           position="fixed"
+//           unfoldable={unfoldable}
+//           visible={sidebarShow}
+//           onVisibleChange={(visible) => {
+//             dispatch({ type: 'set', sidebarShow: visible })
+//           }}
+//         >
+//           <CSidebarBrand className="d-none d-md-flex" to="/">
+//             <CIcon className="sidebar-brand-full"  height={35} />
+//             <img src={Logo} class="rounded w-100 p-3 " alt="..."></img>
+//             <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+//           </CSidebarBrand>
+//           <CSidebarNav>
+//             <SimpleBar>
             
-              <AppSidebarNav items={sysAdmin_nav} />
+//               <AppSidebarNav items={sysAdmin_nav} />
             
-            </SimpleBar>
-          </CSidebarNav>
-          <CSidebarToggler
-            className="d-none d-lg-flex"
-            onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
-          />
-        </CSidebar>
-      )
-    }
-    else if (logggedusertype=="serviceProvider"){
-      return(
-        <CSidebar
-          position="fixed"
-          unfoldable={unfoldable}
-          visible={sidebarShow}
-          onVisibleChange={(visible) => {
-            dispatch({ type: 'set', sidebarShow: visible })
-          }}
-        >
-          <CSidebarBrand className="d-none d-md-flex" to="/">
-            <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
-            <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
-          </CSidebarBrand>
-          <CSidebarNav>
-            <SimpleBar>
+//             </SimpleBar>
+//           </CSidebarNav>
+//           <CSidebarToggler
+//             className="d-none d-lg-flex"
+//             onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
+//           />
+//         </CSidebar>
+//       )
+//     }
+//     else if (logggedusertype=="serviceProvider"){
+//       return(
+//         <CSidebar
+//           position="fixed"
+//           unfoldable={unfoldable}
+//           visible={sidebarShow}
+//           onVisibleChange={(visible) => {
+//             dispatch({ type: 'set', sidebarShow: visible })
+//           }}
+//         >
+//           <CSidebarBrand className="d-none d-md-flex" to="/">
+//             <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
+//             <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+//           </CSidebarBrand>
+//           <CSidebarNav>
+//             <SimpleBar>
             
-              <AppSidebarNav items={servPro_nav} />
+//               <AppSidebarNav items={servPro_nav} />
             
-            </SimpleBar>
-          </CSidebarNav>
-          <CSidebarToggler
-            className="d-none d-lg-flex"
-            onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
-          />
-        </CSidebar>
-      )
-    }
-    else if(logggedusertype=="customer"){
-      return(
-        <CSidebar
-          position="fixed"
-          unfoldable={unfoldable}
-          visible={sidebarShow}
-          onVisibleChange={(visible) => {
-            dispatch({ type: 'set', sidebarShow: visible })
-          }}
-        >
-          <CSidebarBrand className="d-none d-md-flex" to="/">
-            <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
-            <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
-          </CSidebarBrand>
-          <CSidebarNav>
-            <SimpleBar>
+//             </SimpleBar>
+//           </CSidebarNav>
+//           <CSidebarToggler
+//             className="d-none d-lg-flex"
+//             onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
+//           />
+//         </CSidebar>
+//       )
+//     }
+//     else if(logggedusertype=="customer"){
+//       return(
+//         <CSidebar
+//           position="fixed"
+//           unfoldable={unfoldable}
+//           visible={sidebarShow}
+//           onVisibleChange={(visible) => {
+//             dispatch({ type: 'set', sidebarShow: visible })
+//           }}
+//         >
+//           <CSidebarBrand className="d-none d-md-flex" to="/">
+//             <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
+//             <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+//           </CSidebarBrand>
+//           <CSidebarNav>
+//             <SimpleBar>
             
-              <AppSidebarNav items={cus_nav} />
+//               <AppSidebarNav items={cus_nav} />
             
-            </SimpleBar>
-          </CSidebarNav>
-          <CSidebarToggler
-            className="d-none d-lg-flex"
-            onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
-          />
-        </CSidebar>
-      )
-    }
-    else {
-      alert("User type not found!");
-    }
+//             </SimpleBar>
+//           </CSidebarNav>
+//           <CSidebarToggler
+//             className="d-none d-lg-flex"
+//             onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
+//           />
+//         </CSidebar>
+//       )
+//     }
+//     else {
+//       // navigate("/userNotFound");
+//       alert("User type not found!");
+//     }
 
 }
 

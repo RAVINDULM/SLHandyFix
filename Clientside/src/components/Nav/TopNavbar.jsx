@@ -8,6 +8,7 @@ import Backdrop from "../Elements/Backdrop";
 // Assets
 import LogoIcon from "../../assets/svg/Logo";
 import BurgerIcon from "../../assets/svg/BurgerIcon";
+import Logo from '../../assets/brand/LogoWhite.png'
 
 import Axios from "axios";
 Axios.defaults.withCredentials = true;
@@ -63,8 +64,9 @@ export default function TopNavbar() {
       {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}
       <Wrapper className="flexCenter animate whiteBg" style={y > 100 ? { height: "60px" } : { height: "80px" }}>
         <NavInner className="container flexSpaceCenter">
-          <Link className="pointer flexNullCenter" to="home" smooth={true}>
-            <LogoIcon />
+          <Link className="pointer flexNullCenter" to="home" smooth={true}> 
+            {/* <LogoIcon />
+            {/* <img src={Logo} class="rounded w-50 p-1 pointer flexNullCenter" style={{ marginLeft: "-15px" }} alt="..."></img> */}
             <h1 style={{ marginLeft: "15px" }} className="font25 extraBold">
               SLHandyFix
             </h1>

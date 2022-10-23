@@ -11,12 +11,23 @@ const MyJobs = React.lazy(() => import('./pages/customer/myjobs'))
 
 // Manager routes
 const Mang_Dashboard = React.lazy(() => import('./pages/manager/mang_dashboard/mangDashboard'))
+const Acc_Req = React.lazy(() => import('./pages/manager/mang_req/mangAccreq'))
+const Complain = React.lazy(() => import('./pages/manager/mang_req/mangComplain'))
+const Services = React.lazy(() => import('./pages/manager/mang_req/mangService'))
+const Advertisments = React.lazy(() => import('./pages/manager/mang_req/mangAdd'))
+const ServiceProvider = React.lazy(() => import('./pages/manager/mang_req/mangSP'))
+const Customer = React.lazy(() => import('./pages/manager/mang_req/mangCus'))
 
 // System admin routes
 const SysAdmin_Dashboard = React.lazy(() => import('./pages/sysAdmin/sysDashboard'))
 
 // Service provider
 const ServPro_Dashboard = React.lazy(() => import('./pages/serviceProvider/servPro_dashboard/servProDashboard'))
+
+
+// User Not found
+
+const UserNotFound = React.lazy(() => import('./pages/404_UserNotFound'))
 
 
 
@@ -83,6 +94,12 @@ const routes = [
 
   // Manager paths
   { path: '/mang_dashboard', name: 'Manager Dashboard', element: Mang_Dashboard },
+  { path: '/acc_req', name: 'Account Requests', element: Acc_Req },
+  { path: '/complaints', name: 'Complaints', element: Complain },
+  { path: '/services', name: 'Services', element: Services },
+  { path: '/advertisments', name: 'Advertisments', element: Advertisments },
+  { path: '/serviceproviders', name: 'Service Providers', element: ServiceProvider },
+  { path: '/customers', name: 'Customers', element: Customer},
 
    // Service provider paths
    { path: '/servPro_Dashboard', name: 'Service provider Dashboard', element: ServPro_Dashboard },
@@ -90,6 +107,8 @@ const routes = [
   // System admin paths
   { path: '/sysAdmin_Dashboard', name: 'System Admin Dashboard', element: SysAdmin_Dashboard },
 
+  // User Not found Error page
+  { path: '/userNotFound', name: 'System Admin Dashboard', element: UserNotFound },
   
   // Templates path elements 
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
