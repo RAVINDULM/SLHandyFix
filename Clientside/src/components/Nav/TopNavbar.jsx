@@ -8,6 +8,7 @@ import Backdrop from "../Elements/Backdrop";
 // Assets
 import LogoIcon from "../../assets/svg/Logo";
 import BurgerIcon from "../../assets/svg/BurgerIcon";
+import Logo from '../../assets/brand/LogoWhite.png'
 
 import Axios from "axios";
 Axios.defaults.withCredentials = true;
