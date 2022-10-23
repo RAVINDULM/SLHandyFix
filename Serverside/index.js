@@ -86,21 +86,16 @@ app.use("/api/v1/admin", adminroute);
 app.use("/api/v1/service", serviceRoutes);
 
 //create provider routes
-<<<<<<< HEAD
  app.use('/api/v1/provider',providerRoutes);
 
  //create customer routes
- app.use('/api/v1/customer',customerRoutes);
+//  app.use('/api/v1/customer',customerRoutes);
 
 
 // import user routes 
-const userRoutes = require('./src/routes/user.route');
-=======
-app.use("/api/v1/provider", providerRoutes);
->>>>>>> 46fdeabc977fe081381573e713ba11697b8c7ac7
+// const userRoutes = require('./src/routes/user.route');
 
 // Log in route
-app.use("/api/v1/user", userRoutes);
 
 // payment route
 // payment check
