@@ -60,6 +60,10 @@ app.use('/api/v1/service',serviceRoutes);
 //create provider routes
  app.use('/api/v1/provider',providerRoutes);
 
+ //create customer routes
+ app.use('/api/v1/provider',customerRoutes);
+
+
 // import user routes 
 const userRoutes = require('./src/routes/user.route');
 
