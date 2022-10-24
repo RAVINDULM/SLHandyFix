@@ -32,6 +32,8 @@ const SerAdd = React.lazy(() => import('./pages/manager/mang_form/mangSerAdd'))
 const AdvAdd = React.lazy(() => import('./pages/manager/mang_form/mangAdvAdd'))
 const SerView= React.lazy(() => import('./pages/manager/mang_form/serview'))
 const SerUpdate= React.lazy(() => import('./pages/manager/mang_form/serupdate'))
+const CusView = React.lazy(() => import('./pages/manager/mang_form/cusview'))
+const ComplainView = React.lazy(() => import('./pages/manager/mang_form/complainview'))
 
 // System admin routes
 const SysAdmin_Dashboard = React.lazy(() => import('./pages/sysAdmin/sysDashboard'))
@@ -122,9 +124,11 @@ const routes = [
   { path: '/customers', name: 'Customers', element: Customer},
   { path: '/acc_req/addaccount', name: 'Add New Account', element: AccAdd},
   { path: '/services/addservice', name: 'Add New Service', element: SerAdd},
-  { path: '/advertisments/addAdvertisement', name: 'Accept Advertisment', element: AdvAdd},
-  { path: '/serviceproviders/viewserviceproviders', name: 'View Service Providers', element: SerView },
+  { path: '/advertisments/addAdvertisement/:id', name: 'Accept Advertisment', element: AdvAdd},
+  { path: '/serviceproviders/viewserviceproviders/:id', name: 'View Service Providers', element: SerView },
   { path: '/serviceproviders/updateserviceproviders', name: 'Update Service Providers', element: SerUpdate },
+  { path: '/customers/viewcustomers/:id', name: 'View Customer', element: CusView },
+  { path: '/complaints/viewcomplains/:id', name: 'View Complaints', element: ComplainView },
 
    // Service provider paths
    { path: '/servPro_Dashboard', name: 'Service provider Dashboard', element: ServPro_Dashboard },
