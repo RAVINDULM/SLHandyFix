@@ -14,9 +14,11 @@ exports.getProviderList = (req, res)=> {
 }
 
 exports.getProviderById = (req,res) =>{
-      
+    
+    const search_params = req.searchParams;
+    console.log(req.params.NICid);
         // console.log("emp by id");
-        EmployeeModel.getAllEmployeeByID(req.params.id, (err, employee) =>{
+        ProviderModel.getProviderByID(req.params.NICid, (err, employee) =>{
             console.log('Employee are here');
             if(err)
             res.send(err);

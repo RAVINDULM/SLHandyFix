@@ -4,17 +4,19 @@ var Service = function(service){
     this.id = service.id;
     this.name = service.name;
     this.description = service.description;
-  
+    //this.numofemployeess	 = service.numofemployeess	;
 }
   
 
 // get all employees
 Service.getAllServices = (result) =>{
+    console.log("getallservices")
     dbConn.query('SELECT * FROM services', (err, res)=>{
         if(err){
             console.log('Error while fetching services', err);
             result(null,err);
         }else{
+            console.log("dbservices")
             console.log('Services fetched successfully');
             result(null,res);
         }

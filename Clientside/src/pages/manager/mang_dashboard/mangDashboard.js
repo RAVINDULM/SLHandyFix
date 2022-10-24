@@ -66,7 +66,7 @@ function mangDashboard() {
   <div class="row">
     
   </div>
-  <div class="row">
+  {/* <div class="row">
   <CCol xs={15}>
         <CCard className="mb-4">
           <CCardHeader>Monthly Income</CCardHeader>
@@ -87,7 +87,7 @@ function mangDashboard() {
           </CCardBody>
         </CCard>
       </CCol>
-  </div>
+  </div> */}
   <div class="row">
   <div class="col">
   <CTable caption="top" striped>

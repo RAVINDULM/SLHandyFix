@@ -61,10 +61,10 @@ export default function TopNavbar() {
     <>
       <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}
-      <Wrapper className="flexCenter animate whiteBg" style={y > 100 ? { height: "60px" } : { height: "80px" }}>
+      <Wrapper className="flexCenter animate whiteBg shadow" style={y > 100 ? { height: "60px" } : { height: "80px" }}>
         <NavInner className="container flexSpaceCenter">
           <Link className="pointer flexNullCenter" to="home" smooth={true}>
-            <LogoIcon />
+            {/* <LogoIcon /> */}
             
             <h1 style={{ marginLeft: "15px" }} className="font25 extraBold">
               SLHandyFix
