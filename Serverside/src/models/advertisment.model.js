@@ -12,6 +12,7 @@ var Advertisment = function(adds){
     this.address = adds.address;
     this.title= adds.title;
     this.dueDate= adds.dueDate;
+    this.status= adds.status;
 }
   
 
@@ -58,6 +59,19 @@ Advertisment.getAdvertismentByID= (id, result) =>{
             result(null,res);
         }
     })
+}
+
+Advertisment.updateAdvertisment = (id, serviceReqData, result)=>{
+    console.log(id);
+    dbConn.query("UPDATE jobadvertisements SET status=? WHERE adId = ?", [1, id], (err, res)=>{
+        if(err){
+            console.log('Error while updating the service');
+            result(null, err);
+        }else{
+            console.log("Advertisment updated successfully");
+            result(null, res);
+        }
+    });
 }
 
 
