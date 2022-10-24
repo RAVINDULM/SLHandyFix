@@ -24,17 +24,17 @@ export default function Contact() {
               <Form>
                 <label className="font24">First name:</label>
                 <input type="text" id="fname" name="fname" className="font20 extraBold" />
-                <label className="font24">Email:</label>
+                <label className="font24">Email:slhandyfix@gmail.com</label>
                 <input type="text" id="email" name="email" className="font20 extraBold" />
-                <label className="font24">Phone Number:</label>
+                <label className="font24">Phone Number:0472226169</label>
                 <input type="text" id="phn" name="phn" className="font20 extraBold" />
-                <label className="font24">Subject:</label>
+                {/* <label className="font24">Subject:</label>
                 <input type="text" id="subject" name="subject" className="font20 extraBold" />
-                <textarea rows="2" cols="30" type="text" id="message" name="message" className="font20 extraBold" />
+                <textarea rows="2" cols="30" type="text" id="message" name="message" className="font20 extraBold" /> */}
               </Form>
-               <SumbitWrapper className="flex">
+               {/* <SumbitWrapper className="flex">
                 <ButtonInput type="submit" value="Send Message" className="pointer animate radius8" style={{ maxWidth: "220px"}} />
-              </SumbitWrapper>
+              </SumbitWrapper> */}
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
               <div style={{ width: "50%" }} className="flexNullCenter flexColumn">

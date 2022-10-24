@@ -1,10 +1,32 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Axios from "axios";
 
 import '../../../scss/_custom.scss'
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 
 function mangAdvAdd() {
+
+  const [id, setId] = useState({});
+  const params = useParams();
+
+  useEffect(() => {
+    const fetchData = async ()=>{
+      try{
+        const {data:response}= await  Axios.get(`http://localhost:5000/api/v1/advertisment/getAdvertisment/${params.id}`);
+        console.log("data",response);
+        setId(response[0]);
+      }catch(err){
+        console.error(err.message);
+      }
+    }
+    // Axios.get(`http://localhost:5000/api/v1/customer/getCustomer/?id=${params.id}`).then((response) => {
+    //   console.log("data",response.data);
+    //   setNic(response.data)
+    //    })
+       fetchData();
+  }, [params.id]);
+
+
   return (
     <div> 
       {/* <CRow><CCol xs={4}><h1>mangDashboard</h1></CCol><CCol xs={4}><CButton color="primary">
@@ -18,21 +40,21 @@ function mangAdvAdd() {
   <div class="row">
     <div class="col">
     <label for="inputEmail4">First Name</label>
-      <input type="text" class="form-control" placeholder="First name" value="Amal"/>
+      <input type="text" class="form-control" placeholder="First name" value={id.firstName}/>
     </div>
     <div class="col">
     <label for="inputEmail4">Last Name</label>
-      <input type="text" class="form-control" placeholder="Last name" value="Perera"/>
+      <input type="text" class="form-control" placeholder="Last name" value={id.lastName}/>
     </div>
   </div>
   <div class="row">
     <div class="col">
-    <label for="inputEmail4">Service Type</label>
-      <input type="text" class="form-control" placeholder="First name" value="Electrician"/>
+    <label for="inputEmail4">Date</label>
+      <input type="text" class="form-control" placeholder="First name" value={id.postDate}/>
     </div>
     <div class="col">
-    <label for="inputEmail4">Date</label>
-      <input type="text" class="form-control" placeholder="Last name" value="2022-08-10"/>
+    <label for="inputEmail4">Title</label>
+      <input type="text" class="form-control" placeholder="Last name" value={id.title}/>
     </div>
   </div>
   
@@ -40,7 +62,7 @@ function mangAdvAdd() {
   <div class="row">
     <div class="col">
     <label for="inputEmail4">Description</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">I want to hire a mechanic aroung kandy city</textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={id.description}></textarea>
     </div>
  </div>
  

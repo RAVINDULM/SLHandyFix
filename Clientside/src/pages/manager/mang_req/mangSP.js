@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import {
   CCard,
@@ -27,6 +27,13 @@ const popoverList = [...popoverTriggerList].map(
 );
 
 function mangAccreq() {
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    Axios.get('http://localhost:5000/api/v1/provider/getProvider').then((response) => { setData(response.data) })
+  }, [])
+  //console.log(data.fName)
+
   return (
     <div>
       {/* <CRow><CCol xs={4}><h1>mangDashboard</h1></CCol><CCol xs={4}><CButton color="primary">
@@ -41,82 +48,35 @@ function mangAccreq() {
                 <CTableHeaderCell scope="col">Full Name</CTableHeaderCell>
                 <CTableHeaderCell scope="col">Service Type</CTableHeaderCell>
                 <CTableHeaderCell scope="col">Location</CTableHeaderCell>
-                <CTableHeaderCell scope="col">Age</CTableHeaderCell>
+                <CTableHeaderCell scope="col">Contact Number</CTableHeaderCell>
                 <CTableHeaderCell scope="col">Qualification</CTableHeaderCell>
                 <CTableHeaderCell scope="col">Action</CTableHeaderCell>
               </CTableRow>
             </CTableHead>
             <CTableBody>
-              <CTableRow>
-                <CTableHeaderCell scope="row">1</CTableHeaderCell>
-                <CTableDataCell>Amal Perera</CTableDataCell>
-                <CTableDataCell>Electrician</CTableDataCell>
-                <CTableDataCell>Matara</CTableDataCell>
-                <CTableDataCell>38</CTableDataCell>
-                <CTableDataCell>NVQ Level 3</CTableDataCell>
-                <CTableDataCell>
-                  <Link to="/serviceproviders/viewserviceproviders">
-                    <button type="button" class="btn btn-success">
-                      View
-                    </button>
-                  </Link>
-                  <Link to="/serviceproviders/updateserviceproviders">
-                    <button type="button" class="btn btn-info">
-                      Update
-                    </button>
-                  </Link>
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    data-bs-toggle="popover"
-                    data-bs-title="Popover title"
-                    data-bs-content="And here's some amazing content. It's very engaging. Right?"
-                  >
-                    Remove
-                  </button>
-                </CTableDataCell>
-              </CTableRow>
-              <CTableRow>
-                <CTableHeaderCell scope="row">2</CTableHeaderCell>
-                <CTableDataCell>Nimal Kure</CTableDataCell>
-                <CTableDataCell>Electrician</CTableDataCell>
-                <CTableDataCell>Galle</CTableDataCell>
-                <CTableDataCell>45</CTableDataCell>
-                <CTableDataCell>NVQ Level 2</CTableDataCell>
-                <CTableDataCell>
-                  <button type="button" class="btn btn-success">
-                    View
-                  </button>
-                  <button type="button" class="btn btn-info">
-                    Update
-                  </button>
-                  <button type="button" class="btn btn-danger">
-                    Remove
-                  </button>
-                </CTableDataCell>
-              </CTableRow>
-              <CTableRow>
-                <CTableHeaderCell scope="row">3</CTableHeaderCell>
-                <CTableDataCell>Nuwan Gamage</CTableDataCell>
-                <CTableDataCell>Plumber</CTableDataCell>
-                <CTableDataCell>Pettah</CTableDataCell>
-                <CTableDataCell>28</CTableDataCell>
-                <CTableDataCell>NVQ Level 2</CTableDataCell>
-                <CTableDataCell>
-                  <button type="button" class="btn btn-success">
-                    View
-                  </button>
-                  <button type="button" class="btn btn-info">
-                    Update
-                  </button>
-                  <button type="button" class="btn btn-danger">
-                    Remove
-                  </button>
-                </CTableDataCell>
-              </CTableRow>
+              {data.map((x) =>
+                <CTableRow key={x.id}>
+                  <CTableDataCell>{x.id}</CTableDataCell>
+                  <CTableDataCell>{x.firstName}</CTableDataCell>
+                  <CTableDataCell>{x.jobCategory}</CTableDataCell>
+                  <CTableDataCell>{x.area}</CTableDataCell>
+                  <CTableDataCell>{x.contactNo}</CTableDataCell>
+                  <CTableDataCell>{x.qualification}</CTableDataCell>
+                  <CTableDataCell>
+                    <Link to={`/serviceproviders/viewserviceproviders/${x.nic}`}>
+                      <button type="button" class="btn btn-success">View</button>
+                    </Link>
+                    <Link to="/serviceproviders/updateserviceproviders">
+                      <button type="button" class="btn btn-info">Update</button>
+                    </Link>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Remove</button>
+                  </CTableDataCell>
+                </CTableRow>
+              )}
             </CTableBody>
           </CTable>
         </CCard>
+
       </div>
     </div>
   );

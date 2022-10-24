@@ -1,10 +1,31 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Axios from "axios";
 
-import '../../../scss/_custom.scss';
-import { Link } from "react-router-dom";
+import '../../../scss/_custom.scss'
+import { Link, useParams  } from "react-router-dom";
 
 function mangAccAdd() {
+  const [nic, setNic] = useState({});
+  const params = useParams();
+
+  useEffect(() => {
+    const fetchData = async ()=>{
+      try{
+        const {data:response}= await  Axios.get(`http://localhost:5000/api/v1/provider/getProvider/?id=${params.id}`);
+        console.log("data",response);
+        setNic(response[0]);
+      }catch(err){
+        console.error(err.message);
+      }
+    }
+    // Axios.get(`http://localhost:5000/api/v1/customer/getCustomer/?id=${params.id}`).then((response) => {
+    //   console.log("data",response.data);
+    //   setNic(response.data)
+    //    })
+       fetchData();
+  }, [params.id]);
+
+
   return (
     <div> 
       {/* <CRow><CCol xs={4}><h1>mangDashboard</h1></CCol><CCol xs={4}><CButton color="primary">
@@ -16,7 +37,7 @@ function mangAccAdd() {
   <div class="row">
     <div class="col">
     <label for="inputEmail4">First Name</label>
-      <input type="text" class="form-control" placeholder="First name" value="Amal"/>
+      <input type="text" class="form-control" placeholder="First name" value={nic.firstName}/>
     </div>
     <div class="col">
     <label for="inputEmail4">Last Name</label>

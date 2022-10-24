@@ -1,16 +1,27 @@
 var dbConn  = require('../../config/db.config');
 
 var Provider = function(provider){
-    this.id = employee.id;
-    this.name = employee.name;
-    this.type = employee.type;
-    this.status = employee.status;
+    this.contactNo = provider.contactNo;
+    this.firstName = provider.firstName;
+    this.contactNo = provider.contactNo;
+    this.lastName = provider.lasttName;
+    this.nic = provider.nic;
+    this.area = provider.area;
+    this.province= provider.province;
+    this.district = provider.district;
+    this.gender= provider.gender;
+    this.email =provider.email;
+
+    this.qualification = provider.qualification;
+    this.jobCategory= provider.jobCategory;
+    this.yearOfExperiance =provider.yearOfExperiance;
 }
+
   
 
 // get all employees
 Provider.getAllProviders = (result) =>{
-    dbConn.query('SELECT * FROM providers', (err, res)=>{
+    dbConn.query('SELECT * FROM serviceprovider', (err, res)=>{
         if(err){
             console.log('Error while fetching providers', err);
             result(null,err);
@@ -26,7 +37,7 @@ Provider.getAllProviders = (result) =>{
 
 // get employee by id
 Provider.getAllProviderByID= (id, result) =>{
-    dbConn.query('SELECT * FROM providers WHERE id=?', id, (err, res)=>{
+    dbConn.query('SELECT * FROM serviceprovider WHERE id=?', id, (err, res)=>{
         if(err){
             console.log('Error while fetching providers', err);
             result(null,err);
@@ -36,6 +47,21 @@ Provider.getAllProviderByID= (id, result) =>{
         }
     })
 }
+
+Provider.getProviderByID= (id, result) =>{
+    console.log("id",id);
+    let query = "SELECT * FROM serviceprovider WHERE nic='"+id+"'";
+    dbConn.query(query, (err, res)=>{
+        if(err){
+            console.log('Error while fetching providers', err);
+            result(null,err);
+        }else{
+            console.log('Providers fetched successfully');
+            result(null,res);
+        }
+    })
+}
+
 
 //create employee
 Provider.createProvider = (providerReqData, result) =>{
