@@ -9,6 +9,7 @@ import {
   CFormInput,
   CFormLabel,
   CFormSelect,
+  CFormTextarea,
   CRow,
 } from '@coreui/react'
 import { DocsExample } from 'src/components'
@@ -34,7 +35,7 @@ function cusPlaceJob() {
 
                     <CCol xs={12}>
                     <CFormLabel htmlFor="description">Job Description</CFormLabel>
-                    <CFormInput id="description" placeholder="Enter your job details here..." />
+                    <CFormTextarea id="description" placeholder="Enter your job details here..." />
                     </CCol>
 
                     <CCol xs={12}>

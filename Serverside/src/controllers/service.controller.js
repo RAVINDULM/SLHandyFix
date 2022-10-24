@@ -26,6 +26,7 @@ exports.getServiceById = (req,res) =>{
 }
 
 exports.createService = (req , res) =>{
+    console.log("create service controller",req.body);
     const serviceReqData = new ServiceModel(req.body);
     console.log("Create service",serviceReqData );
     // return;

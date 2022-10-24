@@ -39,6 +39,7 @@ function mangSerAdd() {
                       name: values.name,
                       description: values.description, 
                       //  numofemployeess	: values.numofemployeess	,
+                      // numofemployeess	: values.numofemployeess	,
                     }).then(() => {
                       alert("successfully added!");
                       navigate("/services") 
@@ -75,6 +76,7 @@ function mangSerAdd() {
     <div class="col">
     </div>
   </div> */}
+  
  <button type="submit" class="btn btn-success">Add Service</button>
  {/* <input class="btn btn-warning" type="reset" value="Reset"></input> */}
  <Link to="/services">

@@ -19,6 +19,7 @@ import {
   cilSettings,
   cilTask,
   cilUser,
+  cilArrowLeft,
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 import avatar8 from './../../assets/images/avatars/8.jpg'
@@ -39,6 +40,7 @@ const AppHeaderDropdown = () => {
         window.location.reload(false);
         }
         else{ 
+          // localStorage.removeItem('usertyp')
         alert("User log out sucessfully!");                       
         navigate("/")
         window.location.reload(false);
@@ -52,7 +54,7 @@ const AppHeaderDropdown = () => {
         <CAvatar src={avatar8} size="md" />
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        <CDropdownHeader className="bg-light fw-semibold py-2">Account</CDropdownHeader>
+        {/* <CDropdownHeader className="bg-light fw-semibold py-2">Account</CDropdownHeader>
         <CDropdownItem href="#">
           <CIcon icon={cilBell} className="me-2" />
           Updates
@@ -104,10 +106,10 @@ const AppHeaderDropdown = () => {
             42
           </CBadge>
         </CDropdownItem>
-        <CDropdownDivider />
-        <CDropdownItem  onClick={logoutUser}>
-          <CIcon icon={cilLockLocked} className="me-2" />
-          Log out
+        <CDropdownDivider /> */}
+        <CDropdownItem  onClick={logoutUser} style={{display:"flex",alignItems:"center",cursor:"pointer"}}>
+          <CIcon icon={cilLockLocked} className="me-2"  />
+          <p style={{cursor:"pointer"}}>Log out</p>
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>

@@ -36,12 +36,12 @@ function cusProfile() {
         </CRow>  
     <CRow>
         <CCol xs={4}>
-            <CCard>
+            <CCard style={{display:'flex',justifyCOntent:'center',alignItems:'center'}}>
             <CCardImage class="img-fluid img-thumbnail img-responsive rounded-circle me-4 " src={ReactImg} width='250' />
-            <CCardBody>
-                <CCardTitle><CIcon icon={cilUser}/>Nimal Perera</CCardTitle>
-                <CCardTitle><CIcon icon={cilLocationPin}/>50,Flower Garden,Akuressa,Matara</CCardTitle>
-                <CCardTitle><CIcon icon={cilPhone}/>0774566632</CCardTitle> 
+            <CCardBody >
+                <CCardTitle><CIcon icon={cilUser} size="lg" style={{marginRight: 10}}/>Jithru Jayawantha</CCardTitle>
+                <CCardTitle><CIcon icon={cilLocationPin} size="lg" style={{marginRight: 10}}/>50,Flower Garden,Akuressa,Matara</CCardTitle>
+                <CCardTitle><CIcon icon={cilPhone} size="lg" style={{marginRight: 10}}/>0774566632</CCardTitle> 
             </CCardBody>
             <CCardFooter>
                 <small className="text-medium-emphasis"><CIcon icon={cilStar}/> <CIcon icon={cilStar}/> <CIcon icon={cilStar}/> <CIcon icon={cilStar} />(For 5 jobs)</small>
@@ -72,7 +72,7 @@ function cusProfile() {
                 </CCol>
 
                 <CCol lg={12}>
-                  <CCard className="mb-3 border-secondary">
+                  <CCard className="mb-3 border-secondary" >
                     <CCardHeader >
                         <p class="fs-5">Kamal Seneviratna (Electrcian)</p>
                         <CCardText>posted on 2022/08/15</CCardText>

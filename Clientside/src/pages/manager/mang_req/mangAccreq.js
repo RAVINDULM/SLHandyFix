@@ -14,16 +14,14 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from "@coreui/react";
-import {
-  CChartBar,
-} from '@coreui/react-chartjs'
+import { CChartBar } from "@coreui/react-chartjs";
 import { CButton } from "@coreui/react";
-import '../../../scss/_custom.scss'
+import "../../../scss/_custom.scss";
 import { Link } from "react-router-dom";
 
 function mangAccreq() {
   return (
-    <div> 
+    <div>
       {/* <CRow><CCol xs={4}><h1>mangDashboard</h1></CCol><CCol xs={4}><CButton color="primary">
                   Submit
                 </CButton></CCol></CRow> */}

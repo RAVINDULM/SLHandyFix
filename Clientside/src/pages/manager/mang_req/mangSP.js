@@ -14,16 +14,17 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from "@coreui/react";
-import {
-  CChartBar,
-} from '@coreui/react-chartjs'
+import { CChartBar } from "@coreui/react-chartjs";
 import { CButton } from "@coreui/react";
-import '../../../scss/_custom.scss'
+import "../../../scss/_custom.scss";
 import { Link } from "react-router-dom";
 
-const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-
+const popoverTriggerList = document.querySelectorAll(
+  '[data-bs-toggle="popover"]'
+);
+const popoverList = [...popoverTriggerList].map(
+  (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+);
 
 function mangAccreq() {
 
@@ -39,7 +40,6 @@ function mangAccreq() {
                   Submit
                 </CButton></CCol></CRow> */}
       <div class="container">
-
         <CCard className="mb-4">
           <CTable bordered striped>
             <CTableHead color="dark">

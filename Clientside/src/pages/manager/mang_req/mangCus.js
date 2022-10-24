@@ -14,9 +14,7 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from "@coreui/react";
-import {
-  CChartBar,
-} from '@coreui/react-chartjs'
+import { CChartBar } from "@coreui/react-chartjs";
 import { CButton } from "@coreui/react";
 import '../../../scss/_custom.scss'
 import Table from "src/pages/manager/mang_assets/customertable"

@@ -14,11 +14,9 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from "@coreui/react";
-import {
-  CChartBar,
-} from '@coreui/react-chartjs'
+import { CChartBar } from "@coreui/react-chartjs";
 import { CButton } from "@coreui/react";
-import '../../../scss/_custom.scss'
+import "../../../scss/_custom.scss";
 import { Link } from "react-router-dom";
 
 function mangAdd() {
@@ -35,7 +33,6 @@ function mangAdd() {
                   Submit
                 </CButton></CCol></CRow> */}
       <div class="container">
-
         <CCard className="mb-4">
           <CTable bordered striped>
             <CTableHead color="dark">

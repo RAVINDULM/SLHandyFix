@@ -1,7 +1,7 @@
 var dbConn  = require('../../config/db.config');
 
 var Service = function(service){
-    this.id = service.id;
+    // this.id = service.id;
     this.name = service.name;
     this.description = service.description;
     //this.numofemployeess	 = service.numofemployeess	;
@@ -14,7 +14,7 @@ Service.getAllServices = (result) =>{
     dbConn.query('SELECT * FROM services', (err, res)=>{
         if(err){
             console.log('Error while fetching services', err);
-            result(null,err);
+            result(null,err); 
         }else{
             console.log("dbservices")
             console.log('Services fetched successfully');
@@ -35,12 +35,14 @@ Service.getAllServiceByID= (id, result) =>{
         }else{
             console.log('Services fetched successfully');
             result(null,res);
-        }
+        } 
     })
 }
 
 //create employee
 Service.createService = (serviceReqData, result) =>{
+    console.log("createservices",serviceReqData)
+
     dbConn.query('INSERT INTO services SET ? ', serviceReqData, (err, res)=>{
         if(err){
             console.log('Error while inserting data');

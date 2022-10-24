@@ -22,8 +22,23 @@ import ReactImg4 from 'src/assets/images/avatars/5.jpg'
 function cusServices() {
   return (
     <CCol style={{flex:'none'}} >
-          <CRow >
-              <CCol  md={7} className="mb-3"><CCardText><h3>Service Providers</h3></CCardText></CCol>
+    <CCol  md={12} className="mb-3"><CCardText><h3>Service Providers</h3></CCardText></CCol>
+
+  {/* search bar added */}
+          <CRow>
+          <CCol md={7}>
+             <div class="col-lg-8">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for service providers..." aria-label="Search for service providers..." style={{height:38}}/>
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button">Go!</button>
+                    </span>
+                  </div>
+              </div>
+          </CCol>
+              
+
+              
               <CCol xs={2}>
                 <CDropdown>
                     <CDropdownToggle color="secondary">Job Category</CDropdownToggle>
@@ -52,10 +67,11 @@ function cusServices() {
           <CCol xs>
             <CCard>
                 <CRow className="g-xxl-0">
-                  <CCol md={3}>
+                {/* chanaged ccol size */}
+                  <CCol md={2}>
                     <CCardImage class="img-fluid img-thumbnail me-4" src={ReactImg1}  />
                   </CCol>
-                  <CCol md={8}>
+                  <CCol md={9}>
                     <CCardBody>
 
                     <CRow>
@@ -87,10 +103,10 @@ function cusServices() {
           <CCol xs>
             <CCard>
                 <CRow className="g-xxl-0">
-                  <CCol md={3}>
+                  <CCol md={2}>
                     <CCardImage class="img-fluid img-thumbnail" src={ReactImg2} />
                   </CCol>
-                  <CCol md={8}>
+                  <CCol md={9}>
                     <CCardBody>
 
                     <CRow>
@@ -123,10 +139,10 @@ function cusServices() {
           <CCol xs>
             <CCard>
                 <CRow className="g-xxl-0">
-                  <CCol md={3}>
+                  <CCol md={2}>
                     <CCardImage class="img-fluid img-thumbnail" src={ReactImg3} />
                   </CCol>
-                  <CCol md={8}>
+                  <CCol md={9}>
                     <CCardBody>
 
                     <CRow>
@@ -159,10 +175,10 @@ function cusServices() {
           <CCol xs>
             <CCard>
                 <CRow className="g-xxl-0">
-                  <CCol md={3}>
+                  <CCol md={2}>
                     <CCardImage class="img-fluid img-thumbnail" src={ReactImg4} />
                   </CCol>
-                  <CCol md={8}>
+                  <CCol md={9}>
                     <CCardBody>
 
                     <CRow>
