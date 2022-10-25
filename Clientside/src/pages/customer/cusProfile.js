@@ -38,8 +38,13 @@ function cusProfile() {
         <CCol xs={4}>
             <CCard style={{display:'flex',justifyCOntent:'center',alignItems:'center'}}>
             <CCardImage class="img-fluid img-thumbnail img-responsive rounded-circle me-4 " src={ReactImg} width='250' />
+<<<<<<< HEAD
+            <CCardBody>
+                <CCardTitle><CIcon icon={cilUser} size="lg" style={{marginRight: 10}}/>Nimal Perera</CCardTitle>
+=======
             <CCardBody >
                 <CCardTitle><CIcon icon={cilUser} size="lg" style={{marginRight: 10}}/>Jithru Jayawantha</CCardTitle>
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
                 <CCardTitle><CIcon icon={cilLocationPin} size="lg" style={{marginRight: 10}}/>50,Flower Garden,Akuressa,Matara</CCardTitle>
                 <CCardTitle><CIcon icon={cilPhone} size="lg" style={{marginRight: 10}}/>0774566632</CCardTitle> 
             </CCardBody>

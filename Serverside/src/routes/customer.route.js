@@ -3,12 +3,14 @@ const router = express.Router();
 const checkauth = require('../../middleware/verifyToken')
 const customerController = require('../controllers/customer.controller'); 
 
-// get all employees
-router.get('/',checkauth.verifyAdmin, customerController.getCustomerList);
-router.get('/getCustomer', customerController.getCustomerList);
-router.get('/getCustomer/:NICid', customerController.getCustomerById);
+// get all customers
 
+// router.post('/newAdvertisement' );
 
+router.post('/addNewAdvertisement', customerController.createNewAdvertisement);
+router.get('/getAllAdvertisements', customerController.getAllAdvertisements);
+router.get('/getAllAdvertisementsByID/:adId', customerController.getAllAdvertisementsByID);
 
+router.get('/getSpDetailsByID/:serviceproviderId', customerController.getSpDetailsByID);
 
 module.exports = router;

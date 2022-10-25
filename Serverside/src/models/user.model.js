@@ -7,8 +7,13 @@ var User = function(user){
     this.name = user.username;
     this.email = user.email;
     this.password = user.newpassword;
+<<<<<<< HEAD
+    this.contact_no = user.contact_no;
+    this.usertype=user.usertype;
+=======
     this.contact_no=user.contact_no;
     this.usertype = user.usertype;
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
 }
 
 // get all employees

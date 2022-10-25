@@ -45,6 +45,8 @@ const customerRoutes = require('./src/routes/customer.route');
 //import providers route
 const providerRoutes = require('./src/routes/provider.route');
 
+//import customer route
+const customerRoutes = require('./src/routes/customer.route');
 //import advertisment route
 const advertismentRoutes = require('./src/routes/advertisment.route');
 
@@ -66,6 +68,7 @@ app.use('/api/v1/customer',customerRoutes);
 //create provider routes
  app.use('/api/v1/provider',providerRoutes);
 
+ app.use('/api/v1/customer',customerRoutes);
 //create advertisment routes
 app.use('/api/v1/advertisment',advertismentRoutes);
 

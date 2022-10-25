@@ -21,6 +21,14 @@ import ReactImg4 from 'src/assets/images/avatars/5.jpg'
 
 function cusServices() {
   return (
+<<<<<<< HEAD
+    <CCol style={{flex:'none'}} > 
+           <CCol  md={12} className="mb-3"><CCardText><h3>Service Providers</h3></CCardText></CCol>
+          <CRow >
+             
+              <CCol  md={7}>
+              <div class="col-lg-8">
+=======
     <CCol style={{flex:'none'}} >
     <CCol  md={12} className="mb-3"><CCardText><h3>Service Providers</h3></CCardText></CCol>
 
@@ -28,6 +36,7 @@ function cusServices() {
           <CRow>
           <CCol md={7}>
              <div class="col-lg-8">
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for service providers..." aria-label="Search for service providers..." style={{height:38}}/>
                     <span class="input-group-btn">
@@ -35,10 +44,14 @@ function cusServices() {
                     </span>
                   </div>
               </div>
+<<<<<<< HEAD
+              </CCol>
+=======
           </CCol>
               
 
               
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
               <CCol xs={2}>
                 <CDropdown>
                     <CDropdownToggle color="secondary">Job Category</CDropdownToggle>
@@ -47,7 +60,7 @@ function cusServices() {
                       <CDropdownItem href="#">Electrician</CDropdownItem>
                       <CDropdownItem href="#">Plumber</CDropdownItem>
                       <CDropdownItem href="#">Mason</CDropdownItem>
-                      <CDropdownItem href="#">Plumber</CDropdownItem>
+                      <CDropdownItem href="#">Carpenters</CDropdownItem>
                     </CDropdownMenu>
                 </CDropdown>
                 </CCol>
@@ -67,7 +80,10 @@ function cusServices() {
           <CCol xs>
             <CCard>
                 <CRow className="g-xxl-0">
+<<<<<<< HEAD
+=======
                 {/* chanaged ccol size */}
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
                   <CCol md={2}>
                     <CCardImage class="img-fluid img-thumbnail me-4" src={ReactImg1}  />
                   </CCol>
