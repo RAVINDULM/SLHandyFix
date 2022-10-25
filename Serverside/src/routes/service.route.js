@@ -9,7 +9,7 @@ router.get('/',checkauth.verifyAdmin, serviceController.getServiceList);
 router.get('/getService', serviceController.getServiceList);
 router.post('/', serviceController.createService);
 router.put('/:id', serviceController.updateService);
-// router.delete('/:id',employeeController.deleteEmployee);
+router.delete('/deleteService/:id',serviceController.deleteService);
 
 
 

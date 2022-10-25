@@ -48,7 +48,6 @@ function mangAccreq() {
     }, []);
 
 
-
   return (
     <div> 
      <CCol xs={12}>
@@ -60,7 +59,7 @@ function mangAccreq() {
                 </div>
                
   <div class="container">
-  <Table data={serviceList} column={column}/>
+  <Table data={serviceList} setServiceDetails={setServiceDetails} column={column}/>
   </div>
   </CCard>    
 </CCol>
