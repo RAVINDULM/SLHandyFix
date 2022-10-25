@@ -7,19 +7,20 @@ import axios from "axios";
 
 function mangAccAdd() {
 
- 
+
   const [id, setId] = useState({});
-  
+
   const params = useParams();
 
 
   useEffect(() => {
-    const fetchData = async ()=>{
-      try{
-        const {data:response}= await  Axios.get(`http://localhost:5000/api/v1/complaints/getComplain/?id=${params.id}`);
-        console.log("data",response);
+    const fetchData = async () => {
+      try {
+        console.log(params.id)
+        const { data: response } = await Axios.get(`http://localhost:5000/api/v1/complaints/getComplain/${params.id}`);
+        console.log("data", response);
         setId(response[0]);
-      }catch(err){
+      } catch (err) {
         console.error(err.message);
       }
     }
@@ -27,9 +28,9 @@ function mangAccAdd() {
     //   console.log("data",response.data);
     //   setNic(response.data)
     //    })
-       fetchData();
-  }, [params.id]);
-  console.log(params.id);
+    fetchData();
+  }, [params.complaintId]);
+  console.log(id);
 
   //  const getCusDetails = async ()=>{
   //     console.warn(params)
@@ -46,11 +47,11 @@ function mangAccAdd() {
           <div class="row">
             <div class="col">
               <label for="inputEmail4">Customer Name</label>
-              <input type="text" class="form-control" placeholder="First name" value={id.firstName} />
+              <input type="text" class="form-control" placeholder="First name" value={id.reg_firstName} />
             </div>
             <div class="col">
               <label for="inputEmail4">Service Provider Name</label>
-              <input type="text" class="form-control" placeholder="Last name" value={id.lastName} />
+              <input type="text" class="form-control" placeholder="Last name" value={id.ser_firstName} />
             </div>
           </div>
           <div class="row">
@@ -63,7 +64,7 @@ function mangAccAdd() {
               <input type="text" class="form-control" placeholder="Last name" value={id.description} />
             </div>
           </div>
-          
+
           <button type="button" class="btn btn-success">Solve</button>
           <Link to="/complaints">
             <button type="button" class="btn btn-danger">Back</button></Link>

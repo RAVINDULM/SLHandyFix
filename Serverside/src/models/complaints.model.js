@@ -14,7 +14,7 @@ var Complaint = function(complaint){
 
 // get all employees
 Complaint.getAllComplaints = (result) =>{
-    dbConn.query('SELECT * FROM complaints', (err, res)=>{
+    dbConn.query('SELECT *,r.firstName AS reg_firstName,s.firstName AS ser_firstName FROM complaints c INNER Join registeredcustomer r ON c.customerId=r.customerId INNER JOIN serviceprovider s ON c.serviceProviderId = s.serviceProviderId', (err, res)=>{
         if(err){
             console.log('Error while fetching providers', err);
             result(null,err);
@@ -31,7 +31,7 @@ Complaint.getAllComplaints = (result) =>{
 // get employee by id
 Complaint.getComplaintByID= (id, result) =>{
     console.log("id",id);
-    let query = "SELECT * FROM complaints WHERE complaintId='"+id+"'";
+    let query = "SELECT *,r.firstName AS reg_firstName,s.firstName AS ser_firstName FROM complaints c INNER Join registeredcustomer r ON c.customerId=r.customerId INNER JOIN serviceprovider s ON c.serviceProviderId = s.serviceProviderId WHERE c.complaintId = '"+id+"'" ;
     dbConn.query(query, (err, res)=>{
         if(err){
             console.log('Error while fetching providers', err);

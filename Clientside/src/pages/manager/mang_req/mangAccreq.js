@@ -75,7 +75,7 @@ function mangAccreq() {
                     <CTableDataCell>NVQ Level 2</CTableDataCell>
                     <CTableDataCell>
                     <button type="button" class="btn btn-success">Accept</button>
-                    <button type="button" class="btn btn-danger">Reject</button>
+                    {/* <button type="button" class="btn btn-danger">Reject</button> */}
                     </CTableDataCell>
                   </CTableRow>
                 </CTableBody>
