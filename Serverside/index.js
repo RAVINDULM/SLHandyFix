@@ -28,20 +28,62 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
+// import customerjobad routes
+const customerJobADRoutes = require("./src/routes/customerJobAD.route");
+// create customerjobad routes
+app.use("/api/v1/customerJobAD", customerJobADRoutes);
+
 // import employee routes
 const employeeRoutes = require("./src/routes/employee.route");
 
 //import customer route
 const customerRoutes = require("./src/routes/customer.route");
 
+//import service routes
+const serviceRoutes = require("./src/routes/service.route");
+
+//import service routes
+const customerRoutes = require("./src/routes/customer.route");
+
+//import providers route
+const providerRoutes = require("./src/routes/provider.route");
+
+//import customer route
+const customerRoutes = require("./src/routes/customer.route");
+//import advertisment route
+const advertismentRoutes = require("./src/routes/advertisment.route");
+
+//import complaints route
+const complaintRoute = require("./src/routes/complaints.route");
+
+//import request route
+const requestRoute = require("./src/routes/request.route");
+
 // create employee routes
 app.use("/api/v1/employee", employeeRoutes);
 
-//create customer route
+//create service routes
+app.use("/api/v1/service", serviceRoutes);
+
+//create customer routes
+// app.use('/api/v1/customer',customerRoutes);
+
+//create provider routes
+app.use("/api/v1/provider", providerRoutes);
+
 app.use("/api/v1/customer", customerRoutes);
+//create advertisment routes
+app.use("/api/v1/advertisment", advertismentRoutes);
+
+//create compliants routes
+app.use("/api/v1/complaints", complaintRoute);
+
+//create request routes
+app.use("/api/v1/request", requestRoute);
 
 // import user routes
 const userRoutes = require("./src/routes/user.route");
+
 // Log in route
 app.use("/api/v1/user", userRoutes);
 

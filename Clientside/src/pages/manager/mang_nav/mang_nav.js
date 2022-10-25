@@ -1,6 +1,7 @@
-import React from 'react'
-import CIcon from '@coreui/icons-react'
+import React from "react";
+import CIcon from "@coreui/icons-react";
 import {
+  cilAccountLogout,
   cilBell,
   cilCalculator,
   cilChartPie,
@@ -8,30 +9,84 @@ import {
   cilDrop,
   cilNotes,
   cilPencil,
+  cilPeople,
   cilPuzzle,
+  cilReportSlash,
   cilSpeedometer,
+  cilSpreadsheet,
   cilStar,
-} from '@coreui/icons'
-import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
-
+  cilUser,
+  cilUserFollow,
+  cilUserX,
+} from "@coreui/icons";
+import { CNavGroup, CNavItem, CNavTitle } from "@coreui/react";
 
 const mang_nav = [
-    {
-      component: CNavTitle,
-      name: 'Manager',
-    },
-    {
-      component: CNavItem,
-      name: 'Mang_Dashboard',
-      to: '/mang_dashboard',
-      icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-    },
-    {
-      component: CNavItem,
-      name: 'Job Request',
-      to: '/my_jobs',
-      icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-    }
-]
+  {
+    component: CNavTitle,
+    name: "Manager",
+  },
+  {
+    component: CNavItem,
+    name: "Dashboard",
+    to: "/mang_dashboard",
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  },
+
+  {
+    component: CNavItem,
+    name: "Account Request",
+    to: "/acc_req",
+    icon: <CIcon icon={cilUserFollow} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavGroup,
+    name: "Reports",
+    to: "/reports",
+    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: "Service Reports",
+        to: "/reports/servicereports",
+      },
+      {
+        component: CNavItem,
+        name: "Monthly Reports",
+        to: "/reports/monthlyreports",
+      },
+    ],
+  },
+  {
+    component: CNavItem,
+    name: "Complaints",
+    to: "/complaints",
+    icon: <CIcon icon={cilReportSlash} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: "Services",
+    to: "/services",
+    icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: "Advertisements",
+    to: "/advertisments",
+    icon: <CIcon icon={cilSpreadsheet} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: "Service Providers",
+    to: "/serviceproviders",
+    icon: <CIcon icon={cilUserX} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: "Customers",
+    to: "/customers",
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
+  },
+];
 
 export default mang_nav;

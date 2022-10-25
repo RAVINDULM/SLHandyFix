@@ -19,18 +19,24 @@ const _nav = [
     component: CNavTitle,
     name: 'Project',
   },
-  {
-    component: CNavItem,
-    name: 'Cus Dashboard',
-    to: '/cus_dashboard',
-    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: 'My Jobs',
-    to: '/my_jobs',
-    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-  },
+  // {
+  //   component: CNavItem,
+  //   name: 'My Dashboard',
+  //   to: '/cus_dashboard',
+  //   icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  // },
+  // {
+  //   component: CNavItem,
+  //   name: 'My Jobs',
+  //   to: '/my_jobs',
+  //   icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  // },
+  // {
+  //   component: CNavItem,
+  //   name: 'Customer Profile',
+  //   to: '/cus_profile',
+  //   icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  // },
   {
     component: CNavItem,
     name: 'Mang Dashboard',
