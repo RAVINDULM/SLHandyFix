@@ -4,7 +4,7 @@ var Service = function(service){
     // this.id = service.id;
     this.name = service.name;
     this.description = service.description;
-    // this.numofemployeess = service.numofemployeess	;
+    //this.numofemployeess	 = service.numofemployeess	;
 }
   
 

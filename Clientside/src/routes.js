@@ -29,36 +29,22 @@ const Cus_recentJob = React.lazy(() =>
 );
 
 // Manager routes
-const Mang_Dashboard = React.lazy(() =>
-  import("./pages/manager/mang_dashboard/mangDashboard")
-);
-const Acc_Req = React.lazy(() => import("./pages/manager/mang_req/mangAccreq"));
-const Complain = React.lazy(() =>
-  import("./pages/manager/mang_req/mangComplain")
-);
-const Services = React.lazy(() =>
-  import("./pages/manager/mang_req/mangService")
-);
-const SerReports = React.lazy(() =>
-  import("./pages/manager/mang_req/mangSerReport")
-);
-const MonReports = React.lazy(() =>
-  import("./pages/manager/mang_req/mangMonReport")
-);
-const Advertisments = React.lazy(() =>
-  import("./pages/manager/mang_req/mangAdd")
-);
-const ServiceProvider = React.lazy(() =>
-  import("./pages/manager/mang_req/mangSP")
-);
-const Customer = React.lazy(() => import("./pages/manager/mang_req/mangCus"));
-const AccAdd = React.lazy(() => import("./pages/manager/mang_form/mangAccAdd"));
-const SerAdd = React.lazy(() => import("./pages/manager/mang_form/mangSerAdd"));
-const AdvAdd = React.lazy(() => import("./pages/manager/mang_form/mangAdvAdd"));
-const SerView = React.lazy(() => import("./pages/manager/mang_form/serview"));
-const SerUpdate = React.lazy(() =>
-  import("./pages/manager/mang_form/serupdate")
-);
+const Mang_Dashboard = React.lazy(() => import('./pages/manager/mang_dashboard/mangDashboard'))
+const Acc_Req = React.lazy(() => import('./pages/manager/mang_req/mangAccreq'))
+const Complain = React.lazy(() => import('./pages/manager/mang_req/mangComplain'))
+const Services = React.lazy(() => import('./pages/manager/mang_req/mangService'))
+const SerReports = React.lazy(() => import('./pages/manager/mang_req/mangSerReport'))
+const MonReports = React.lazy(() => import('./pages/manager/mang_req/mangMonReport'))
+const Advertisments = React.lazy(() => import('./pages/manager/mang_req/mangAdd'))
+const ServiceProvider = React.lazy(() => import('./pages/manager/mang_req/mangSP'))
+const Customer = React.lazy(() => import('./pages/manager/mang_req/mangCus'))
+const AccAdd = React.lazy(() => import('./pages/manager/mang_form/mangAccAdd'))
+const SerAdd = React.lazy(() => import('./pages/manager/mang_form/mangSerAdd'))
+const AdvAdd = React.lazy(() => import('./pages/manager/mang_form/mangAdvAdd'))
+const SerView= React.lazy(() => import('./pages/manager/mang_form/serview'))
+const SerUpdate= React.lazy(() => import('./pages/manager/mang_form/serupdate'))
+const CusView = React.lazy(() => import('./pages/manager/mang_form/cusview'))
+const ComplainView = React.lazy(() => import('./pages/manager/mang_form/complainview'))
 
 // System admin routes
 const SysAdmin_Dashboard = React.lazy(() =>
@@ -189,65 +175,25 @@ const routes = [
   },
 
   // Manager paths
-  {
-    path: "/mang_dashboard",
-    name: "Manager Dashboard",
-    element: Mang_Dashboard,
-  },
-  { path: "/acc_req", name: "Account Requests", element: Acc_Req },
-  { path: "/complaints", name: "Complaints", element: Complain },
-  { path: "/services", name: "Services", element: Services },
-  {
-    path: "/reports/servicereports",
-    name: "Service Reports",
-    element: SerReports,
-  },
-  {
-    path: "/reports/monthlyreports",
-    name: "Monthly Reports",
-    element: MonReports,
-  },
-  { path: "/advertisments", name: "Advertisments", element: Advertisments },
-  {
-    path: "/serviceproviders",
-    name: "Service Providers",
-    element: ServiceProvider,
-  },
-  { path: "/customers", name: "Customers", element: Customer },
-  { path: "/acc_req/addaccount", name: "Add New Account", element: AccAdd },
-  { path: "/services/addservice", name: "Add New Service", element: SerAdd },
-  {
-    path: "/advertisments/addAdvertisement",
-    name: "Accept Advertisment",
-    element: AdvAdd,
-  },
-  {
-    path: "/serviceproviders/viewserviceproviders",
-    name: "View Service Providers",
-    element: SerView,
-  },
-  {
-    path: "/serviceproviders/updateserviceproviders",
-    name: "Update Service Providers",
-    element: SerUpdate,
-  },
-  {
-    path: "/reports/servicereports",
-    name: "Service Reports",
-    element: SerReports,
-  },
-  {
-    path: "/reports/monthlyreports",
-    name: "Monthly Reports",
-    element: MonReports,
-  },
+  { path: '/mang_dashboard', name: 'Manager Dashboard', element: Mang_Dashboard },
+  { path: '/acc_req', name: 'Account Requests', element: Acc_Req },
+  { path: '/complaints', name: 'Complaints', element: Complain },
+  { path: '/services', name: 'Services', element: Services },
+  { path: '/reports/servicereports', name: 'Service Reports', element: SerReports },
+  { path: '/reports/monthlyreports', name: 'Monthly Reports', element: MonReports },
+  { path: '/advertisments', name: 'Advertisments', element: Advertisments },
+  { path: '/serviceproviders', name: 'Service Providers', element: ServiceProvider },
+  { path: '/customers', name: 'Customers', element: Customer},
+  { path: '/acc_req/addaccount/:id', name: 'Add New Account', element: AccAdd},
+  { path: '/services/addservice', name: 'Add New Service', element: SerAdd},
+  { path: '/advertisments/addAdvertisement/:id', name: 'Accept Advertisment', element: AdvAdd},
+  { path: '/serviceproviders/viewserviceproviders/:id', name: 'View Service Providers', element: SerView },
+  { path: '/serviceproviders/updateserviceproviders/:id', name: 'Update Service Providers', element: SerUpdate },
+  { path: '/customers/viewcustomers/:id', name: 'View Customer', element: CusView },
+  { path: '/complaints/viewcomplains/:id', name: 'View Complaints', element: ComplainView },
 
-  // Service provider paths
-  {
-    path: "/servPro_Dashboard",
-    name: "Service provider Dashboard",
-    element: ServPro_Dashboard,
-  },
+   // Service provider paths
+   { path: '/servPro_Dashboard', name: 'Service provider Dashboard', element: ServPro_Dashboard },
 
   // System admin paths
   {
