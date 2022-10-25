@@ -4,9 +4,9 @@ const mysql = require('mysql');
 
 // const dbConn = mysql.createConnection({
 //     host: 'localhost',
-//     user: 'root',
+//     user: 'root',    
 //     password: '',
-//     database: 'slhandyfix_test'
+//     database: 'slhandyfix_db'
 // });
 
 const dbConn = mysql.createConnection({
@@ -15,6 +15,7 @@ const dbConn = mysql.createConnection({
     password: '8Y2T8K1vfE',
     database: 'sql6528677'
 });
+
 
 dbConn.connect(function(error){
     if(error) throw error;
