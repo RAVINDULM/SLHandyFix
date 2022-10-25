@@ -22,6 +22,7 @@ import { Link } from "react-router-dom";
 function mangAdd() {
 
   const [data, setData] = useState([]);
+  
   useEffect(() => {
     Axios.get('http://localhost:5000/api/v1/advertisment/getAdvertisment').then((response) => { setData(response.data) })
   }, [])
@@ -50,16 +51,17 @@ function mangAdd() {
                 <CTableRow key={x.adId}>
                   <CTableHeaderCell scope="row">{x.adId}</CTableHeaderCell>
                   <CTableDataCell>{x.firstName}</CTableDataCell>
-                  <CTableDataCell>{x.postDate}</CTableDataCell>
+                  <CTableDataCell>{moment(new Date(x.postDate)).format('DD-MMM-YYYY')}</CTableDataCell>
                   <CTableDataCell>{x.description}</CTableDataCell>
 
 
                   <CTableDataCell>
                     
-                     <Link to={`/advertisments/addAdvertisement/${x.adId}`}>
+                     {x.status!==0?<></>:<Link to={`/advertisments/addAdvertisement/${x.adId}`}>
 
                       <button type="button" class="btn btn-success">Accept</button>
-                    </Link>
+                    </Link>}
+
                     <button type="button" class="btn btn-danger">Reject</button> 
 
                   </CTableDataCell>

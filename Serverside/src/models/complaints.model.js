@@ -14,7 +14,7 @@ var Complaint = function(complaint){
 
 // get all employees
 Complaint.getAllComplaints = (result) =>{
-    dbConn.query('SELECT *,r.firstName AS reg_firstName,s.firstName AS ser_firstName FROM complaints c INNER Join registeredcustomer r ON c.customerId=r.customerId INNER JOIN serviceprovider s ON c.serviceProviderId = s.serviceProviderId', (err, res)=>{
+    dbConn.query('SELECT *,r.firstName AS reg_firstName,s.firstName AS ser_firstName FROM complaints c INNER Join registeredcustomer r ON c.customerId=r.customerId INNER JOIN serviceprovider s ON c.serviceProviderId = s.serviceProviderId WHERE status=?',[0], (err, res)=>{
         if(err){
             console.log('Error while fetching providers', err);
             result(null,err);
@@ -31,7 +31,7 @@ Complaint.getAllComplaints = (result) =>{
 // get employee by id
 Complaint.getComplaintByID= (id, result) =>{
     console.log("id",id);
-    let query = "SELECT *,r.firstName AS reg_firstName,s.firstName AS ser_firstName FROM complaints c INNER Join registeredcustomer r ON c.customerId=r.customerId INNER JOIN serviceprovider s ON c.serviceProviderId = s.serviceProviderId WHERE c.complaintId = '"+id+"'" ;
+    let query = "SELECT *,r.firstName AS reg_firstName,s.firstName AS ser_firstName FROM complaints c INNER Join registeredcustomer r ON c.customerId=r.customerId INNER JOIN serviceprovider s ON c.serviceProviderId = s.serviceProviderId WHERE c.complaintId = '"+id+"'";
     dbConn.query(query, (err, res)=>{
         if(err){
             console.log('Error while fetching providers', err);
@@ -43,27 +43,28 @@ Complaint.getComplaintByID= (id, result) =>{
     })
 }
 
-//create employee
-Complaint.createProvider = (providerReqData, result) =>{
-    dbConn.query('INSERT INTO providers SET ? ', providerReqData, (err, res)=>{
-        if(err){
-            console.log('Error while inserting data');
-            result(null, err);
-        }else{
-            console.log('Employee created successfully');
-            result(null, res)
-        }
-    })
-}
+// //create employee
+// Complaint.createProvider = (providerReqData, result) =>{
+//     dbConn.query('INSERT INTO providers SET ? ', providerReqData, (err, res)=>{
+//         if(err){
+//             console.log('Error while inserting data');
+//             result(null, err);
+//         }else{
+//             console.log('Employee created successfully');
+//             result(null, res)
+//         }
+//     })
+// }
 
 // update employee
-Complaint.updateProvider = (id, providerReqData, result)=>{
-    dbConn.query("UPDATE provider SET name=?,type=?,status=? WHERE id = ?", [providerReqData.name,providerReqData.type,providerReqData.status, id], (err, res)=>{
+Complaint.updateComplaint = (id, providerReqData, result)=>{
+    console.log(id);
+    dbConn.query("UPDATE complaints SET status=? WHERE complaintId = ?", [1, id], (err, res)=>{
         if(err){
-            console.log('Error while updating the provider');
+            console.log('Error while updating the service');
             result(null, err);
         }else{
-            console.log("Provider updated successfully");
+            console.log("Complaint updated successfully");
             result(null, res);
         }
     });
