@@ -42,9 +42,6 @@ const customerRoutes = require("./src/routes/customer.route");
 //import service routes
 const serviceRoutes = require("./src/routes/service.route");
 
-//import service routes
-const customerRoutes = require("./src/routes/customer.route");
-
 //import providers route
 const providerRoutes = require("./src/routes/provider.route");
 
@@ -91,3 +88,7 @@ app.use("/api/v1/user", userRoutes);
 app.listen(port, () => {
   console.log(`Express is running at port ${port}`);
 });
+
+const customer1Routes = require("./src/routes/customer1.route");
+
+app.use("/api/v1/customer1", customer1Routes);
