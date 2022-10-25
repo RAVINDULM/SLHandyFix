@@ -18,7 +18,7 @@ exports.createEditProfile = (req , res) =>{
     }
 }
 
-// get all employee list
+// get single customer list
 exports.getSingleCustomer = (req, res)=> {
     console.log('here all customers list',req.param.id);
 

@@ -62,6 +62,7 @@ CustomerEditProfile.getCustomer = (result) => {
 };
 
 // get customer by id
+
 CustomerEditProfile.getCustomerByID = (id, result) => {
   dbConn.query(
     "SELECT * FROM registeredcustomer WHERE customerId=?",
