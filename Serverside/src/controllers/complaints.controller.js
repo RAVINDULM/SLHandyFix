@@ -15,7 +15,7 @@ exports.getComplaintList = (req, res)=> {
 
 exports.getComplaintById = (req,res) =>{
       
-        // console.log("emp by id");
+        console.log("emp by id",req.params.id);
         ComplaintModel.getComplaintByID(req.params.id, (err, employee) =>{
             console.log('Employee are here');
             if(err)

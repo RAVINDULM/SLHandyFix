@@ -49,13 +49,13 @@ function mangAccreq() {
                 {data.map((x) => 
                   <CTableRow key={x.id}>
                     <CTableHeaderCell scope="row">1</CTableHeaderCell>
-                    <CTableDataCell>Anton Perera</CTableDataCell>
-                    <CTableDataCell>Nuwan Gamage</CTableDataCell>
+                    <CTableDataCell>{x.reg_firstName}</CTableDataCell>
+                    <CTableDataCell>{x.ser_firstName}</CTableDataCell>
                     <CTableDataCell>{x.jobCategory}</CTableDataCell>
                     <CTableDataCell>{x.description}</CTableDataCell>
                     
                     <CTableDataCell>
-                      <Link to={`/complaints/viewcomplains/${x.id}`}>
+                      <Link to={`/complaints/viewcomplains/${x.complaintId}`}>
                     <button type="button" class="btn btn-success">Mark as Resolved</button>
                     </Link>
                     </CTableDataCell>
