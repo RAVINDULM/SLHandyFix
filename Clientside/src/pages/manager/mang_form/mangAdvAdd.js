@@ -2,12 +2,13 @@ import React,{useEffect,useState} from "react";
 import Axios from "axios";
 
 import '../../../scss/_custom.scss'
-import { Link,useParams } from "react-router-dom";
+import { Link,useParams, useNavigate } from "react-router-dom";
 
 function mangAdvAdd() {
 
   const [id, setId] = useState({});
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async ()=>{
@@ -26,6 +27,18 @@ function mangAdvAdd() {
        fetchData();
   }, [params.id]);
 
+ const Abc = async ()=>{
+  console.log("aaa")
+  try{
+    const data = await Axios.put(`http://localhost:5000/api/v1/advertisment/getAdvertisment/${params.id}`,1);
+    console.log(data);
+    if(data.status==200){
+      navigate("/advertisments")
+    }
+  }catch(err){
+    console.error(err.message);
+  }
+ }
 
   return (
     <div> 
@@ -67,7 +80,7 @@ function mangAdvAdd() {
  </div>
  
  
-  <button type="button" class="btn btn-success">Accept Post</button>
+  <button type="button" class="btn btn-success" onClick={Abc}>Accept Post</button>
   <Link to="/advertisments">
  <button type="button" class="btn btn-danger">Back</button></Link>
 </form>

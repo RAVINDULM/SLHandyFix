@@ -53,12 +53,15 @@ function mangAdd() {
                   <CTableDataCell>{x.postDate}</CTableDataCell>
                   <CTableDataCell>{x.description}</CTableDataCell>
 
+
                   <CTableDataCell>
-                    <Link to={`/advertisments/addAdvertisement/${x.adId}`}>
+                    
+                     <Link to={`/advertisments/addAdvertisement/${x.adId}`}>
 
                       <button type="button" class="btn btn-success">Accept</button>
                     </Link>
-                    <button type="button" class="btn btn-danger">Reject</button>
+                    <button type="button" class="btn btn-danger">Reject</button> 
+
                   </CTableDataCell>
 
                 </CTableRow>
@@ -73,3 +76,5 @@ function mangAdd() {
 }
 
 export default mangAdd;
+
+/*hidden={x.status===1?"true":""}*/

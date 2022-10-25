@@ -8,7 +8,7 @@ const advertismentController = require('../controllers/advertisment.controller')
 router.get('/',checkauth.verifyAdmin, advertismentController.getAdvertismentList);
 router.get('/getAdvertisment', advertismentController.getAdvertismentList);
 router.get('/getAdvertisment/:id',advertismentController.getAdvertismentById);
-
+router.put('/getAdvertisment/:id', advertismentController.updateAdvertisment);
 
 
 
