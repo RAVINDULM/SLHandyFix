@@ -43,7 +43,7 @@ Request.getAllRequestByID = (id, result) => {
 
 Request.getRequestByID = (id, result) => {
     console.log("id", id);
-    let query = "SELECT * FROM serviceprovider WHERE nic='" + id + "'";
+    let query = "SELECT * FROM requestform INNER JOIN serviceprovider ON requestform.serviceProviderId=serviceprovider.serviceProviderId WHERE nic='" + id + "'";
     dbConn.query(query, (err, res) => {
         if (err) {
             console.log('Error while fetching providers', err);

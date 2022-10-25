@@ -56,7 +56,7 @@ function mangAccreq() {
                     <CTableDataCell>{x.nic}</CTableDataCell>
                     <CTableDataCell>{x.qualification}</CTableDataCell>
                     <CTableDataCell>
-                      <Link to="/acc_req/addaccount">
+                      <Link to={`/acc_req/addaccount/${x.nic}`}>
                     <button type="button" class="btn btn-success">Accept</button></Link>
                     </CTableDataCell>
                   </CTableRow>

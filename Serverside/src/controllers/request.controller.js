@@ -15,9 +15,9 @@ exports.getRequestList = (req, res) => {
 exports.getRequestById = (req, res) => {
 
   const search_params = req.searchParams;
-  console.log(req.params.NICid);
+  console.log(req.params.id);
   // console.log("emp by id");
-  RequestModel.getRequestByID(req.params.NICid, (err, employee) => {
+  RequestModel.getRequestByID(req.params.id, (err, employee) => {
     console.log('Employee are here');
     if (err)
       res.send(err);
