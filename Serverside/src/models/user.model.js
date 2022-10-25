@@ -7,7 +7,7 @@ var User = function(user){
     this.name = user.username;
     this.email = user.email;
     this.password = user.newpassword;
-    this.phoneNumber = user.phoneNumber;
+    this.contact_no = user.contact_no;
     this.usertype=user.usertype;
 }
 

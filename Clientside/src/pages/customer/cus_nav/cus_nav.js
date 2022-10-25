@@ -3,6 +3,7 @@ import CIcon from '@coreui/icons-react'
 import {
   cilApplications,
   cilBell,
+  cilBookmark,
   cilBriefcase,
   cilCalculator,
   cilChartPie,
@@ -76,6 +77,14 @@ const mang_nav = [
       to: '/cus_postAD',
       icon: <CIcon icon={cilApplications} customClassName="nav-icon" />,
     },
+    {
+      component: CNavItem,
+      name: 'Recently placed jobs',
+      to: '/cus_recentJob',
+      icon: <CIcon icon={cilBookmark} customClassName="nav-icon" />,
+    },
+    
+
     // {
     //   component: CNavItem,
     //   name: 'Review',

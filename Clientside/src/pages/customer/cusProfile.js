@@ -39,9 +39,9 @@ function cusProfile() {
             <CCard>
             <CCardImage class="img-fluid img-thumbnail img-responsive rounded-circle me-4 " src={ReactImg} width='250' />
             <CCardBody>
-                <CCardTitle><CIcon icon={cilUser}/>Nimal Perera</CCardTitle>
-                <CCardTitle><CIcon icon={cilLocationPin}/>50,Flower Garden,Akuressa,Matara</CCardTitle>
-                <CCardTitle><CIcon icon={cilPhone}/>0774566632</CCardTitle> 
+                <CCardTitle><CIcon icon={cilUser} size="lg" style={{marginRight: 10}}/>Nimal Perera</CCardTitle>
+                <CCardTitle><CIcon icon={cilLocationPin} size="lg" style={{marginRight: 10}}/>50,Flower Garden,Akuressa,Matara</CCardTitle>
+                <CCardTitle><CIcon icon={cilPhone} size="lg" style={{marginRight: 10}}/>0774566632</CCardTitle> 
             </CCardBody>
             <CCardFooter>
                 <small className="text-medium-emphasis"><CIcon icon={cilStar}/> <CIcon icon={cilStar}/> <CIcon icon={cilStar}/> <CIcon icon={cilStar} />(For 5 jobs)</small>

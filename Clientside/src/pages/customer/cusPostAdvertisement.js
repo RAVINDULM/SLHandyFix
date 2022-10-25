@@ -8,6 +8,7 @@ import {
   CFormInput,
   CFormLabel,
   CFormSelect,
+  CFormTextarea,
   CRow,
 } from '@coreui/react'
 import { Formik, Field, Form, ErrorMessage } from "formik";
@@ -58,7 +59,7 @@ function cusPostAD() {
 
                         <CCol xs={12}>
                         <CFormLabel htmlFor="description">Job Description</CFormLabel>
-                        <CFormInput id="description" placeholder="Enter your job details here..."  autoComplete="description" name="description"
+                        <CFormTextarea id="description" placeholder="Enter your job details here..."  autoComplete="description" name="description"
                         {...formik.getFieldProps("description")}/>
                         </CCol>
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Axios from "axios";
+import { Link } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -30,7 +31,7 @@ const Register = () => {
             <CCard className="mx-4">
               <CCardBody className="p-4">
                 <Formik
-                  initialValues={{ username: "", email: "",newpassword:"",phoneNumber:"" }}
+                  initialValues={{ username: "", email: "",newpassword:"",contact_no:"" }}
                   validationSchema={Yup.object({
                     username: Yup.string()
                       .max(15, "Must be 15 characters or less")
@@ -56,7 +57,7 @@ const Register = () => {
                       username: values.username,
                       email: values.email, 
                       newpassword: values.newpassword,
-                      phoneNumber:values.phoneNumber,
+                      contact_no:values.contact_no,
                     }).then(() => {
                       alert("successfully added!");
                       navigate("/login") 
@@ -103,10 +104,10 @@ const Register = () => {
                         </CInputGroupText>
                         <CFormInput
                           placeholder="Contact Number"
-                          autoComplete="phoneNumber"
-                          type="phoneNumber"
-                          name="phoneNumber"
-                          {...formik.getFieldProps("phoneNumber")}
+                          autoComplete="contact_no"
+                          type="contact_no"
+                          name="contact_no"
+                          {...formik.getFieldProps("contact_no")}
                         />
                         {/* {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
                           <small>{formik.errors.phoneNumber}</small>
@@ -149,6 +150,12 @@ const Register = () => {
                         <CButton color="success" type="submit">
                           Create Account
                         </CButton>
+                      </div>
+                      {/* after submit button ,add a back button */}
+                      <div className="d-grid" >
+                      <Link to="/login">
+                          <CButton color="secondary" type="reset" style={{width:555}}>Back</CButton>
+                      </Link>
                       </div>
                     </CForm>
                   )}

@@ -53,6 +53,7 @@
     "react-scroll": "^1.8.7",
     "react-slick": "^0.29.0",
     "redux": "4.2.0",
+    "sassy-datepicker": "^0.8.0",
     "simplebar-react": "^2.3.7",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",

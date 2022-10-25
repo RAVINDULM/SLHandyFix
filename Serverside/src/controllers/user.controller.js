@@ -13,12 +13,12 @@ let stringify = require('json-stringify-safe')
 exports.register = (req , res) =>{
     // const name = 
     console.log("register controller",req.body);
-    const {name, password, email,phoneNumber,usertype} = new UserModel(req.body);
+    const {name, password, email,contact_no,usertype} = new UserModel(req.body);
     console.log("Create employee",{name, password,email} );
     console.log("Create employee",req.body );
 
     bcrypt.hash(password, 10).then((hash)=> {
-        UserModel.createUser({name : name, password : hash, email: email, phoneNumber: phoneNumber,usertype:"customer"}, (err, user) =>{
+        UserModel.createUser({name : name, password : hash, email: email, contact_no: contact_no,usertype:"customer"}, (err, user) =>{
             if(err){ 
                 res.send(err);
             }

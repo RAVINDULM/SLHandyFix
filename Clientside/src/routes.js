@@ -16,6 +16,7 @@ const Cus_jobAD = React.lazy(() => import('./pages/customer/cusJobAD'))
 const Cus_postAD = React.lazy(() => import('./pages/customer/cusPostAdvertisement'))
 const Cus_viewOwnAD = React.lazy(() => import('./pages/customer/cusViewOwnAD'))
 const Cus_doReview = React.lazy(() => import('./pages/customer/cusDoReview'))
+const Cus_recentJob = React.lazy(() => import('./pages/customer/cusRecentlyPlacedJob'))
 
 // Manager routes
 const Mang_Dashboard = React.lazy(() => import('./pages/manager/mang_dashboard/mangDashboard'))
@@ -109,6 +110,7 @@ const routes = [
   { path: '/cus_postAD', name: 'Post job advertisements', element: Cus_postAD },
   { path: '/cus_viewOwnAD', name: 'View Advertisement', element: Cus_viewOwnAD },
   { path: '/cus_doReview', name: 'Review', element: Cus_doReview },
+  { path: '/cus_recentJob', name: 'Recently placed jobs', element: Cus_recentJob },
 
   // Manager paths
   { path: '/mang_dashboard', name: 'Manager Dashboard', element: Mang_Dashboard },

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import DatePicker from 'sassy-datepicker';
 import {
   CButton,
   CCard,
@@ -18,6 +19,9 @@ import {
     cilUser,
     cilPhone,
     cilLocationPin,
+    cilChatBubble,
+    cilNotes,
+    cilPin,
    
   } from '@coreui/icons'
 
@@ -30,8 +34,13 @@ import {
 //   } from '@coreui/icons'
 
 import ReactImg from 'src/assets/images/avatars/2.jpg'
+import CIcon from '@coreui/icons-react'
 
 function cus_viewSPprofile (){
+  const onChange = (date) => {
+    console.log(date.toString());
+  };
+
   return (
     <CRow>
       <CCol xs={12}>
@@ -48,7 +57,7 @@ function cus_viewSPprofile (){
                         <CListGroup flush>
                             <CListGroupItem>
                                 <CRow>
-                                    <CCol xs={9}><h2> <CCardTitle>Jithru Jayawantha</CCardTitle></h2></CCol>
+                                    <CCol xs={9}><h2> <CCardTitle><CIcon icon={cilUser} size="xl" style={{marginRight: 10}}/>Jithru Jayawantha</CCardTitle></h2></CCol>
                                     {/* <CCol xs={3}>
                                         <Link to="/cus_placeJobs">
                                             <CButton color="primary">Place Your Job </CButton>
@@ -59,79 +68,42 @@ function cus_viewSPprofile (){
                             </CListGroupItem>
 
                             <CListGroupItem>
-                                <CCardTitle>Phone Number</CCardTitle>
+                                <CCardTitle><CIcon icon={cilPhone} size="xl" style={{marginRight: 10}}/>Phone Number</CCardTitle>
                                 <CCardText>0778954367</CCardText>
                             </CListGroupItem>
 
                             <CListGroupItem> 
-                                <CCardTitle>Categories</CCardTitle>
+                                <CCardTitle><CIcon icon={cilPin} size="xl" style={{marginRight: 10}}/>Categories</CCardTitle>
                                 <CCardText> Plumber, Painter </CCardText>
                             </CListGroupItem>
 
                              <CListGroupItem> 
-                                <CCardTitle>Location</CCardTitle>
+                                <CCardTitle><CIcon icon={cilLocationPin} size="xl" style={{marginRight: 10}}/>Location</CCardTitle>
                                 <CCardText>30,Mahawela Road,Galle</CCardText>
                             </CListGroupItem>
 
                             <CListGroupItem> 
-                                <CCardTitle>Description</CCardTitle>
+                                <CCardTitle><CIcon icon={cilNotes} size="xl" style={{marginRight: 10}}/>Description</CCardTitle>
                                 <CCardText>I do all type of plumbing works and fixed them</CCardText>
                             </CListGroupItem>
 
                         </CListGroup>
-                        {/* <CCardBody>
-                            <CCardLink href="#">Card link</CCardLink>
-                            <CCardLink href="#">Another link</CCardLink>
-                        </CCardBody> */}
-
-                        {/* <CRow style={{backgroundColor:'red'}}>
-                              <CCol xs={2}>
-                                <Link to="#">
-                                    <CButton color="primary" style={{width:75.8}}>Rate</CButton>
-                                </Link>
-                            </CCol>
-                            <CCol xs={6}> */}
-                                {/* <Link to="#">
-                                    <CButton color="success">Review</CButton>
-                                </Link> */}
-
-
-                                     {/* Button trigger modal  */}
-                                  {/* <button type="button" class="btn btn-success row-4" data-coreui-toggle="modal" data-coreui-target="#exampleModal">
-                                    Review
-                                  </button> */}
-
-                                  {/* <!-- Modal --> */}
-                                  {/* <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                          <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                          ...
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </CCol> */}
-                        {/* </CRow> */}
-
-                        
+                       
                     </CCol>
                     <CCol  md={3}>
-                        <div style={{backgroundColor:'red', marginBottom:10, alignItems:'flex-end'}}>
+                        <div style={{ marginBottom:10, alignItems:'flex-end'}}>
                             <Link to="/cus_placeJobs">
                                 <CButton color="primary" style={{alignItems:'flex-end'}}>Place Your Job</CButton>
                             </Link>
+
+                            <Link to="/cus_placeJobs">
+                                <CButton color="primary" style={{alignItems:'flex-end', width:120 }}><CIcon icon={cilChatBubble} size="lg" style={{marginRight: 10}}/>Chat</CButton>
+                            </Link>
                         </div>
                         <div> 
-                          <CCard style={{ height: '20rem' }}>calendar</CCard>
+                          {/* <CCard style={{ height: '15rem' }}> */}
+                            <DatePicker onChange={onChange} />
+                          {/* </CCard> */}
                         </div>
                       
                     </CCol>
