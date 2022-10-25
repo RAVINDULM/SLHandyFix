@@ -1,28 +1,20 @@
 const { query } = require('../../config/db.config');
 var dbConn = require('../../config/db.config');
 
-var Provider = function (provider) {
-    this.contactNo = provider.contactNo;
-    this.firstName = provider.firstName;
-    this.contactNo = provider.contactNo;
-    this.lastName = provider.lasttName;
-    this.nic = provider.nic;
-    this.area = provider.area;
-    this.province = provider.province;
-    this.district = provider.district;
-    this.gender = provider.gender;
-    this.email = provider.email;
-
-    this.qualification = provider.qualification;
-    this.jobCategory = provider.jobCategory;
-    this.yearOfExperiance = provider.yearOfExperiance;
+var Request = function (request) {
+    this.requestDate = request.requestDate;
+    this.requestTime =  request.requestTime;
+    this.jobCategory =  request.jobCategory;
+    this.qualification = request.qualification;
+    this.serviceProviderId = request.serviceProviderId;
+    this.managerId = request.managerId;
 }
 
 
 
 // get all employees
-Provider.getAllProviders = (result) => {
-    dbConn.query('SELECT * FROM serviceprovider', (err, res) => {
+Request.getAllRequest = (result) => {
+    dbConn.query('SELECT * FROM requestform INNER JOIN serviceprovider ON requestform.serviceProviderId=serviceprovider.serviceProviderId', (err, res) => {
         if (err) {
             console.log('Error while fetching providers', err);
             result(null, err);
@@ -37,7 +29,7 @@ Provider.getAllProviders = (result) => {
 
 
 // get employee by id
-Provider.getAllProviderByID = (id, result) => {
+Request.getAllRequestByID = (id, result) => {
     dbConn.query('SELECT * FROM serviceprovider WHERE id=?', id, (err, res) => {
         if (err) {
             console.log('Error while fetching providers', err);
@@ -49,7 +41,7 @@ Provider.getAllProviderByID = (id, result) => {
     })
 }
 
-Provider.getProviderByID = (id, result) => {
+Request.getRequestByID = (id, result) => {
     console.log("id", id);
     let query = "SELECT * FROM serviceprovider WHERE nic='" + id + "'";
     dbConn.query(query, (err, res) => {
@@ -65,7 +57,7 @@ Provider.getProviderByID = (id, result) => {
 
 
 //create employee
-Provider.createProvider = (providerReqData, result) => {
+Request.createRequest = (providerReqData, result) => {
     dbConn.query('INSERT INTO providers SET ? ', providerReqData, (err, res) => {
         if (err) {
             console.log('Error while inserting data');
@@ -78,7 +70,7 @@ Provider.createProvider = (providerReqData, result) => {
 }
 
 // update employee
-Provider.updateProvider = (id, providerReqData, result) => {
+Request.updateRequest = (id, providerReqData, result) => {
     console.log(id);
     console.log("provider data",providerReqData);
     // dbConn.query("UPDATE serviceprovider SET firstName=?,lastName=?,contactNo=?,area=?,province=?,district=?,email=?,qualification=?,jobCategory=?,yearofExperiance=? WHERE nic='"+id+"'", 
@@ -107,25 +99,6 @@ Provider.updateProvider = (id, providerReqData, result) => {
     );
 }
 
-// delete employee
-// Employee.deleteEmployee = (id, result)=>{
-//     // dbConn.query('DELETE FROM employees WHERE id=?', [id], (err, res)=>{
-//     //     if(err){
-//     //         console.log('Error while deleting the employee');
-//     //         result(null, err);
-//     //     }else{
-//     //         result(null, res);
-//     //     }
-//     // })
-//     dbConn.query("UPDATE employees SET status=? WHERE id = ?", [0, id], (err, res)=>{
-//         if(err){
-//             console.log('Error while deleting the employee');
-//             result(null, err);
-//         }else{
-//             console.log("Employee deleted successfully");
-//             result(null, res);
-//         }
-//     });
-// }
 
-module.exports = Provider;
+
+module.exports = Request;

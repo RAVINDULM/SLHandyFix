@@ -41,47 +41,47 @@ function mangAccAdd() {
     </div>
     <div class="col">
     <label for="inputEmail4">Last Name</label>
-      <input type="text" class="form-control" placeholder="Last name" value="Perera"/>
+      <input type="text" class="form-control" placeholder="Last name" value={nic.lastName}/>
     </div>
   </div>
   <div class="row">
     <div class="col">
     <label for="inputEmail4">Service Type</label>
-      <input type="text" class="form-control" placeholder="First name" value="Electrician"/>
+      <input type="text" class="form-control" placeholder="First name" value={nic.jobCategory}/>
     </div>
     <div class="col">
-    <label for="inputEmail4">Age</label>
-      <input type="text" class="form-control" placeholder="Last name" value="38"/>
+    <label for="inputEmail4">NIC</label>
+      <input type="text" class="form-control" placeholder="Last name" value={nic.nic}/>
     </div>
   </div>
   <div class="row">
     <div class="col">
     <label for="inputEmail4">Gender</label>
-      <input type="text" class="form-control" placeholder="First name" value="Male"/>
+      <input type="text" class="form-control" placeholder="First name" value={nic.gender}/>
     </div>
     <div class="col">
     <label for="inputEmail4">Email</label>
-      <input type="text" class="form-control" placeholder="Last name" value="amalperara@gmail.com"/>
+      <input type="text" class="form-control" placeholder="Last name" value={nic.email}/>
     </div>
   </div>
   <div class="row">
     <div class="col">
     <label for="inputEmail4">Address</label>
-      <input type="text" class="form-control" placeholder="First name" value="No 22, Araliya Road, Matara"/>
+      <input type="text" class="form-control" placeholder="First name" value={nic.area}/>
     </div>
     <div class="col">
     <label for="inputEmail4">Phone Number</label>
-      <input type="text" class="form-control" placeholder="Last name" value="0702582589"/>
+      <input type="text" class="form-control" placeholder="Last name" value={nic.contactNo}/>
     </div>
   </div>
   <div class="row">
   <div class="col">
     <label for="inputEmail4">Experiance</label>
-      <input type="text" class="form-control" placeholder="Last name" value="10 years"/>
+      <input type="text" class="form-control" placeholder="Last name" value={nic.yearsOfExperience}/>
     </div>
     <div class="col">
     <label for="inputEmail4">Qualification</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">NVQ Level 4</textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={nic.qualification}></textarea>
     </div>
  </div>
 <Link to="/serviceproviders">

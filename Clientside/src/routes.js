@@ -188,7 +188,7 @@ const routes = [
   { path: '/services/addservice', name: 'Add New Service', element: SerAdd},
   { path: '/advertisments/addAdvertisement/:id', name: 'Accept Advertisment', element: AdvAdd},
   { path: '/serviceproviders/viewserviceproviders/:id', name: 'View Service Providers', element: SerView },
-  { path: '/serviceproviders/updateserviceproviders', name: 'Update Service Providers', element: SerUpdate },
+  { path: '/serviceproviders/updateserviceproviders/:id', name: 'Update Service Providers', element: SerUpdate },
   { path: '/customers/viewcustomers/:id', name: 'View Customer', element: CusView },
   { path: '/complaints/viewcomplains/:id', name: 'View Complaints', element: ComplainView },
 

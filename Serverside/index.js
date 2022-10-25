@@ -51,6 +51,9 @@ const advertismentRoutes = require('./src/routes/advertisment.route');
 //import complaints route
 const complaintRoute = require('./src/routes/complaints.route');
 
+//import request route
+const requestRoute = require('./src/routes/request.route');
+
 // create employee routes
 app.use('/api/v1/employee', employeeRoutes);
 
@@ -63,12 +66,15 @@ app.use('/api/v1/customer',customerRoutes);
 //create provider routes
  app.use('/api/v1/provider',providerRoutes);
 
- //create advertisment routes
- app.use('/api/v1/advertisment',advertismentRoutes);
+//create advertisment routes
+app.use('/api/v1/advertisment',advertismentRoutes);
 
 
-  //create compliants routes
-  app.use('/api/v1/complaints',complaintRoute);
+//create compliants routes
+app.use('/api/v1/complaints',complaintRoute);
+
+//create request routes
+app.use('/api/v1/request',requestRoute);
 
 // import user routes 
 const userRoutes = require('./src/routes/user.route');
