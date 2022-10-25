@@ -45,11 +45,16 @@ const _nav = [
   },
   {
     component: CNavItem,
+    name: 'Admin Dashboard',
+    to: '/admin_dashboard',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
     name: 'Sign In',
     to: '/signin',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
   },
-
   {
     component: CNavTitle,
     name: 'Template',
