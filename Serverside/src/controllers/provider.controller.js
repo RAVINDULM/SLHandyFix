@@ -12,18 +12,18 @@ exports.getProviderList = (req, res) => {
   });
 };
 
-exports.getProviderById = (req,res) =>{
-    
-    const search_params = req.searchParams;
-    console.log(req.params.NICid);
-        // console.log("emp by id");
-        ProviderModel.getProviderByID(req.params.NICid, (err, employee) =>{
-            console.log('Employee are here');
-            if(err)
-            res.send(err);
-            console.log('Single Employee', employee);
-            res.send(employee)
-        })
+exports.getProviderById = (req, res) => {
+
+  const search_params = req.searchParams;
+  console.log(req.params.NICid);
+  // console.log("emp by id");
+  ProviderModel.getProviderByID(req.params.NICid, (err, employee) => {
+    console.log('Employee are here');
+    if (err)
+      res.send(err);
+    console.log('Single Employee', employee);
+    res.send(employee)
+  })
 }
 
 exports.createProvider = (req, res) => {
@@ -46,15 +46,16 @@ exports.createProvider = (req, res) => {
 };
 // update employee
 exports.updateProvider = (req, res) => {
-  const employeeReqData = new EmployeeModel(req.body);
+  console.log(req.body);
+  const employeeReqData = new ProviderModel(req.body);
   console.log("employeeReqData update", employeeReqData);
   // check null
   // return;
   if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
     res.send(400).send({ success: false, message: "Please fill all fields" });
   } else {
-    EmployeeModel.updateEmployee(
-      req.params.id,
+    ProviderModel.updateProvider(
+      req.params.NICid,
       employeeReqData,
       (err, employee) => {
         if (err) res.send(err);

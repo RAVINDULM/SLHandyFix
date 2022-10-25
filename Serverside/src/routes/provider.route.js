@@ -8,7 +8,7 @@ const providerController = require('../controllers/provider.controller');
 router.get('/getProvider', providerController.getProviderList);
 router.get('/getProvider/:NICid', providerController.getProviderById);
 //  router.post('/', providerController.createProvider);
-// router.put('/:id', providerController.updateProvider);
+router.put('/getProvider/:NICid', providerController.updateProvider);
 // router.delete('/:id',providerController.deleteProvider);
 
 

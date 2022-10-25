@@ -66,7 +66,7 @@ function mangAccreq() {
                     <Link to={`/serviceproviders/viewserviceproviders/${x.nic}`}>
                       <button type="button" class="btn btn-success">View</button>
                     </Link>
-                    <Link to="/serviceproviders/updateserviceproviders">
+                    <Link to={`/serviceproviders/updateserviceproviders/${x.nic}`}>
                       <button type="button" class="btn btn-info">Update</button>
                     </Link>
                     <button type="button" class="btn btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Remove</button>

@@ -32,6 +32,13 @@ function mangAccAdd() {
   }, [params.complaintId]);
   console.log(id);
 
+  const clearDate = () => {
+     
+    var d = "2/8/2022,12:00:00 AM";
+    console.log(d.split('')[0]);
+    // return d.toDateString;
+  }
+
   //  const getCusDetails = async ()=>{
   //     console.warn(params)
   //     let result = await fetch (`http://localhost:5000/api/v1/customer/getCustomer/${params.id}`);
