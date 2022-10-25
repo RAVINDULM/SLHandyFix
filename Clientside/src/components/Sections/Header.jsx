@@ -53,7 +53,7 @@ export default function Header() {
             <Dots />
           </DotsWrapper>
         </ImageWrapper>
-        <GreyDiv className="lightBg"></GreyDiv>
+        <GreyDiv className="blueBg"></GreyDiv>
       </RightSide>
     </Wrapper>
   );

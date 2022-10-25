@@ -14,7 +14,7 @@ import {
   CCol,
   CRow,
 } from '@coreui/react'
-
+import DatePicker from 'sassy-datepicker';
 import { 
     cilUser,
     cilPhone,
@@ -40,7 +40,10 @@ function cus_viewSPprofile (){
   const onChange = (date) => {
     console.log(date.toString());
   };
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
   return (
     <CRow>
       <CCol xs={12}>
@@ -101,9 +104,14 @@ function cus_viewSPprofile (){
                             </Link>
                         </div>
                         <div> 
+<<<<<<< HEAD
                           {/* <CCard style={{ height: '15rem' }}> */}
                             <DatePicker onChange={onChange} />
                           {/* </CCard> */}
+=======
+                          {/* <CCard style={{ height: '20rem' }}>calendar</CCard> */}
+                          <DatePicker onChange={onChange} />
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
                         </div>
                       
                     </CCol>

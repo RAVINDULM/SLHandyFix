@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Axios from "axios";
 import {
   CCard,
@@ -14,16 +14,20 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from "@coreui/react";
-import {
-  CChartBar,
-} from '@coreui/react-chartjs'
+import { CChartBar } from "@coreui/react-chartjs";
 import { CButton } from "@coreui/react";
-import '../../../scss/_custom.scss'
+import "../../../scss/_custom.scss";
 import { Link } from "react-router-dom";
 
 function mangAccreq() {
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    Axios.get('http://localhost:5000/api/v1/request/getRequest').then((response)=>{setData(response.data)})
+  }, [])
+
   return (
-    <div> 
+    <div>
       {/* <CRow><CCol xs={4}><h1>mangDashboard</h1></CCol><CCol xs={4}><CButton color="primary">
                   Submit
                 </CButton></CCol></CRow> */}
@@ -31,55 +35,32 @@ function mangAccreq() {
 
     <CCard className="mb-4">
   <CTable bordered striped>
-    <CTableHead>
+    <CTableHead color="dark">
                   <CTableRow>
                     <CTableHeaderCell scope="col">#</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Full Name</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Service Type</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Location</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Age</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">NIC</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Qualification</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Action</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
-                  <CTableRow>
+                {data.map((x) => 
+                  <CTableRow key={x.id}>
                     <CTableHeaderCell scope="row">1</CTableHeaderCell>
-                    <CTableDataCell>Amal Perera</CTableDataCell>
-                    <CTableDataCell>Electrician</CTableDataCell>
-                    <CTableDataCell>Matara</CTableDataCell>
-                    <CTableDataCell>38</CTableDataCell>
-                    <CTableDataCell>NVQ Level 3</CTableDataCell>
+                    <CTableDataCell>{x.firstName}</CTableDataCell>
+                    <CTableDataCell>{x.jobCategory}</CTableDataCell>
+                    <CTableDataCell>{x.area}</CTableDataCell>
+                    <CTableDataCell>{x.nic}</CTableDataCell>
+                    <CTableDataCell>{x.qualification}</CTableDataCell>
                     <CTableDataCell>
-                      <Link to="/acc_req/addaccount">
+                      <Link to={`/acc_req/addaccount/${x.nic}`}>
                     <button type="button" class="btn btn-success">Accept</button></Link>
-                    <button type="button" class="btn btn-danger">Reject</button>
                     </CTableDataCell>
                   </CTableRow>
-                  <CTableRow>
-                    <CTableHeaderCell scope="row">2</CTableHeaderCell>
-                    <CTableDataCell>Nimal Kure</CTableDataCell>
-                    <CTableDataCell>Electrician</CTableDataCell>
-                    <CTableDataCell>Galle</CTableDataCell>
-                    <CTableDataCell>45</CTableDataCell>
-                    <CTableDataCell>NVQ Level 2</CTableDataCell>
-                    <CTableDataCell>
-                    <button type="button" class="btn btn-success">Accept</button>
-                    <button type="button" class="btn btn-danger">Reject</button>
-                    </CTableDataCell>
-                  </CTableRow>
-                  <CTableRow>
-                    <CTableHeaderCell scope="row">3</CTableHeaderCell>
-                    <CTableDataCell>Nuwan Gamage</CTableDataCell>
-                    <CTableDataCell>Plumber</CTableDataCell>
-                    <CTableDataCell>Pettah</CTableDataCell>
-                    <CTableDataCell>28</CTableDataCell>
-                    <CTableDataCell>NVQ Level 2</CTableDataCell>
-                    <CTableDataCell>
-                    <button type="button" class="btn btn-success">Accept</button>
-                    <button type="button" class="btn btn-danger">Reject</button>
-                    </CTableDataCell>
-                  </CTableRow>
+                )}
                 </CTableBody>
               </CTable>
               </CCard>

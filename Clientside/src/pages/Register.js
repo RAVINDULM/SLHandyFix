@@ -19,6 +19,8 @@ import CIcon from "@coreui/icons-react";
 import { cilLockLocked, cilPhone, cilUser } from "@coreui/icons";
 import signup from "./Login";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const Register = () => {
 
@@ -52,7 +54,7 @@ const Register = () => {
                   })}
                   onSubmit={(values) => {
 
-                    // console.log(values); 
+                    console.log(values); 
                     Axios.post("http://localhost:5000/api/v1/user/", {
                       username: values.username,
                       email: values.email, 

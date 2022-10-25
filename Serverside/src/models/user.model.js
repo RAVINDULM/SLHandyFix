@@ -7,8 +7,13 @@ var User = function(user){
     this.name = user.username;
     this.email = user.email;
     this.password = user.newpassword;
+<<<<<<< HEAD
     this.contact_no = user.contact_no;
     this.usertype=user.usertype;
+=======
+    this.contact_no=user.contact_no;
+    this.usertype = user.usertype;
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
 }
 
 // get all employees
@@ -47,10 +52,10 @@ User.getUserByName = ({ email: email} , result) =>{
         }else{
             console.log('User fetched successfully');
             result(null,res); 
-        }
+        } 
     })
 } 
-
+ 
 // get employee by id
 // Employee.getAllEmployeeByID= (id, result) =>{
 //     dbConn.query('SELECT * FROM employees WHERE id=?', id, (err, res)=>{
@@ -89,6 +94,19 @@ User.updatePasswordUserBycontact=({contact_no:contact_no,password:password},resu
     })
 
 }
+User.createManageruser = (userReqData , result) =>{
 
+    console.log(typeof(userReqData.id));
+    console.log("model create manager",userReqData);
+    dbConn.query('INSERT INTO users SET ? ', userReqData, (err, res)=>{
+        if(err){
+            console.log('Error while inserting data');
+            result(null, err);
+        }else{
+            console.log('User created successfully');
+            result(null, res)
+        }
+    })
+} 
 
 module.exports = User;

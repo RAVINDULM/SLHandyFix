@@ -46,11 +46,16 @@ class App extends Component {
       if(token){ 
       const userd = jwt_decode(token); 
       // get user type and id in to a variable
+     
+      // localStorage.setItem('usertyp',userd.type)
+      // localStorage.setItem(loggeduserid,userd.id)
+      // console.log(localStorage.getItem('usertyp'))
+
       window.logggedusertype = userd.type;
       window.loggeduserid = userd.id; 
-      // console.log(usertype);
-      // console.log(userid);
-      // console.log(userd);
+      console.log(userd.type);
+      console.log(logggedusertype);
+      console.log(userd);
       }
       else{
         window.logggedusertype = null;

@@ -14,59 +14,66 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from "@coreui/react";
-import {
-  CChartBar,
-} from '@coreui/react-chartjs'
+import { CChartBar } from "@coreui/react-chartjs";
 import { CButton } from "@coreui/react";
-import '../../../scss/_custom.scss'
+import "../../../scss/_custom.scss";
 
 function mangDashboard() {
   return (
-    <div> 
+    <div>
+    <div>
       <CCol xs={12}>
-      <CCard className="mb-12"> 
-  <div class="container">
-  <div class="row">
-    <div class="col-sm">
-          <div class="card text-center ">
-            <div class="card-body bg-primary text-white">
-              <h5 class="card-title">Total Service Providers</h5>
-              <p class="card-text">100</p>
-            </div>
-            <div class="card-footer text-muted bg-light text-dark">
-              2 days ago
-            </div>
-          </div>
-    </div>
+        <CCard className="mb-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <div class="card text-center ">
+                  <div class="card-body bg-primary text-white">
+                    <h5 class="card-title">Total Service Providers</h5>
+                    <p class="card-text">100</p>
+                  </div>
+                  <div class="card-footer text-muted bg-light text-dark">
+                    2 days ago
+                  </div>
+                </div>
+              </div>
 
-    <div class="col-sm">
-          <div class="card text-center">
-           <div class="card-body bg-info text-white">
-              <h5 class="card-title">Total Customers</h5>
-              <p class="card-text">125</p>
-            </div>
-            <div class="card-footer text-muted bg-light text-dark">
-              2 days ago
-            </div>
-          </div>
-    </div>
+              <div class="col-sm">
+                <div class="card text-center">
+                  <div class="card-body bg-info text-white">
+                    <h5 class="card-title">Total Customers</h5>
+                    <p class="card-text">125</p>
+                  </div>
+                  <div class="card-footer text-muted bg-light text-dark">
+                    2 days ago
+                  </div>
+                </div>
+              </div>
 
-    <div class="col-sm">
-          <div class="card text-center">
-            <div class="card-body bg-success text-white">
-              <h5 class="card-title">Total Completed Services</h5>
-              <p class="card-text">35</p>
+              <div class="col-sm">
+                <div class="card text-center">
+                  <div class="card-body bg-success text-white">
+                    <h5 class="card-title">Total Completed Services</h5>
+                    <p class="card-text">35</p>
+                  </div>
+                  <div class="card-footer text-muted bg-light text-dark">
+                    2 days ago
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="card-footer text-muted bg-light text-dark">
               2 days ago
             </div>
           </div>
-    </div>
+      </CCard>
+    </CCol>
+
   </div>
   <div class="row">
     
   </div>
-  <div class="row">
+  {/* <div class="row">
   <CCol xs={15}>
         <CCard className="mb-4">
           <CCardHeader>Monthly Income</CCardHeader>
@@ -87,7 +94,7 @@ function mangDashboard() {
           </CCardBody>
         </CCard>
       </CCol>
-  </div>
+  </div> */}
   <div class="row">
   <div class="col">
   <CTable caption="top" striped>
@@ -154,12 +161,15 @@ function mangDashboard() {
                   </CTableRow>
                 </CTableBody>
               </CTable>
+              
   </div>
+  
 </div>
+
 </div>
-</CCard>    
-</CCol>
-</div>
+
+  
+
   );
 }
 

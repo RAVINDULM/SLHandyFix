@@ -67,16 +67,31 @@ const mang_nav = [
     },
     {
       component: CNavItem,
-      name: 'Job Advertisement',
-      to: '/cus_jobAD',
-      icon: <CIcon icon={cilPaperclip} customClassName="nav-icon" />,
-    },
-    {
-      component: CNavItem,
       name: 'Post job advertisements',
       to: '/cus_postAD',
       icon: <CIcon icon={cilApplications} customClassName="nav-icon" />,
     },
+    {
+      component: CNavItem,
+      name: 'Job Advertisement',
+      to: '/cus_jobAD',
+      icon: <CIcon icon={cilPaperclip} customClassName="nav-icon" />,
+    },
+    // {
+    //   component: CNavItem,
+    //   name: 'Recently placed jobs',
+    //   to: '/cus_recentJob',
+    //   icon: <CIcon icon={cilBookmark} customClassName="nav-icon" />,
+    // },
+
+
+    {
+      component: CNavItem,
+      name: 'Recently place job',
+      to: '/cus_recentJob',
+      icon: <CIcon icon={cilBookmark} customClassName="nav-icon" />,
+    },
+<<<<<<< HEAD
     {
       component: CNavItem,
       name: 'Recently placed jobs',
@@ -84,6 +99,8 @@ const mang_nav = [
       icon: <CIcon icon={cilBookmark} customClassName="nav-icon" />,
     },
     
+=======
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
 
     // {
     //   component: CNavItem,

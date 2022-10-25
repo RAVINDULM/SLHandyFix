@@ -1,8 +1,8 @@
 // console.log('user controller connected ');
-const UserModel = require('../models/user.model');
+const UserModel = require("../models/user.model");
 const bcrypt = require("bcrypt");
-const {sign}= require("jsonwebtoken")
-const cookieParser =  require("cookie-parser");
+const { sign } = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 
 const accountSid ='AC6f09c17829e0a3767af02aac6b1ad635'
 const authToken = 'beeed69d9da0d3dad6bdd99891cdd4bb';
@@ -12,13 +12,21 @@ let stringify = require('json-stringify-safe')
 
 exports.register = (req , res) =>{
     // const name = 
+<<<<<<< HEAD
     console.log("register controller",req.body);
     const {name, password, email,contact_no,usertype} = new UserModel(req.body);
+=======
+    const {name, password, email,contact_no,usertype } = new UserModel(req.body);
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
     console.log("Create employee",{name, password,email} );
     console.log("Create employee",req.body );
 
     bcrypt.hash(password, 10).then((hash)=> {
+<<<<<<< HEAD
         UserModel.createUser({name : name, password : hash, email: email, contact_no: contact_no,usertype:"customer"}, (err, user) =>{
+=======
+        UserModel.createUser({name : name, password : hash, email: email, contact_no: contact_no, usertype:"customer"}, (err, user) =>{
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
             if(err){ 
                 res.send(err);
             }
@@ -28,23 +36,20 @@ exports.register = (req , res) =>{
             res.send("Employeeregistered successfully!")
             }
 
-        })
+        }) 
         
     })
 } 
 
 // Log out user controller
-exports.logout = ( req , res) =>{
-
-    const token = req.cookies.access_token;
-    if (token!=undefined){
-    res.status(202).clearCookie('access_token').send("cookies cleared")
-    }
-    else {
-        res.send({error : "session time out!"});
-    }
-}
-
+exports.logout = (req, res) => {
+  const token = req.cookies.access_token;
+  if (token != undefined) {
+    res.status(202).clearCookie("access_token").send("cookies cleared");
+  } else {
+    res.send({ error: "session time out!" });
+  }
+};
 
 // Log in user controller
 exports.login =  (req , res) =>{
@@ -63,7 +68,7 @@ exports.login =  (req , res) =>{
         else if (!user.length){
         console.log("User not found")
         // res.send("User not found")
-        req.send({error:"User not found"})
+        res.send({error:"User not found"})
         }
         else if(user.length){ 
         console.log( user[0]['password']);
@@ -72,7 +77,7 @@ exports.login =  (req , res) =>{
 
             if(!match){
                 console.log("Password doent match");
-                req.json({error:"Password doesnt match"})
+                res.json({error:"Password doesnt match"})
             }
             else if(match){ 
                 console.log("User found");
@@ -106,9 +111,11 @@ exports.callOTP=(req,res)=>{
     
     console.log(typeof(contact))
     UserModel.getUserBycontact({contact_no:contact},(err,user)=>{
-        console.log(contact)
+        console.log("this is => ",contact)
+        console.log("before",resetcontact)
         resetcontact=contact;
-        const sendTo="+94"+contact;
+        console.log("after",resetcontact)
+        const sendTo="+94"+resetcontact;
         if(err){
             res.send(err)
         }else if(user.length==0){
@@ -158,5 +165,45 @@ exports.ResetPassword=(req,res)=>{
             }
         })
     })
+
+}
+
+exports.registerManager=(req,res)=>{
+    const name=req.body.name
+    const email=req.body.email
+    const orgcontact_no=req.body.phone
+    contact_no=orgcontact_no.replace('94','0')
+    console.log(typeof(orgcontact_no),"==",orgcontact_no)
+    const usertype="manager"
+    const passwordMang="manger1234"
+    // const id=12
+    console.log(name);
+    console.log(contact_no);
+
+    const sendTo="+"+orgcontact_no;
+
+    bcrypt.hash(passwordMang, 10).then((hash)=> {
+        const password=hash
+        console.log(hash)
+        UserModel.createManageruser({name:name,email:email,password:password,usertype:usertype,contact_no:contact_no},(err)=>{
+            
+            if(err){
+                res.send(err)
+            }else{    
+                client.messages
+                .create({
+                   body: 'Your Password is '+passwordMang,
+                   from: '+12058090282',
+                   statusCallback: 'http://postb.in/1234abcd',
+                   to: sendTo
+                 })
+                .then(message => console.log(message.sid));        
+                res.send("Manger Add Succesfully")
+            }
+    
+        })
+    })
+
+   
 
 }
