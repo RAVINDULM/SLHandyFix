@@ -184,7 +184,7 @@ const routes = [
   { path: '/advertisments', name: 'Advertisments', element: Advertisments },
   { path: '/serviceproviders', name: 'Service Providers', element: ServiceProvider },
   { path: '/customers', name: 'Customers', element: Customer},
-  { path: '/acc_req/addaccount', name: 'Add New Account', element: AccAdd},
+  { path: '/acc_req/addaccount/:id', name: 'Add New Account', element: AccAdd},
   { path: '/services/addservice', name: 'Add New Service', element: SerAdd},
   { path: '/advertisments/addAdvertisement/:id', name: 'Accept Advertisment', element: AdvAdd},
   { path: '/serviceproviders/viewserviceproviders/:id', name: 'View Service Providers', element: SerView },
