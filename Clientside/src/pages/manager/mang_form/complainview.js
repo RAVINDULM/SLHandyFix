@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
 import '../../../scss/_custom.scss'
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function mangAccAdd() {
@@ -11,7 +11,7 @@ function mangAccAdd() {
   const [id, setId] = useState({});
 
   const params = useParams();
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,12 +32,26 @@ function mangAccAdd() {
   }, [params.complaintId]);
   console.log(id);
 
-  const clearDate = () => {
-     
-    var d = "2/8/2022,12:00:00 AM";
-    console.log(d.split('')[0]);
-    // return d.toDateString;
-  }
+  const date = new Date(id.complaintDate);
+  console.log(date);
+  const trimdate = moment(new Date(date)).format('DD-MMM-YYYY');
+  console.log(moment(new Date(date)).format('DD-MMM-YYYY'));
+
+  const Abc = async ()=>{
+    console.log("aaa")
+    try{
+      const data = await Axios.put(`http://localhost:5000/api/v1/complaints/getComplain/${params.id}`,1);
+      console.log(data);
+      if(data.status==200){
+        navigate("/complaints")
+      }
+    }catch(err){
+      console.error(err.message);
+    }
+   }
+  
+
+  
 
   //  const getCusDetails = async ()=>{
   //     console.warn(params)
@@ -64,7 +78,7 @@ function mangAccAdd() {
           <div class="row">
             <div class="col">
               <label for="inputEmail4">Complaint Date</label>
-              <input type="text" class="form-control" placeholder="First name" value={id.complaintDate} />
+              <input type="text" class="form-control" placeholder="First name" value={trimdate} />
             </div>
             <div class="col">
               <label for="inputEmail4">Description</label>
@@ -72,7 +86,7 @@ function mangAccAdd() {
             </div>
           </div>
 
-          <button type="button" class="btn btn-success">Solve</button>
+          <button type="button" class="btn btn-success" onClick={Abc}>Solve</button>
           <Link to="/complaints">
             <button type="button" class="btn btn-danger">Back</button></Link>
         </form>

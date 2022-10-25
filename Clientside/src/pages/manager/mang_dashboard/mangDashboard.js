@@ -62,9 +62,7 @@ function mangDashboard() {
                 </div>
               </div>
             </div>
-            <div class="card-footer text-muted bg-light text-dark">
-              2 days ago
-            </div>
+           
           </div>
       </CCard>
     </CCol>
