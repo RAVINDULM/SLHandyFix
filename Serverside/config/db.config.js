@@ -4,7 +4,7 @@ const mysql = require('mysql');
 
 // const dbConn = mysql.createConnection({
 //     host: 'localhost',
-//     user: 'root',    
+//     user: 'root',
 //     password: '',
 //     database: 'slhandyfix_db'
 // });

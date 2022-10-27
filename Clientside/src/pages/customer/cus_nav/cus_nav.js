@@ -91,6 +91,16 @@ const mang_nav = [
       to: '/cus_recentJob',
       icon: <CIcon icon={cilBookmark} customClassName="nav-icon" />,
     },
+<<<<<<< HEAD
+    {
+      component: CNavItem,
+      name: 'Recently placed jobs',
+      to: '/cus_recentJob',
+      icon: <CIcon icon={cilBookmark} customClassName="nav-icon" />,
+    },
+    
+=======
+>>>>>>> 5222fff369b51f2c6d72e043d41cf5c045629ded
 
     // {
     //   component: CNavItem,

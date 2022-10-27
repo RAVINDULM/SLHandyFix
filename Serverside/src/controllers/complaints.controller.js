@@ -40,22 +40,22 @@ exports.getComplaintById = (req,res) =>{
 //         })
 //     }
 // }
-// // update employee
-// exports.updateProvider = (req, res)=>{
-//     const employeeReqData = new EmployeeModel(req.body);
-//     console.log('employeeReqData update', employeeReqData);
-//     // check null
-//     // return;
-//     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
-//         res.send(400).send({success: false, message: 'Please fill all fields'});
-//     }else{
-//         EmployeeModel.updateEmployee(req.params.id, employeeReqData, (err, employee)=>{
-//             if(err)
-//             res.send(err);
-//             res.json({status: true, message: 'Employee updated Successfully'})
-//         })
-//     }
-// }
+// update employee
+exports.updateComplaint = (req, res)=>{
+    const employeeReqData = new ComplaintModel(req.body);
+    console.log('employeeReqData update', employeeReqData);
+    // check null
+    // return;
+    if(req.body.constructor === Object && Object.keys(req.body).length === 0){
+        res.send(400).send({success: false, message: 'Please fill all fields'});
+    }else{
+        ComplaintModel.updateComplaint(req.params.id, employeeReqData, (err, employee)=>{
+            if(err)
+            res.send(err);
+            res.json({status: true, message: 'Complaint updated Successfully'})
+        })
+    }
+}
 
 // // delete employee
 // exports.deleteProvider = (req, res)=>{
