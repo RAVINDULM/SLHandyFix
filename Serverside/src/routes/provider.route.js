@@ -5,10 +5,11 @@ const providerController = require('../controllers/provider.controller');
 
 // // get all employees
  router.get('/',checkauth.verifyAdmin, providerController.getProviderList);
-router.get('/:id', providerController.getProviderById);
- router.post('/', providerController.createProvider);
-router.put('/:id', providerController.updateProvider);
-router.delete('/:id',providerController.deleteProvider);
+router.get('/getProvider', providerController.getProviderList);
+router.get('/getProvider/:NICid', providerController.getProviderById);
+//  router.post('/', providerController.createProvider);
+router.put('/getProvider/:NICid', providerController.updateProvider);
+// router.delete('/:id',providerController.deleteProvider);
 
 
 

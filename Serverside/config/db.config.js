@@ -3,10 +3,10 @@ const mysql = require("mysql");
 // create here mysql connection
 
 // const dbConn = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "",
-//   database: "slhandyfix_db",
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'slhandyfix_db'
 // });
 
 const dbConn = mysql.createConnection({

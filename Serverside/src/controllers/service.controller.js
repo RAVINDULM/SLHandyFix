@@ -58,11 +58,12 @@ exports.updateService = (req, res)=>{
     }
 }
 
-// // delete employee
-// exports.deleteService = (req, res)=>{
-//     ServiceModel.deleteService(req.params.id, (err, service)=>{
-//         if(err)
-//         res.send(err);
-//         res.json({success:true, message: 'Service deleted successully!'});
-//     })
-// }
+// delete employee
+exports.deleteService = (req, res)=>{
+    console.log("cxxcxcxx",req.params.id);
+    ServiceModel.deleteService(req.params.id, (err, service)=>{
+        if(err)
+        res.send(err);
+        res.json({success:true, message: 'Service deleted successully!'});
+    })
+}

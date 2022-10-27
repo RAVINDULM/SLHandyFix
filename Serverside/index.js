@@ -13,6 +13,7 @@ const Stripe = require("stripe");
 const stripe = Stripe(SECRET_KEY, { apiVersion: "2022-08-01" });
 
 // const sequelize =  require("sequelize");
+const sequelize = require("sequelize");
 const cookieParser = require("cookie-parser");
 const { sign } = require("jsonwebtoken");
 // create express app
@@ -46,13 +47,25 @@ app.use("/api/v1/customerJobAD", customerJobADRoutes);
 // import employee routes
 const employeeRoutes = require("./src/routes/employee.route");
 
+//import customer route
+const customerRoutes = require("./src/routes/customer.route");
+
 //import service routes
 const serviceRoutes = require("./src/routes/service.route");
 
-const adminroute = require("./src/routes/admin.route");
-
 //import providers route
 const providerRoutes = require("./src/routes/provider.route");
+
+//import customer route
+const customerRoutes = require("./src/routes/customer.route");
+//import advertisment route
+const advertismentRoutes = require("./src/routes/advertisment.route");
+
+//import complaints route
+const complaintRoute = require("./src/routes/complaints.route");
+
+//import request route
+const requestRoute = require("./src/routes/request.route");
 
 // create employee routes
 app.use("/api/v1/employee", employeeRoutes);
@@ -66,55 +79,36 @@ app.use("/api/v1/servprov", servProRoutes);
 // User routes
 const userRoutes = require("./src/routes/user.route");
 
-//create admin routes
-
-app.use("/api/v1/admin", adminroute);
-
 //create service routes
 app.use("/api/v1/service", serviceRoutes);
+
+//create customer routes
+// app.use('/api/v1/customer',customerRoutes);
 
 //create provider routes
 app.use("/api/v1/provider", providerRoutes);
 
+app.use("/api/v1/customer", customerRoutes);
+//create advertisment routes
+app.use("/api/v1/advertisment", advertismentRoutes);
+
+//create compliants routes
+app.use("/api/v1/complaints", complaintRoute);
+
+//create request routes
+app.use("/api/v1/request", requestRoute);
+
+// import user routes
+const userRoutes = require("./src/routes/user.route");
+
 // Log in route
 app.use("/api/v1/user", userRoutes);
 
-// payment route
-// payment check
+const adminRoutes = require("./src/routes/admin.route");
+app.use("/api/v1/admin", adminRoutes);
 
-// app.post("/create-payment-intent", async (req, res) => {
-//   try {
-//     const paymentIntent = await stripe.paymentIntents.create({
-//       amount: 1099, //lowest denomination of particular currency
-//       currency: "usd",
-//       payment_method_types: ["card"], //by default
-//     });
-
-//     const clientSecret = paymentIntent.client_secret;
-
-//     res.json({
-//       clientSecret: clientSecret,
-//     });
-//   } catch (e) {
-//     console.log(e.message);
-//     res.json({ error: e.message });
-//   }
-// });
-
-//payment check
-
-// img upload check
-
-// app.post("/api/v1/single", upload.single("image"), (req, res) => {
-//   console.log(req.file);
-//   res.send("img upload called");
-// });
-
-// app.post("/api/v1/multi", upload.array("images", 4), (req, res) => {
-//   console.log(req.file);
-//   console.log(req.files);
-//   res.send("multiple img upload called");
-// });
+const customer1Routes = require("./src/routes/customer1.route");
+app.use("/api/v1/customer1", customer1Routes);
 
 // listen to the port
 app.listen(port, () => {

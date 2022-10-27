@@ -38,6 +38,7 @@ function mangSerAdd() {
                     Axios.post("http://localhost:5000/api/v1/service/", {
                       name: values.name,
                       description: values.description, 
+                      //  numofemployeess	: values.numofemployeess	,
                       // numofemployeess	: values.numofemployeess	,
                     }).then(() => {
                       alert("successfully added!");
@@ -64,6 +65,17 @@ function mangSerAdd() {
        {...formik.getFieldProps("description")}/>
     </div>
   </div>
+  {/* <div class="row">
+    <div class="col">
+    <label for="inputEmail4">Number of Employees</label>
+      <input type="text" class="form-control" placeholder="service name"
+       autoComplete="numofemployeess	"
+       name="numofemployeess	"
+       {...formik.getFieldProps("numofemployeess")}/>
+    </div>
+    <div class="col">
+    </div>
+  </div> */}
   
  <button type="submit" class="btn btn-success">Add Service</button>
  {/* <input class="btn btn-warning" type="reset" value="Reset"></input> */}

@@ -4,7 +4,7 @@ var Service = function(service){
     // this.id = service.id;
     this.name = service.name;
     this.description = service.description;
-    // this.numofemployeess = service.numofemployeess	;
+    //this.numofemployeess	 = service.numofemployeess	;
 }
   
 
@@ -67,26 +67,27 @@ Service.serviceEmployee = (id, serviceReqData, result)=>{
     });
 }
 
-// delete employee
-// Service.deleteService = (id, result)=>{
-//     // dbConn.query('DELETE FROM employees WHERE id=?', [id], (err, res)=>{
-//     //     if(err){
-//     //         console.log('Error while deleting the employee');
-//     //         result(null, err);
-//     //     }else{
-//     //         result(null, res);
-//     //     }
-//     // })
-//     dbConn.query("UPDATE service SET status=? WHERE id = ?", [0, id], (err, res)=>{
-//         if(err){
-//             console.log('Error while deleting the employee');
-//             result(null, err);
-//         }else{
-//             console.log("Employee deleted successfully");
-//             result(null, res);
-//         }
-//     });
-// }
+delete employee
+Service.deleteService = (id, result)=>{
+    console.log(id);
+    dbConn.query('DELETE FROM services WHERE id=?', [id], (err, res)=>{
+        if(err){
+            console.log('Error while deleting the employee');
+            result(null, err);
+        }else{
+            result(null, res);
+        }
+    })
+    // dbConn.query("UPDATE service SET status=? WHERE id = ?", [0, id], (err, res)=>{
+    //     if(err){
+    //         console.log('Error while deleting the employee');
+    //         result(null, err);
+    //     }else{
+    //         console.log("Employee deleted successfully");
+    //         result(null, res);
+    //     }
+    // });
+}
 
 module.exports = Service;
     

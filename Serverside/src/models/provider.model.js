@@ -1,22 +1,34 @@
-var dbConn  = require('../../config/db.config');
+const { query } = require('../../config/db.config');
+var dbConn = require('../../config/db.config');
 
-var Provider = function(provider){
-    this.id = employee.id;
-    this.name = employee.name;
-    this.type = employee.type;
-    this.status = employee.status;
+var Provider = function (provider) {
+    this.contactNo = provider.contactNo;
+    this.firstName = provider.firstName;
+    this.contactNo = provider.contactNo;
+    this.lastName = provider.lasttName;
+    this.nic = provider.nic;
+    this.area = provider.area;
+    this.province = provider.province;
+    this.district = provider.district;
+    this.gender = provider.gender;
+    this.email = provider.email;
+
+    this.qualification = provider.qualification;
+    this.jobCategory = provider.jobCategory;
+    this.yearOfExperiance = provider.yearOfExperiance;
 }
-  
+
+
 
 // get all employees
-Provider.getAllProviders = (result) =>{
-    dbConn.query('SELECT * FROM providers', (err, res)=>{
-        if(err){
+Provider.getAllProviders = (result) => {
+    dbConn.query('SELECT * FROM serviceprovider', (err, res) => {
+        if (err) {
             console.log('Error while fetching providers', err);
-            result(null,err);
-        }else{
+            result(null, err);
+        } else {
             console.log('Providers fetched successfully');
-            result(null,res);
+            result(null, res);
         }
     })
 }
@@ -25,25 +37,40 @@ Provider.getAllProviders = (result) =>{
 
 
 // get employee by id
-Provider.getAllProviderByID= (id, result) =>{
-    dbConn.query('SELECT * FROM providers WHERE id=?', id, (err, res)=>{
-        if(err){
+Provider.getAllProviderByID = (id, result) => {
+    dbConn.query('SELECT * FROM serviceprovider WHERE id=?', id, (err, res) => {
+        if (err) {
             console.log('Error while fetching providers', err);
-            result(null,err);
-        }else{
+            result(null, err);
+        } else {
             console.log('Providers fetched successfully');
-            result(null,res);
+            result(null, res);
         }
     })
 }
 
+Provider.getProviderByID = (id, result) => {
+    console.log("id", id);
+    let query = "SELECT * FROM serviceprovider WHERE nic='" + id + "'";
+    dbConn.query(query, (err, res) => {
+        if (err) {
+            console.log('Error while fetching providers', err);
+            result(null, err);
+        } else {
+            console.log('Providers fetched successfully');
+            result(null, res);
+        }
+    })
+}
+
+
 //create employee
-Provider.createProvider = (providerReqData, result) =>{
-    dbConn.query('INSERT INTO providers SET ? ', providerReqData, (err, res)=>{
-        if(err){
+Provider.createProvider = (providerReqData, result) => {
+    dbConn.query('INSERT INTO providers SET ? ', providerReqData, (err, res) => {
+        if (err) {
             console.log('Error while inserting data');
             result(null, err);
-        }else{
+        } else {
             console.log('Employee created successfully');
             result(null, res)
         }
@@ -51,16 +78,33 @@ Provider.createProvider = (providerReqData, result) =>{
 }
 
 // update employee
-Provider.updateProvider = (id, providerReqData, result)=>{
-    dbConn.query("UPDATE provider SET name=?,type=?,status=? WHERE id = ?", [providerReqData.name,providerReqData.type,providerReqData.status, id], (err, res)=>{
-        if(err){
-            console.log('Error while updating the provider');
-            result(null, err);
-        }else{
-            console.log("Provider updated successfully");
-            result(null, res);
+Provider.updateProvider = (id, providerReqData, result) => {
+    console.log(id);
+    console.log("provider data",providerReqData);
+    // dbConn.query("UPDATE serviceprovider SET firstName=?,lastName=?,contactNo=?,area=?,province=?,district=?,email=?,qualification=?,jobCategory=?,yearofExperiance=? WHERE nic='"+id+"'", 
+    // [providerReqData.firstName,providerReqData.lastName,providerReqData.contactNo,providerReqData.area,
+    // providerReqData.district,providerReqData.email,providerReqData.province,providerReqData.qualification,
+    // providerReqData.yearOfExperiance,providerReqData.jobCategory,id], (err, res)=>{
+    //     if(err){
+    //         console.log('Error while updating the provider');
+    //         result(null, err);
+    //     }else{
+    //         console.log("Provider updated successfully");
+    //         result(null, res);
+    //     }
+    // });
+    dbConn.query("UPDATE serviceprovider SET firstName=?,lastName=?,jobCategory=? WHERE nic='" + id + "'", 
+    [providerReqData.firstName,providerReqData.lastName,providerReqData.jobCategory]
+        , (err, res) => {
+            if (err) {
+                console.log('Error while updating the provider');
+                result(null, err);
+            } else {
+                console.log("Provider updated successfully");
+                result(null, res);
+            }
         }
-    });
+    );
 }
 
 // delete employee
@@ -85,4 +129,3 @@ Provider.updateProvider = (id, providerReqData, result)=>{
 // }
 
 module.exports = Provider;
-    

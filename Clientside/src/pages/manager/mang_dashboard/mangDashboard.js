@@ -21,6 +21,7 @@ import "../../../scss/_custom.scss";
 function mangDashboard() {
   return (
     <div>
+    <div>
       <CCol xs={12}>
         <CCard className="mb-12">
           <div class="container">
@@ -61,8 +62,16 @@ function mangDashboard() {
                 </div>
               </div>
             </div>
-            <div class="row"></div>
-            {/* <div class="row">
+           
+          </div>
+      </CCard>
+    </CCol>
+
+  </div>
+  <div class="row">
+    
+  </div>
+  {/* <div class="row">
   <CCol xs={15}>
         <CCard className="mb-4">
           <CCardHeader>Monthly Income</CCardHeader>
@@ -84,78 +93,81 @@ function mangDashboard() {
         </CCard>
       </CCol>
   </div> */}
-            <div class="row" style={{ marginTop: 50 }}>
-              <div class="col">
-                <CTable caption="top" striped>
-                  <CTableCaption style={{ fontSize: 20, fontWeight: 600 }}>
-                    Top Service Providers
-                  </CTableCaption>
-                  <CTableHead>
-                    <CTableRow>
-                      <CTableHeaderCell scope="col">#</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Name</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Location</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Category</CTableHeaderCell>
-                    </CTableRow>
-                  </CTableHead>
-                  <CTableBody>
-                    <CTableRow>
-                      <CTableHeaderCell scope="row">1</CTableHeaderCell>
-                      <CTableDataCell>Mark</CTableDataCell>
-                      <CTableDataCell>Galle</CTableDataCell>
-                      <CTableDataCell>Electrician</CTableDataCell>
-                    </CTableRow>
-                    <CTableRow>
-                      <CTableHeaderCell scope="row">2</CTableHeaderCell>
-                      <CTableDataCell>Jacob</CTableDataCell>
-                      <CTableDataCell>Matara</CTableDataCell>
-                      <CTableDataCell>Plumber</CTableDataCell>
-                    </CTableRow>
-                    <CTableRow>
-                      <CTableHeaderCell scope="row">3</CTableHeaderCell>
-                      <CTableDataCell>Larry</CTableDataCell>
-                      <CTableDataCell>Kandy</CTableDataCell>
-                      <CTableDataCell>Painter</CTableDataCell>
-                    </CTableRow>
-                  </CTableBody>
-                </CTable>
-              </div>
-              <div class="col">
-                <CTable caption="top" striped>
-                  <CTableCaption style={{ fontSize: 20, fontWeight: 600 }}>
-                    Top Customers
-                  </CTableCaption>
-                  <CTableHead>
-                    <CTableRow>
-                      <CTableHeaderCell scope="col">#</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Name</CTableHeaderCell>
-                      <CTableHeaderCell scope="col">Location</CTableHeaderCell>
-                    </CTableRow>
-                  </CTableHead>
-                  <CTableBody>
-                    <CTableRow>
-                      <CTableHeaderCell scope="row">1</CTableHeaderCell>
-                      <CTableDataCell>Mark</CTableDataCell>
-                      <CTableDataCell>Galle</CTableDataCell>
-                    </CTableRow>
-                    <CTableRow>
-                      <CTableHeaderCell scope="row">2</CTableHeaderCell>
-                      <CTableDataCell>Jacob</CTableDataCell>
-                      <CTableDataCell>Matara</CTableDataCell>
-                    </CTableRow>
-                    <CTableRow>
-                      <CTableHeaderCell scope="row">3</CTableHeaderCell>
-                      <CTableDataCell>Larry</CTableDataCell>
-                      <CTableDataCell>Kandy</CTableDataCell>
-                    </CTableRow>
-                  </CTableBody>
-                </CTable>
-              </div>
-            </div>
-          </div>
-        </CCard>
-      </CCol>
-    </div>
+  <div class="row">
+  <div class="col">
+  <CTable caption="top" striped>
+                <CTableCaption>Top Service Providers</CTableCaption>
+                <CTableHead>
+                  <CTableRow>
+                    <CTableHeaderCell scope="col">#</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Name</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Location</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Category</CTableHeaderCell>
+                  </CTableRow>
+                </CTableHead>
+                <CTableBody>
+                  <CTableRow>
+                    <CTableHeaderCell scope="row">1</CTableHeaderCell>
+                    <CTableDataCell>Mark</CTableDataCell>
+                    <CTableDataCell>Galle</CTableDataCell>
+                    <CTableDataCell>Electrician</CTableDataCell>
+                  </CTableRow>
+                  <CTableRow>
+                    <CTableHeaderCell scope="row">2</CTableHeaderCell>
+                    <CTableDataCell>Jacob</CTableDataCell>
+                    <CTableDataCell>Matara</CTableDataCell>
+                    <CTableDataCell>Plumber</CTableDataCell>
+                  </CTableRow>
+                  <CTableRow>
+                    <CTableHeaderCell scope="row">3</CTableHeaderCell>
+                    <CTableDataCell>Larry</CTableDataCell>
+                    <CTableDataCell>Kandy</CTableDataCell>
+                    <CTableDataCell>Painter</CTableDataCell>
+                  </CTableRow>
+                </CTableBody>
+              </CTable>
+  </div>
+  <div class="col">
+  <CTable caption="top" striped>
+                <CTableCaption>Top Customers</CTableCaption>
+                <CTableHead>
+                  <CTableRow>
+                    <CTableHeaderCell scope="col">#</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Name</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Location</CTableHeaderCell>
+                    
+                  </CTableRow>
+                </CTableHead>
+                <CTableBody>
+                  <CTableRow>
+                    <CTableHeaderCell scope="row">1</CTableHeaderCell>
+                    <CTableDataCell>Mark</CTableDataCell>
+                    <CTableDataCell>Galle</CTableDataCell>
+                    
+                  </CTableRow>
+                  <CTableRow>
+                    <CTableHeaderCell scope="row">2</CTableHeaderCell>
+                    <CTableDataCell>Jacob</CTableDataCell>
+                    <CTableDataCell>Matara</CTableDataCell>
+                    
+                  </CTableRow>
+                  <CTableRow>
+                    <CTableHeaderCell scope="row">3</CTableHeaderCell>
+                    <CTableDataCell>Larry</CTableDataCell>
+                    <CTableDataCell>Kandy</CTableDataCell>
+                    
+                  </CTableRow>
+                </CTableBody>
+              </CTable>
+              
+  </div>
+  
+</div>
+
+</div>
+
+  
+
   );
 }
 
