@@ -48,7 +48,7 @@ app.use("/api/v1/customerJobAD", customerJobADRoutes);
 const employeeRoutes = require("./src/routes/employee.route");
 
 //import customer route
-const customerRoutes = require("./src/routes/customer.route");
+// const customerRoutes = require("./src/routes/customer.route");
 
 //import service routes
 const serviceRoutes = require("./src/routes/service.route");
@@ -97,9 +97,6 @@ app.use("/api/v1/complaints", complaintRoute);
 
 //create request routes
 app.use("/api/v1/request", requestRoute);
-
-// import user routes
-const userRoutes = require("./src/routes/user.route");
 
 // Log in route
 app.use("/api/v1/user", userRoutes);
