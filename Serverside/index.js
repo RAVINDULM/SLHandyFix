@@ -82,6 +82,9 @@ const userRoutes = require('./src/routes/user.route');
 // Log in route
 app.use('/api/v1/user', userRoutes);
 
+const adminRoutes=require('./src/routes/admin.route')
+app.use('/api/v1/admin',adminRoutes)
+
 
 // listen to the port
 app.listen(port, ()=>{
