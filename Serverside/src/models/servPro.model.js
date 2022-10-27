@@ -46,7 +46,7 @@ ServiceProvider.createServiceProvider = (userReqData, result) => {
 // };
 
 ServiceProvider.getJobpostsfromdb = (result) => {
-  dbConn.query("SELECT * FROM jobposts", (err, res) => {
+  dbConn.query("SELECT * FROM jobadvertisements", (err, res) => {
     if (err) {
       console.log("Error while fetching employess", err);
       result(null, err);
@@ -57,4 +57,93 @@ ServiceProvider.getJobpostsfromdb = (result) => {
   });
 };
 
+ServiceProvider.getJobRequests = (result) => {
+  dbConn.query("SELECT * FROM `placedjob` WHERE status = 1", (err, res) => {
+    if (err) {
+      console.log("Error while fetching employess", err);
+      result(null, err);
+    } else {
+      console.log("Employees fetched successfully");
+      result(null, res);
+    }
+  });
+};
+
+// get ongoing jobs
+ServiceProvider.getServiceProviderJobs = (result) => {
+  dbConn.query(
+    "SELECT * FROM `placedjob` WHERE (status = 2 OR status = 3 OR status = 4)",
+    (err, res) => {
+      if (err) {
+        console.log("Error while fetching employess", err);
+        result(null, err);
+      } else {
+        console.log("Employees fetched successfully");
+        result(null, res);
+      }
+    }
+  );
+};
+
+// accept job reuests
+ServiceProvider.acceptJobRequest = (id, result) => {
+  console.log("job id", id);
+  dbConn.query(
+    "UPDATE placedjob SET status = 2 WHERE jobID = ?",
+    id,
+    (err, res) => {
+      if (err) {
+        console.log("Error while updating status", err);
+        result(null, err);
+      } else {
+        console.log("Job accepted successfully");
+        result(null, res);
+      }
+    }
+  );
+};
+
+// reject job reuests
+ServiceProvider.rejectJobRequest = (id, result) => {
+  console.log(id);
+  dbConn.query(
+    "UPDATE placedjob SET status = 0 WHERE jobID ?",
+    id,
+    (err, res) => {
+      if (err) {
+        console.log("Error while updating status", err);
+        result(null, err);
+      } else {
+        console.log("Job rejected successfully");
+        result(null, res);
+      }
+    }
+  );
+};
+
+// reject job reuests
+ServiceProvider.startJob = (id, result) => {
+  console.log("job id model", id);
+  dbConn.query(
+    "UPDATE placedjob SET status = 3 WHERE jobID = ?",
+    id,
+    (err, res) => {
+      if (err) {
+        console.log("Error while updating status", err);
+        result(null, err);
+      } else {
+        console.log("Job started successfully");
+        result(null, res);
+      }
+    }
+  );
+};
+
 module.exports = ServiceProvider;
+
+// statuses
+// rejected = 0
+// pending = 1
+// accepted = 2
+// started = 3
+// completed = 4

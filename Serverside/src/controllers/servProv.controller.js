@@ -42,7 +42,7 @@ exports.careateAccountRequest = (req, res) => {
       district: district,
       address: address,
       payment: 10.99,
-      img: req.file.path,
+      img: "image",
     },
     (err, user) => {
       if (err) {
@@ -110,3 +110,45 @@ exports.upload = multer({
     cb("Give proper files formate to upload");
   },
 }).single("image");
+
+// get accepted jobs
+exports.getJobRequests = (req, res) => {
+  console.log("getJobRequests controller called");
+  ServProvModel.getJobRequests((err, jobRequests) => {
+    console.log("We are here");
+    if (err) res.send(err);
+    console.log("jobposts", jobRequests);
+    res.send(jobRequests);
+  });
+};
+
+// get ongoing and completed jobs
+exports.getServiceProviderJobs = (req, res) => {
+  console.log("getJobRequests controller called");
+  ServProvModel.getServiceProviderJobs((err, jobs) => {
+    console.log("We are here");
+    if (err) res.send(err);
+    console.log("jobposts", jobs);
+    res.send(jobs);
+  });
+};
+
+exports.startJob = (req, res) => {
+  console.log("startJobs controller called");
+  ServProvModel.startJob(req.params.id, (err, startJobs) => {
+    console.log("startJob");
+    if (err) res.send(err);
+    console.log("", startJobs);
+    res.send(startJobs);
+  });
+};
+
+exports.acceptJobRequest = (req, res) => {
+  console.log("getJobRequests controller called");
+  ServProvModel.acceptJobRequest(req.params.id, (err, jobRequests) => {
+    console.log("Employee are here");
+    if (err) res.send(err);
+    console.log("Single jobRequests", jobRequests);
+    res.send(jobRequests);
+  });
+};

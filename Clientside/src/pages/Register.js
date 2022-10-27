@@ -2,7 +2,6 @@ import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Axios from "axios";
-import { Link } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -21,10 +20,8 @@ import signup from "./Login";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
 const Register = () => {
-
-  const navigate = useNavigate() 
+  const navigate = useNavigate();
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -33,7 +30,12 @@ const Register = () => {
             <CCard className="mx-4">
               <CCardBody className="p-4">
                 <Formik
-                  initialValues={{ username: "", email: "",newpassword:"",contact_no:"" }}
+                  initialValues={{
+                    username: "",
+                    email: "",
+                    newpassword: "",
+                    contact_no: "",
+                  }}
                   validationSchema={Yup.object({
                     username: Yup.string()
                       .max(15, "Must be 15 characters or less")
@@ -50,19 +52,21 @@ const Register = () => {
                     repeatpassword: Yup.string()
                       .max(20, "Must be 20 characters or less")
                       .required("Required")
-                      .oneOf([Yup.ref('newpassword'), null], 'Passwords must match'),
+                      .oneOf(
+                        [Yup.ref("newpassword"), null],
+                        "Passwords must match"
+                      ),
                   })}
                   onSubmit={(values) => {
-
-                    console.log(values); 
+                    console.log(values);
                     Axios.post("http://localhost:5000/api/v1/user/", {
                       username: values.username,
-                      email: values.email, 
+                      email: values.email,
                       newpassword: values.newpassword,
-                      contact_no:values.contact_no,
+                      contact_no: values.contact_no,
                     }).then(() => {
                       alert("successfully added!");
-                      navigate("/login") 
+                      navigate("/login");
                     });
                   }}
                 >
@@ -154,10 +158,16 @@ const Register = () => {
                         </CButton>
                       </div>
                       {/* after submit button ,add a back button */}
-                      <div className="d-grid" >
-                      <Link to="/login">
-                          <CButton color="secondary" type="reset" style={{width:555}}>Back</CButton>
-                      </Link>
+                      <div className="d-grid">
+                        <Link to="/login">
+                          <CButton
+                            color="secondary"
+                            type="reset"
+                            style={{ width: 555 }}
+                          >
+                            Back
+                          </CButton>
+                        </Link>
                       </div>
                     </CForm>
                   )}
