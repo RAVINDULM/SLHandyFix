@@ -1,21 +1,23 @@
 var dbConn  = require('../../config/db.config');
 const sequelize =  require("sequelize");
+const { use } = require('../routes/admin.route');
 
 var Manager = function(managers){
-    this.name = managers.name
+    this.firstName = managers.firstName;
+    this.lastName=managers.lastName;
     this.gender=managers.gender;
-    this.contact_no=managers.contact_no;
+    this.contactNo=managers.contactNo;
     this.email = managers.email;
-    this.dob=managers.dob;
+    this.nic=managers.nic;
     this.address=managers.address;
 }
 
 Manager.addManger=(userReq,result)=>{
     
     console.log(userReq);
-    dbConn.query('INSERT INTO managers SET ? ', userReq, (err, res)=>{
+    dbConn.query('INSERT INTO manager (contactNo,firstName,lastName,nic,area,gender,email,userId) values (?,?,?,?,?,?,?,?) ', [userReq.contactNo,userReq.firstName,userReq.lastName,userReq.nic,userReq.address,userReq.gender,userReq.email,userReq.userid], (err, res)=>{
         if(err){
-            console.log('Error while inserting data');
+            console.log('Error while inserting data',err);
             result(null, err);
         }else{
             console.log('User created successfully');
@@ -26,7 +28,7 @@ Manager.addManger=(userReq,result)=>{
 }
 
 Manager.getManagerListfromdb=(result)=>{
-    dbConn.query('SELECT * FROM managers', (err, res)=>{
+    dbConn.query('SELECT * FROM manager', (err, res)=>{
         if(err){
             console.log('Error while fetching manager', err);
             result(null,err);
