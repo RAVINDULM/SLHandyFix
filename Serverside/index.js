@@ -12,18 +12,6 @@ const Stripe = require("stripe");
 //Confirm the API version from your stripe dashboard
 const stripe = Stripe(SECRET_KEY, { apiVersion: "2022-08-01" });
 
-// image upload library
-const multer = require("multer");
-// const fileStorageEngine = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "src/imgs");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, Date.now() + "__" + file.originalname);
-//   },
-// });
-// const upload = multer({ storage: fileStorageEngine });
-
 // const sequelize =  require("sequelize");
 const cookieParser = require("cookie-parser");
 const { sign } = require("jsonwebtoken");
@@ -73,7 +61,7 @@ app.use("/api/v1/employee", employeeRoutes);
 const servProRoutes = require("./src/routes/servProv.route");
 
 // Service provider route
-app.use("api/v1/servprov", servProRoutes);
+app.use("/api/v1/servprov", servProRoutes);
 
 // User routes
 const userRoutes = require("./src/routes/user.route");
